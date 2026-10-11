@@ -11,7 +11,7 @@ import json, glob, os, re, sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 TOPIC_ORDER = ["valtio", "oikeudet", "tasaarvo", "arki", "historia", "kulttuuri"]
 LANG_NAMES = {"en": "English", "fi": "Suomi", "ru": "Русский", "ar": "العربية",
-              "uk": "Українська", "so": "Soomaali", "fa": "فارسی", "et": "Eesti"}
+              "uk": "Українська", "so": "Soomaali", "fa": "دری / فارسی", "et": "Eesti"}
 RTL = {"ar", "fa"}
 
 

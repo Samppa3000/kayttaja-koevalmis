@@ -1,0 +1,661 @@
+{
+"lang": "so",
+"q": {
+"ar01": {
+"q": "Waa maxay lambarka degdegga guud ee Finland?",
+"o": [
+"911",
+"100",
+"112",
+"116 117"
+],
+"e": "Lambarka degdegga 112 waa xaaladaha degdegga ah, marka aad u baahan tahay booliska, ambalaaska ama dab-demiska."
+},
+"ar02": {
+"q": "Lambarkee ayaad wici kartaa si aad talo uga hesho xanuun degdeg ah marka aysan xaalad degdeg ah ahayn?",
+"o": [
+"112",
+"118",
+"0800",
+"116 117"
+],
+"e": "Lambarka talobixinta caafimaadka 116 117 wuxuu talo ka bixiyaa xanuunnada iyo dhaawacyada degdegga ah ee aan nolosha khatar gelin."
+},
+"ar03": {
+"q": "Waa maxay kaarka canshuurta?",
+"o": [
+"Dukumenti uu loo-shaqeeyuhu ka arko inta canshuur ah ee mushaharka laga jarayo",
+"Kaar wax lagu iibsado dukaanka",
+"Kaarka aqoonsiga",
+"Kaarka maktabadda"
+],
+"e": "Maamulka Canshuuraha ayaa bixiya kaarka canshuurta. Loo-shaqeeyuhu isagoo ku salaynaya ayuu canshuurta ka jaraa mushaharka."
+},
+"ar04": {
+"q": "Hay'addee ayaa bixisa tusaale ahaan gunnada carruurta iyo gargaarka guriyeynta?",
+"o": [
+"Maamulka Canshuuraha",
+"Kela",
+"Booliska",
+"Degmada"
+],
+"e": "Kela (Hay'adda Caymiska Bulshada) ayaa mas'uul ka ah taageerada aasaasiga ah sida gunnada carruurta, gargaarka guriyeynta guud iyo taageerada waxbarashada."
+},
+"ar05": {
+"q": "Maxkamadaha Finland waa madax-bannaan. Dowladdu kuma amri karto maxkamadda xukunka ay ridayso.",
+"e": "Run. Madax-bannaanida maxkamaduhu waa mabda' aasaasi ah oo ka mid ah dawladda sharciga."
+},
+"ar06": {
+"q": "Kiis dembiyeed caadi ahaan sidee buu u socdaa?",
+"o": [
+"Maxkamad – boolis – xeer-ilaaliye",
+"Xeer-ilaaliye – maxkamad – boolis",
+"Boolis – xeer-ilaaliye – maxkamad",
+"Boolis – maxkamad – xeer-ilaaliye"
+],
+"e": "Booliska ayaa baara dembiga, xeer-ilaaliyaha ayaa go'aamiya in eedeyn la soo oogo, maxkamaddana ayaa go'aamisa kiiska."
+},
+"ar07": {
+"q": "Finland waxay leedahay mushahar ugu yar oo sharci ah oo guud oo dhammaan qaybaha khuseeya.",
+"e": "Been. Finland ma laha mushahar ugu yar oo sharci ah oo guud. Mushaharka ugu yar waxaa lagu heshiiyaa heshiisyada wadajirka ah."
+},
+"ar08": {
+"q": "Ku biirista ururka shaqaalaha waa ikhtiyaari.",
+"e": "Run. Qof walba isagu ayaa go'aansada inuu ku biiro ururka shaqaalaha. Loo-shaqeeyuhu kuma cadaadin karo inaad ku biirto ama aadan ku biirin."
+},
+"ar09": {
+"q": "Sida uu qabo Sharciga Saacadaha Shaqada, waa imisa ugu badnaan saacadaha shaqada caadiga ah?",
+"o": [
+"6 saacadood maalintii iyo 30 saacadood toddobaadkii",
+"8 saacadood maalintii iyo 40 saacadood toddobaadkii",
+"10 saacadood maalintii iyo 50 saacadood toddobaadkii",
+"12 saacadood maalintii iyo 60 saacadood toddobaadkii"
+],
+"e": "Saacadaha shaqada caadiga ahi waa ugu badnaan 8 saacadood maalintii iyo 40 saacadood toddobaadkii. Saacadaha dheeraadka ah waxaa lagu bixiyaa mushahar ka badan."
+},
+"ar10": {
+"q": "Markaad u guurto guri cusub, maxaad samaynaysaa ugu dambayn hal toddobaad gudihiis?",
+"o": [
+"Ogeysiinta guuritaanka",
+"Codsiga baasaboor cusub",
+"U sheegidda booliska",
+"Beddelidda bangiga"
+],
+"e": "Ogeysiinta guuritaanka waa in la sameeyaa ugu dambayn hal toddobaad guuritaanka kadib. Waxay gaartaa Hay'adda Adeegyada Dijitaalka iyo Xogta Dadweynaha iyo hay'ado kale."
+},
+"ar11": {
+"q": "Maxuu oggol yahay «xaqa qof walba» (jokamiehenoikeus)?",
+"o": [
+"Gooynta geedaha kaynta qof kale",
+"Toddobaadyo ku noolaanshaha barxadda qof kale",
+"Ugaarsi ogolaansho la'aan",
+"Gurashada miraha duurka iyo boqoshaada"
+],
+"e": "«Xaqa qof walba» wuxuu oggol yahay tusaale ahaan socodka dabeecadda iyo gurashada miraha iyo boqoshaada. Geedo lama goyn karo, lamana dhibi karo nabadda guriga dadka kale."
+},
+"ar12": {
+"q": "Sannadkee ayay waxbarashada qasabka ah ee ilmuhu bilaabataa?",
+"o": [
+"Sannadka ilmuhu gaaro 5 jir",
+"Sannadka ilmuhu gaaro 6 jir",
+"Sannadka ilmuhu gaaro 7 jir",
+"Sannadka ilmuhu gaaro 8 jir"
+],
+"e": "Waxbarashada qasabka ahi waxay bilaabataa sannadka ilmuhu gaaro toddoba jir. Kahor, ilmuhu wuxuu sannad qaataa waxbarasho dugsi-hore ah."
+},
+"ar13": {
+"q": "Ardayda dugsiga aasaasiga ah waxay helaan cunto dugsi oo bilaash ah.",
+"e": "Run. Finland waxay ardayda oo dhan siisay cunto dugsi oo bilaash ah tan iyo 1940-meeyadii."
+},
+"ar14": {
+"q": "Waa maxay «neuvola»?",
+"o": [
+"Xafiiska shaqada",
+"Adeeg caafimaad oo bilaash ah oo loogu talagalay haweenka uurka leh iyo qoysaska carruur yaryar leh",
+"Rug caafimaad oo gaar ah",
+"Xafiiska canshuurta"
+],
+"e": "Xarunta daryeelka hooyada waxay la socotaa uurka, xarunta daryeelka carruurtuna waxay la socotaa koritaanka ilmaha. Adeegyadani waa bilaash."
+},
+"ar15": {
+"q": "Gaadiidka matoorka leh waa inay leeyihiin caymiska gaadiidka (caymiska dhinac saddexaad).",
+"e": "Run. Caymiska gaadiidku waa qasab. Caymiska gurigu waa ikhtiyaari, inkastoo milkiilayaashu ay inta badan u baahdaan."
+},
+"ar16": {
+"q": "Finland, xadka khamriga dhiigga ee wadista sakhraanka waa imisa?",
+"o": [
+"0.5 kun-meelood",
+"0.8 kun-meelood",
+"1.0 kun-meelood",
+"1.2 kun-meelood"
+],
+"e": "Waa wadis sakhraan marka khamriga dhiigga darawalku uu yahay ugu yaraan 0.5 kun-meelood."
+},
+"ar17": {
+"q": "Imisa jir ayaa loo baahan yahay si loo iibsado tubaakada?",
+"o": [
+"15 jir",
+"16 jir",
+"18 jir",
+"21 jir"
+],
+"e": "Alaabta tubaakada waxaa loo iibin karaa oo keliya dadka 18 jir iyo wixii ka weyn."
+},
+"ar18": {
+"q": "Maktabadda dadweynaha waxaad ka amaahan kartaa buugaag bilaash ah.",
+"e": "Run. Amaahashada iyo isticmaalka agabka maktabadaha dadweynaha waa bilaash."
+},
+"ar19": {
+"q": "Waa maxay heerka ugu sarreeya ee maxkamadaha guud, tusaale ahaan kiisaska dembiyada?",
+"o": [
+"Maxkamadda degmada",
+"Maxkamadda rafcaanka",
+"Maxkamadda maamulka",
+"Maxkamadda Sare"
+],
+"e": "Maxkamadaha guud, kiisku wuxuu marka hore tagaa maxkamadda degmada, kadib maxkamadda rafcaanka, ugu dambaynna Maxkamadda Sare. Arrimaha maamulka, heerka ugu sarreeya waa Maxkamadda Sare ee Maamulka."
+},
+"ar20": {
+"q": "Qof walba wuxuu mushaharkiisa ka bixiyaa boqolkiiba isku mid ah oo canshuur ah iyadoon loo eegin dakhliga.",
+"e": "Been. Canshuurta dakhliga Finland waa kordhaysa: marka dakhligu bato, saamiga canshuurtuna wuu bataa."
+},
+"ar21": {
+"q": "Kahor inta aysan hay'ad dawladeed go'aan kaa gaarin, caadi ahaan waa in lagu siiyaa fursad aad ku sheegto ra'yigaaga.",
+"e": "Run. Sida uu qabo Sharciga Habraaca Maamulka, qofka ay khusayso caadi ahaan waxaa la siiyaa fursad uu ra'yigiisa ku sheego kahor go'aanka. Go'aannada sidoo kale waa laga racfaan qaadan karaa."
+},
+"hi01": {
+"q": "Goorma ayay Finland xorowday?",
+"o": [
+"1.5.1905",
+"24.12.1914",
+"6.12.1917",
+"9.4.1940"
+],
+"e": "Finland waxay ku dhawaaqday xorriyadeeda 6 Disembar 1917. Maalintaasi waa Maalinta Xorriyadda Finland."
+},
+"hi02": {
+"q": "Muxuu ahaa xaalka Finland 1809 ilaa 1917?",
+"o": [
+"Qayb ka mid ah Iswiidhan",
+"Dugsi-boqortooyo (Grand Duchy) is-xukuma oo ka tirsan Boqortooyada Ruushka",
+"Jamhuuriyad madax-bannaan",
+"Qayb ka mid ah Jarmalka"
+],
+"e": "1809, Finland waxay noqotay dugsi-boqortooyo is-xukuma oo ka tirsan Boqortooyada Ruushka. Finland waxay lahayd sharciyo iyo maamul u gaar ah."
+},
+"hi03": {
+"q": "Kahor 1809, Finland waxay qayb ka ahayd boqortooyadee?",
+"o": [
+"Iswiidhan",
+"Ruushka",
+"Denmark",
+"Poland"
+],
+"e": "Boqollaal sano, Finland waxay qayb ka ahayd Boqortooyada Iswiidhan. Taasi waa sababta luqadda Iswiidhishku ay taariikh dheer ugu leedahay Finland."
+},
+"hi04": {
+"q": "Maxaa ka dhacay Finland 1918?",
+"o": [
+"Finland waxay ku biirtay Midowga Yurub",
+"Dagaalkii Jiilaalka",
+"Ciyaaraha Olombikada",
+"Dagaal sokeeye"
+],
+"e": "1918, Finland waxaa ka dhacay dagaal sokeeye oo u dhexeeyay «Cascaasta» iyo «Caddaanka». Dagaalku wuxuu bulshada ku reebay raad qoto dheer."
+},
+"hi05": {
+"q": "Dagaalkii Jiilaalka 1939–1940, Finland yay la dagaallantay?",
+"o": [
+"Jarmalka",
+"Midowgii Soofiyeeti",
+"Iswiidhan",
+"Norway"
+],
+"e": "Midowgii Soofiyeeti wuxuu Finland weeraray Noofembar 1939. Dagaalkii Jiilaalku wuxuu dhammaaday Maarso 1940. Finland waxay ilaashatay xorriyadeeda laakiin waxay waysay dhulal."
+},
+"hi06": {
+"q": "Goorma ayaa la galay Dagaalkii Sii-wadista?",
+"o": [
+"1918",
+"1939–1940",
+"1941–1944",
+"1950–1953"
+],
+"e": "Dagaalkii Sii-wadista waxaa lala galay Midowgii Soofiyeeti 1941–1944. Kadib waxaa jiray Dagaalkii Lapland ee lala galay Jarmalka."
+},
+"hi07": {
+"q": "Sannadkee ayay haweenka Finland heleen xaqa codbixinta iyo isu-taagidda doorashada?",
+"o": [
+"1906",
+"1917",
+"1945",
+"1971"
+],
+"e": "1906, haweenka Finland waxay ahaayeen kuwii ugu horreeyay Yurub ee hela xaqa codbixinta iyo isu-taagidda labadaba. Xildhibaannadii ugu horreeyay ee dumar ah waxaa la doortay 1907."
+},
+"hi08": {
+"q": "Yaa ururiyay suugaanta qaranka Finland ee «Kalevala»?",
+"o": [
+"Jean Sibelius",
+"Aleksis Kivi",
+"J. L. Runeberg",
+"Elias Lönnrot"
+],
+"e": "Elias Lönnrot ayaa Kalevala ka ururiyay gabayada dhaqanka. Daabacaaddii ugu horreysay waxay soo baxday 1835."
+},
+"hi09": {
+"q": "Yaa qoray erayada heesta qaranka Finland «Dalkeenna» (Maamme)?",
+"o": [
+"Elias Lönnrot",
+"J. L. Runeberg",
+"Zachris Topelius",
+"Eino Leino"
+],
+"e": "Johan Ludvig Runeberg ayaa erayada u qoray markii hore Iswiidhish. Laxanka waxaa sameeyay Fredrik Pacius."
+},
+"hi10": {
+"q": "Yaa ahaa madaxweynihii ugu horreeyay ee Finland?",
+"o": [
+"C. G. E. Mannerheim",
+"Urho Kekkonen",
+"K. J. Ståhlberg",
+"J. K. Paasikivi"
+],
+"e": "Kaarlo Juho Ståhlberg waxaa loo doortay madaxweynihii ugu horreeyay ee Finland 1919."
+},
+"hi11": {
+"q": "Magaaladee ayaa lagu qabtay Ciyaaraha Olombikada xagaaga 1952?",
+"o": [
+"Helsinki",
+"Stockholm",
+"Oslo",
+"Copenhagen"
+],
+"e": "Helsinki ayaa martigelisay Ciyaaraha Olombikada xagaaga 1952."
+},
+"hi12": {
+"q": "Shir caalami ah oo noocee ah ayaa Helsinki lagu qabtay 1975?",
+"o": [
+"Shirkii aasaasidda Qaramada Midoobay",
+"Shirka Amniga iyo Iskaashiga Yurub (CSCE)",
+"Shir madaxeed NATO",
+"Shirkii aasaasidda Midowga Yurub"
+],
+"e": "1975, dukumentiga kama dambaysta ah ee CSCE waxaa lagu saxiixay Helsinki. Shirku wuxuu muhiim ahaa xilligii Dagaalkii Qaboobaa."
+},
+"hi13": {
+"q": "Sannadkee ayay Finland ku biirtay Qaramada Midoobay?",
+"o": [
+"1919",
+"1945",
+"1995",
+"1955"
+],
+"e": "Finland waxay ku biirtay Qaramada Midoobay 1955."
+},
+"hi14": {
+"q": "Yaa loo yaqaan aabbaha luqadda qoraalka Finnish-ka, oo daabacay buuggii ugu horreeyay ee alifbeetada Finnish-ka qarnigii 16aad?",
+"o": [
+"Mikael Agricola",
+"Martin Luther",
+"Elias Lönnrot",
+"Aleksis Kivi"
+],
+"e": "Mikael Agricola wuxuu daabacay buug alifbeeto ah 1540-meeyadii, wuxuuna Axdiga Cusub u turjumay Finnish. Waxaa loo yaqaan aabbaha luqadda qoraalka Finnish-ka."
+},
+"hi15": {
+"q": "Tobankee sano ayaa Finland laga bilaabay dugsiga aasaasiga ah ee qof walba u siman?",
+"o": [
+"1920-meeyadii",
+"1950-meeyadii",
+"1970-meeyadii",
+"1990-meeyadii"
+],
+"e": "Dugsiga aasaasiga ah waxaa si tartiib ah loo bilaabay 1970-meeyadii. Wuxuu beddelay kala qaybintii hore ee dugsiga dadweynaha iyo dugsiga sare."
+},
+"hi16": {
+"q": "Dagaalkii Labaad ee Adduunka kadib, Finland waxay bixisay dhulal, boqollaal kun oo Kareliyaan ahna waxay u guureen meelo kale oo Finland ah.",
+"e": "Run. Qiyaastii 400 000 qof ayaa ka guuray dhulalkii la bixiyay. Waxaa la dejiyay meelo kale oo Finland ah."
+},
+"hi17": {
+"q": "Calanka Finland sidee buu u eg yahay?",
+"o": [
+"Iskutallaab cas oo dhulka cad ku taal",
+"Iskutallaab buluug ah oo dhulka cad ku taal",
+"Iskutallaab cad oo dhulka cas ku taal",
+"Iskutallaab huruud ah oo dhulka buluugga ku taal"
+],
+"e": "Calanka Finland wuxuu leeyahay iskutallaab buluug ah oo dhulka cad ku taal."
+},
+"hi18": {
+"q": "Sannadkee ayuu dhaqan galay Dastuurka hadda jira ee Finland?",
+"o": [
+"1906",
+"1919",
+"1987",
+"2000"
+],
+"e": "Dastuurka hadda jira wuxuu dhaqan galay 2000. Wuxuu beddelay Xeerkii Dawladnimada 1919 iyo sharciyo dastuuri ah oo kale."
+},
+"hi19": {
+"q": "Sannadkee ayaa Finland laga aasaasay baarlamaan hal gole ah?",
+"o": [
+"1906",
+"1917",
+"1939",
+"1995"
+],
+"e": "Dib-u-habaynta baarlamaanka waxay dhacday 1906. Golihii afarta heer ee bulshada waxaa beddelay baarlamaan hal gole ah, doorashadii ugu horreysayna waxay dhacday 1907."
+},
+"hi20": {
+"q": "Halabuurkee ayaa sameeyay «Finlandia»?",
+"o": [
+"Fredrik Pacius",
+"Oskar Merikanto",
+"Jean Sibelius",
+"Toivo Kuula"
+],
+"e": "Jean Sibelius ayaa sameeyay Finlandia 1899–1900. Waa mid ka mid ah hal-abuurka muusigga Finland ee ugu caansan."
+},
+"ku01": {
+"q": "Bishee ayaa la dabaaldegaa Juhannus (dabaaldegga badhtamaha xagaaga)?",
+"o": [
+"Maajo",
+"Juun",
+"Luulyo",
+"Agoosto"
+],
+"e": "Juhannus waa dabaaldegga badhtamaha xagaaga ee dhammaadka Juun. Dhaqan ahaan waxaa la shidaa dab weyn, waxaana waqtiga lagu qaataa guryaha xagaaga."
+},
+"ku02": {
+"q": "Dabaaldeggee ayaa dhaca 1-da Maajo?",
+"o": [
+"Vappu",
+"Juhannus",
+"Maalinta Xorriyadda",
+"Ciidda Faasakada"
+],
+"e": "Vappu waa dabaaldegga gu'ga, shaqada iyo ardayda 1-da Maajo."
+},
+"ku03": {
+"q": "Waa maxay dhaqanka Maalinta Xorriyadda?",
+"o": [
+"Shidista dab weyn",
+"Ciyaar biyo",
+"Shidista laba shumac oo daaqadda la dhigo",
+"Rashka subaxa"
+],
+"e": "Maalinta Xorriyadda, 6 Disembar, dad badan ayaa daaqadda ku shida laba shumac. Fiidkii madaxweynuhu wuxuu qabtaa xaflad soo dhaweyn."
+},
+"ku04": {
+"q": "Dhaqanka sauna-da Finland wuxuu ku jiraa liiska UNESCO ee dhaxalka dhaqanka aan la taaban karin.",
+"e": "Run. Dhaqanka sauna-da Finland waxaa lagu daray liiska UNESCO 2020."
+},
+"ku05": {
+"q": "Dadkee ayaa ah dadka asalka ah ee keliya ee Midowga Yurub?",
+"o": [
+"Roma-da",
+"Finnish-ka ku hadla Iswiidhishka",
+"Tataarka",
+"Saami-ga"
+],
+"e": "Saami-gu waa dadka asalka ah ee keliya ee Midowga Yurub. Waxay ku nool yihiin waqooyiga Finland, Iswiidhan, Norway iyo Ruushka."
+},
+"ku06": {
+"q": "Labadee kaniisadood ayaa Finland ku leh meel gaar ah?",
+"o": [
+"Kaatooligga iyo Anglican-ka",
+"Lutheran-ka Injiilka iyo Ortodokska",
+"Pentecostal-ka iyo Baptist-ka",
+"Kaatooligga iyo Ortodokska"
+],
+"e": "Meesha kaniisadda Lutheran-ka Injiilka iyo kaniisadda Ortodokska waxaa lagu qeexay sharciyo gaar ah. Hase yeeshee Finland waxaa ka jirta xorriyadda diinta."
+},
+"ku07": {
+"q": "Maalintee ayaa ah maalinta ugu muhiimsan ee Kirismaska reer Finland?",
+"o": [
+"Habeenka Kirismaska 24.12",
+"Maalinta Kirismaska 25.12",
+"Maalinta Saint Stephen 26.12",
+"Habeenka Sannadka Cusub 31.12"
+],
+"e": "Finland, Kirismaska waxaa si gaar ah loogu dabaaldegaa Habeenka Kirismaska, 24 Disembar."
+},
+"ku08": {
+"q": "Maxaa la dabaaldegaa 28 Febraayo?",
+"o": [
+"Maalinta Runeberg",
+"Maalinta Jacaylka",
+"Maalinta Kalevala, maalinta dhaqanka Finland",
+"Maalinta Haweenka"
+],
+"e": "Maalinta Kalevala 28 Febraayo waa maalinta dhaqanka Finland iyo maalin calanka la taago."
+},
+"ku09": {
+"q": "Waa maxay shimbirta qaranka Finland?",
+"o": [
+"Gorgorka",
+"Ganbasha qaylisa (whooper swan)",
+"Shimbir yar oo madow-jaale ah",
+"Tukaha"
+],
+"e": "Ganbasha qaylisa waa shimbirta qaranka Finland. Waxay sidoo kale ku sawiran tahay qadaadiicda yuuro ee Finland."
+},
+"ku10": {
+"q": "Waa maxay ubaxa qaranka Finland?",
+"o": [
+"Ubaxa rose",
+"Tulip",
+"Ubaxa beerka (liverleaf)",
+"Lily of the valley"
+],
+"e": "Lily of the valley waxaa loo doortay ubaxa qaranka Finland 1967."
+},
+"ku11": {
+"q": "Ciyaartee ayaa loo yaqaan ciyaarta qaranka Finland?",
+"o": [
+"Pesäpallo (baseball-ka Finland)",
+"Hockey-ga barafka",
+"Kubadda cagta",
+"Floorball"
+],
+"e": "Pesäpallo waa nooca Finland ee baseball-ka, waxaana loo yaqaan ciyaarta qaranka."
+},
+"ku12": {
+"q": "Yaa abuuray Moomin-ka?",
+"o": [
+"Astrid Lindgren",
+"Mauri Kunnas",
+"Tove Jansson",
+"Minna Canth"
+],
+"e": "Tove Jansson waxay ahayd qoraa iyo farshaxan Finnish ah oo ku hadasha Iswiidhish, waxayna abuurtay Moomin-ka."
+},
+"ku13": {
+"q": "Waa maxay caasimadda Finland?",
+"o": [
+"Turku",
+"Helsinki",
+"Tampere",
+"Espoo"
+],
+"e": "Helsinki waa caasimadda Finland. Turku ayaa caasimad ahayd kahor 1812."
+},
+"ku14": {
+"q": "Qiyaastii imisa qof ayaa ku nool Finland?",
+"o": [
+"1.5 milyan",
+"5.6 milyan",
+"10 milyan",
+"15 milyan"
+],
+"e": "Finland waxaa ku nool qiyaastii 5.6 milyan oo qof."
+},
+"ku15": {
+"q": "Yaa qoray buugga sheekada «Toddobada Walaalaha»?",
+"o": [
+"Aleksis Kivi",
+"Väinö Linna",
+"Juhani Aho",
+"Sofi Oksanen"
+],
+"e": "«Toddobada Walaalaha» (1870) ee Aleksis Kivi waa sheekadii ugu horreysay ee muhiim ah ee lagu qoro Finnish."
+},
+"ku16": {
+"q": "Qiyaastii boqolkiiba imisa ayay dadka Finland afkooda hooyo yahay Iswiidhish?",
+"o": [
+"Ka yar 1%",
+"Qiyaastii 25%",
+"Qiyaastii 5%",
+"Qiyaastii 50%"
+],
+"e": "Qiyaastii 5% dadka Finland afkooda hooyo waa Iswiidhish, gaar ahaan xeebaha iyo Åland."
+},
+"ku17": {
+"q": "Roma-du waxay ku noolaayeen Finland qiyaastii 500 sano.",
+"e": "Run. Roma-du waxay Finland ku noolaayeen tan iyo qarnigii 16aad. Waa mid ka mid ah dadka laga tirada badan yahay ee dhaqan ahaan Finland ku nool."
+},
+"ku18": {
+"q": "Maxaa la dabaaldegaa 5 Febraayo?",
+"o": [
+"Maalinta Kalevala",
+"Laskiainen (dabaaldegga kahor soonka)",
+"Maalinta Jacaylka",
+"Maalinta Runeberg"
+],
+"e": "Maalinta Runeberg, 5 Febraayo, waxaa la xusaa gabayaaga qaranka Johan Ludvig Runeberg. Inta badan waxaa la cunaa doolsha Runeberg."
+},
+"ku19": {
+"q": "Finland, waxaa muhiim ah in ballamaha la isku ogaaday waqtigooda la imaado.",
+"e": "Run. Waqti-ilaalinta waa la qiimeeyaa Finland, shaqada iyo la macaamilka hay'adaha dawladda labadaba."
+},
+"ku20": {
+"q": "Waa maxay «Linnan juhlat» (xafladda qasriga)?",
+"o": [
+"Suuq qarniyadii dhexe",
+"Xafladda soo dhaweynta madaxweynaha ee Maalinta Xorriyadda",
+"Bandhig muusig xagaa",
+"Xafladda qalinjebinta jaamacadda"
+],
+"e": "Waa xafladda soo dhaweynta madaxweynaha ee Maalinta Xorriyadda oo lagu qabto Qasriga Madaxtooyada. Dad badan ayaa ka daawada telefishinka."
+}
+},
+"topics": {
+"valtio": "Dawladda iyo dimuqraadiyadda",
+"oikeudet": "Xuquuqda aasaasiga ah iyo xuquuqda aadanaha",
+"tasaarvo": "Sinnaanta iyo takoor-la'aanta",
+"arki": "Sharciga iyo nolosha maalinlaha ah",
+"historia": "Taariikhda",
+"kulttuuri": "Dhaqanka iyo caadooyinka"
+},
+"ui": {
+"uiLang": "Luqadda",
+"preview": "Nooc tijaabo ah. Dhammaan waxyaabaha waa u furan yihiin tijaabo. Su'aalaha annaga ayaa ka qornay macluumaad dadweyne, waxaana la cusboonaysiin doonaa marka Migri ay daabacdo agabka waxbarasho ee rasmiga ah. Turjumaadda Soomaaliga weli ma hubin qof afkiisa hooyo yahay.",
+"h1": "U diyaar garow imtixaanka dhalashada Finland",
+"lead": "Imtixaanka waxaa lagu galaa Finnish ama Iswiidhish. Su'aalaha ku tababbaro Finnish, fur turjumaadda markaad u baahato, oo dhegayso ku dhawaaqidda.",
+"deadline": "Waa shardi codsiyada laga bilaabo",
+"diag": "Imtixaan heer-cabbir oo bilaash ah",
+"diagS": "20 su'aalood oo ka kala yimid mawduucyada oo dhan. Ogow halka aad hadda joogto.",
+"exam": "Imtixaan tijaabo ah",
+"examS": "30 su'aalood oo isku dhafan, 45 daqiiqo, natiijada dhammaadka.",
+"mistakes": "Dib u eeg khaladaadka",
+"mistakesS": "Su'aalaha aad khaladday markii hore.",
+"gloss": "Liiska erayada",
+"glossS": "Erayada muhiimka ah ee imtixaanka iyo macnahooda.",
+"topics": "Ku tababbaro mawduuc",
+"qs": "su'aalood",
+"mastered": "sax",
+"trans": "Turjumaad",
+"listen": "Dhegayso",
+"next": "Xiga",
+"finish": "Dhammee",
+"back": "Bilowga",
+"right": "Waa sax.",
+"wrong": "Ma aha sax.",
+"correctIs": "Jawaabta saxda ah:",
+"tTrue": "Run",
+"tFalse": "Been",
+"q": "Su'aal",
+"of": "/",
+"timeLeft": "Waqtiga haray",
+"resTitle": "Natiijadaada",
+"passed": "Waxaad gaartay yoolka tababarka",
+"notYet": "Sii wad tababarka",
+"resNote": "Dhibcaha gudbitaanka rasmiga ah weli lama daabicin. Waxaan u isticmaalnaa 75% yoolka tababarka.",
+"byTopic": "Mawduuc ahaan",
+"topic": "Mawduuc",
+"score": "Natiijo",
+"reviewW": "Su'aalaha dib loo eegayo",
+"retry": "Isku day mar kale",
+"noMistakes": "Weli khalad lama kaydin. Marka hore ku tababbaro mawduuc.",
+"search": "Raadi eray (Finnish ama Soomaali)",
+"noVoice": "Codka Finnish-ka laguma helin qalabkan.",
+"foot": "Koevalmis waa adeeg tababar oo madax-bannaan. Ma bixiso Hay'adda Socdaalka Finland (Migri) ama hay'ad dawladeed oo kale. Mawduucyada imtixaanka waxaa lagu qeexay sharciga dhalashada ee la beddelay: sharciyada muhiimka ah, xuquuqda aasaasiga ah iyo xuquuqda aadanaha, takoor-la'aanta, sinnaanta jinsiga, iyo taariikhda iyo dhaqanka Finland."
+},
+"glossary": {
+"perustuslaki": "dastuur",
+"eduskunta": "baarlamaan",
+"kansanedustaja": "xildhibaan",
+"valtioneuvosto": "dowladda (Golaha Dawladda)",
+"pääministeri": "ra'iisul wasaare",
+"tasavallan presidentti": "madaxweynaha jamhuuriyadda",
+"ministeri": "wasiir",
+"puolue": "xisbi siyaasadeed",
+"vaalit": "doorashooyin",
+"äänioikeus": "xaqa codbixinta",
+"ehdokas": "musharax",
+"vaalisalaisuus": "qarsoodiga codka",
+"kunta": "degmo",
+"hyvinvointialue": "gobolka adeegyada daryeelka",
+"viranomainen": "hay'ad dawladeed",
+"laki": "sharci",
+"säätää": "sharci samayn",
+"perusoikeus": "xaq aasaasi ah",
+"ihmisoikeus": "xuquuqda aadanaha",
+"yhdenvertaisuus": "sinnaan, takoor-la'aan",
+"tasa-arvo": "sinnaan (gaar ahaan jinsiga)",
+"syrjintä": "takoor",
+"sananvapaus": "xorriyadda hadalka",
+"uskonnonvapaus": "xorriyadda diinta",
+"kokoontumisvapaus": "xorriyadda isu imaatinka",
+"yhdistymisvapaus": "xorriyadda ururada",
+"mielenosoitus": "bannaanbax",
+"oikeusvaltio": "dawladda sharciga",
+"tuomioistuin": "maxkamad",
+"käräjäoikeus": "maxkamadda degmada",
+"hovioikeus": "maxkamadda rafcaanka",
+"korkein oikeus": "Maxkamadda Sare",
+"syyttäjä": "xeer-ilaaliye",
+"rikos": "dembi",
+"rangaistus": "ciqaab",
+"syyttömyysolettama": "mabda'a dembi la'aanta",
+"valittaa": "racfaan qaadasho",
+"kantelu": "cabasho",
+"oikeusasiamies": "ombudsman",
+"kansalaisuus": "dhalasho (muwaadinnimo)",
+"kansalaisaloite": "hindisaha muwaadiniinta",
+"asevelvollisuus": "adeegga ciidanka qasabka ah",
+"oppivelvollisuus": "waxbarashada qasabka ah",
+"varhaiskasvatus": "waxbarashada carruurnimada hore",
+"esiopetus": "waxbarashada dugsi-hore",
+"perusopetus": "waxbarashada aasaasiga ah",
+"sosiaaliturva": "taageerada bulshada",
+"Kela": "Hay'adda Caymiska Bulshada",
+"verokortti": "kaarka canshuurta",
+"työehtosopimus": "heshiiska wadajirka ah",
+"ammattiliitto": "ururka shaqaalaha",
+"työnantaja": "loo-shaqeeye",
+"työntekijä": "shaqaale",
+"muuttoilmoitus": "ogeysiinta guuritaanka",
+"jokamiehenoikeus": "«xaqa qof walba» ee dabeecadda",
+"alkuperäiskansa": "dad asal ah",
+"vähemmistö": "dad laga tirada badan yahay",
+"itsenäisyys": "xorriyad",
+"suuriruhtinaskunta": "dugsi-boqortooyo (grand duchy)",
+"sisällissota": "dagaal sokeeye",
+"kansalliseepos": "suugaanta qaranka",
+"liputuspäivä": "maalinta calanka",
+"suostumus": "oggolaansho",
+"lähisuhdeväkivalta": "rabshadda qoyska"
+}
+}

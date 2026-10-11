@@ -1,0 +1,438 @@
+<title>Koevalmis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: one narrow study column; question text is the hero; topic meters as quiet bars. Cloudberry accent on birch-and-spruce neutrals. */
+:root{
+  --bg:#F2F4F1; --surface:#FFFFFF; --ink:#16201B; --muted:#56635C; --line:#D3DAD5;
+  --accent:#D9851E; --accent-ink:#1A1206; --accent-soft:#F6E3C6;
+  --ok:#2C7A4C; --ok-soft:#DCEFE3; --bad:#B3363D; --bad-soft:#F6DEDF;
+  --display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", Roboto, Arial, sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111613; --surface:#1A211D; --ink:#E7EDE9; --muted:#9BA8A1; --line:#2D3832;
+  --accent:#E8A04A; --accent-ink:#1A1206; --accent-soft:#3A2B17;
+  --ok:#62C38D; --ok-soft:#173225; --bad:#EC7A82; --bad-soft:#3A1C1F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111613; --surface:#1A211D; --ink:#E7EDE9; --muted:#9BA8A1; --line:#2D3832;
+  --accent:#E8A04A; --accent-ink:#1A1206; --accent-soft:#3A2B17;
+  --ok:#62C38D; --ok-soft:#173225; --bad:#EC7A82; --bad-soft:#3A1C1F; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:720px;margin:0 auto}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:18px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;background:none;border:0;color:var(--ink);cursor:pointer;padding:0}
+.brand .dot{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.langs{display:flex;gap:4px;align-items:center}
+.langs label{font-size:13px;color:var(--muted);margin-right:4px}
+select{font:inherit;font-size:15px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.preview-note{font-size:13px;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-bottom:20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.1}
+h2{font-size:22px}
+.lead{color:var(--muted);max-width:60ch;margin:10px 0 0}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stack{display:flex;flex-direction:column;gap:14px}
+.hero{padding-block:8px 24px;display:flex;flex-direction:column;gap:6px}
+.deadline{display:inline-flex;gap:8px;align-items:baseline;background:var(--accent-soft);border-radius:999px;padding:4px 12px;font-size:14px;width:fit-content;margin-top:10px}
+.deadline b{font-variant-numeric:tabular-nums}
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-block:8px 28px}
+.mode{all:unset;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.mode:hover{border-color:var(--muted)}
+.mode:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mode.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.mode .t{font-family:var(--display);font-weight:700;font-size:18px}
+.mode .s{font-size:14px;opacity:.85}
+.topics{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line)}
+.topic{all:unset;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.topic:hover .tn{text-decoration:underline}
+.topic:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.tn{font-weight:700;min-width:0}
+.tsub{font-size:13px;color:var(--muted);grid-column:1}
+.tpct{font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted);align-self:center;grid-row:1/3;grid-column:2}
+.meter{grid-column:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ok);width:0;transition:width .4s}
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-block:4px 12px}
+.chip{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted);background:var(--surface)}
+.count{font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted)}
+.timer{font-variant-numeric:tabular-nums;font-weight:700}
+.bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:22px}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.qtext{font-family:var(--body);font-weight:700;font-size:clamp(20px,4.6vw,25px);line-height:1.35;margin:0}
+.qtrans{color:var(--muted);font-style:italic;margin:8px 0 0}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-block:14px 18px}
+.tbtn{font:inherit;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{font:inherit;text-align:left;cursor:pointer;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.opt:hover:not([disabled]){border-color:var(--muted)}
+.opt .k{font-family:var(--display);font-weight:700;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:14px}
+.opt .ot{min-width:0}
+.opt .otr{display:block;font-size:14px;color:var(--muted);font-style:italic}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)}
+.opt.ok .k{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.opt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opt.bad .k{background:var(--bad);border-color:var(--bad);color:var(--surface)}
+.opt[disabled]{cursor:default}
+.explain{margin-top:18px;border-left:4px solid var(--ok);background:var(--surface);padding:12px 16px;border-radius:0 var(--r) var(--r) 0}
+.explain.no{border-left-color:var(--bad)}
+.explain .v{font-weight:700}
+.explain p{margin:6px 0 0}
+.explain .tr{color:var(--muted);font-style:italic}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;cursor:pointer;border-radius:var(--r);padding:12px 20px;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.acc{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn[disabled]{opacity:.45;cursor:default}
+/* results */
+.score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-block:6px 6px}
+.score .big{font-family:var(--display);font-size:64px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.verdict{font-weight:700;padding:4px 12px;border-radius:999px}
+.verdict.ok{background:var(--ok-soft);color:var(--ok)}
+.verdict.no{background:var(--bad-soft);color:var(--bad)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+.wrong{display:flex;flex-direction:column;gap:12px}
+.wrong .w{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.wrong .a{color:var(--ok);font-weight:700}
+/* glossary */
+.search{width:100%;font:inherit;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.gl{display:flex;flex-direction:column}
+.g{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.g .fi{font-weight:700}
+.g .en{color:var(--muted);font-style:italic}
+.g .d{grid-column:1/-1;font-size:15px}
+.g .tbtn{grid-row:1/3;grid-column:2;align-self:center}
+[lang="ar"],[lang="fa"]{font-style:normal}
+[dir="rtl"] [lang="fi"]{direction:ltr;unicode-bidi:isolate;text-align:left}
+[dir="rtl"] .explain{border-left:0;border-right:4px solid var(--ok);border-radius:var(--r) 0 0 var(--r)}
+[dir="rtl"] .explain.no{border-right-color:var(--bad)}
+footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <button class="brand" id="homeBtn" type="button"><span class="dot" aria-hidden="true"></span>Koevalmis</button>
+    <div class="langs"><label for="langSel" data-i="uiLang"></label>
+      <select id="langSel"></select>
+    </div>
+  </header>
+  <main id="app"></main>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+const UI = {
+  en:{uiLang:"Language",preview:"Preview version. All content is open for testing. Questions are written by us from public information and will be updated when Migri publishes the official study material.",
+    h1:"Practise for the Finnish citizenship test",lead:"The test is in Finnish or Swedish. Practise the questions in Finnish, open a translation when you need it, and listen to the pronunciation.",
+    deadline:"Required for applications from",
+    diag:"Free level test",diagS:"20 questions from all topics. See where you stand.",
+    exam:"Mock exam",examS:"30 mixed questions, 45 minutes, results at the end.",
+    mistakes:"Review mistakes",mistakesS:"Questions you got wrong last time.",
+    gloss:"Word list",glossS:"Key words of the test with meanings.",
+    topics:"Practise by topic",qs:"questions",mastered:"correct",
+    trans:"Translation",listen:"Listen",next:"Next",finish:"Finish",back:"Back to start",
+    right:"Correct.",wrong:"Not quite.",correctIs:"Correct answer:",tTrue:"True",tFalse:"False",
+    q:"Question",of:"of",timeLeft:"Time left",
+    resTitle:"Your result",passed:"Practice target reached",notYet:"Keep practising",
+    resNote:"The official pass mark has not been published yet. We use 75% as a practice target.",
+    byTopic:"By topic",topic:"Topic",score:"Score",reviewW:"Questions to review",retry:"Try again",
+    noMistakes:"No mistakes saved yet. Practise a topic first.",
+    search:"Search words (Finnish or English)",noVoice:"No Finnish voice found on this device.",
+    foot:"Koevalmis is an independent practice service. It is not provided by the Finnish Immigration Service (Migri) or any authority. The test topics are set out in the amended Citizenship Act: key legislation, fundamental and human rights, equality, gender equality, and Finnish history and culture.",
+    alwaysTrans:"Always show translation"},
+  fi:{uiLang:"Kieli",preview:"Esikatseluversio. Kaikki sisältö on avoinna testausta varten. Kysymykset on laadittu julkisen tiedon pohjalta, ja ne päivitetään, kun Migri julkaisee virallisen oppimateriaalin.",
+    h1:"Harjoittele Suomen kansalaisuuskokeeseen",lead:"Koe tehdään suomeksi tai ruotsiksi. Harjoittele kysymyksiä suomeksi, avaa käännös tarvittaessa ja kuuntele ääntäminen.",
+    deadline:"Vaaditaan hakemuksissa alkaen",
+    diag:"Ilmainen tasotesti",diagS:"20 kysymystä kaikista aiheista. Näet, missä olet nyt.",
+    exam:"Koeharjoitus",examS:"30 sekalaista kysymystä, 45 minuuttia, tulokset lopuksi.",
+    mistakes:"Kertaa virheet",mistakesS:"Kysymykset, joihin vastasit viimeksi väärin.",
+    gloss:"Sanasto",glossS:"Kokeen keskeiset sanat ja selitykset.",
+    topics:"Harjoittele aiheittain",qs:"kysymystä",mastered:"oikein",
+    trans:"Käännös",listen:"Kuuntele",next:"Seuraava",finish:"Valmis",back:"Alkuun",
+    right:"Oikein.",wrong:"Ei aivan.",correctIs:"Oikea vastaus:",tTrue:"Totta",tFalse:"Väärin",
+    q:"Kysymys",of:"/",timeLeft:"Aikaa jäljellä",
+    resTitle:"Tuloksesi",passed:"Harjoitustavoite saavutettu",notYet:"Jatka harjoittelua",
+    resNote:"Virallista hyväksymisrajaa ei ole vielä julkaistu. Käytämme harjoitustavoitteena 75 %.",
+    byTopic:"Aiheittain",topic:"Aihe",score:"Tulos",reviewW:"Kerrattavat kysymykset",retry:"Yritä uudelleen",
+    noMistakes:"Virheitä ei ole vielä tallennettu. Harjoittele ensin jotain aihetta.",
+    search:"Hae sanaa (suomeksi tai englanniksi)",noVoice:"Laitteesta ei löytynyt suomenkielistä puheääntä.",
+    foot:"Koevalmis on itsenäinen harjoituspalvelu. Sitä ei tarjoa Maahanmuuttovirasto (Migri) eikä mikään muu viranomainen. Kokeen aiheet on määritelty muutetussa kansalaisuuslaissa: keskeinen lainsäädäntö, perus- ja ihmisoikeudet, yhdenvertaisuus, tasa-arvo sekä Suomen historia ja kulttuuri.",
+    alwaysTrans:"Näytä käännös aina"}
+};
+const TOPICS = {
+  valtio:{fi:"Valtio ja demokratia",en:"State and democracy"},
+  oikeudet:{fi:"Perus- ja ihmisoikeudet",en:"Fundamental and human rights"},
+  tasaarvo:{fi:"Yhdenvertaisuus ja tasa-arvo",en:"Equality and non-discrimination"},
+  arki:{fi:"Laki ja arki",en:"Law and everyday life"},
+  historia:{fi:"Historia",en:"History"},
+  kulttuuri:{fi:"Kulttuuri ja tavat",en:"Culture and customs"}
+};
+const PASS = 0.75, EXAM_N = 30, EXAM_MIN = 45, DIAG_N = 20;
+Object.entries(DATA.ui || {}).forEach(([l, u]) => { UI[l] = Object.assign({}, UI.en, u); });
+Object.entries(DATA.topics || {}).forEach(([l, names]) => { Object.entries(names).forEach(([tp, n]) => { if (TOPICS[tp]) TOPICS[tp][l] = n; }); });
+const LANGS = DATA.langs || [{code:"en",name:"English"},{code:"fi",name:"Suomi"}];
+const isRtl = l => !!(LANGS.find(x => x.code === l) || {}).rtl;
+
+/* ---------- storage (optional) ---------- */
+const store = {
+  get(k,d){try{const v=localStorage.getItem("kv_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("kv_"+k,JSON.stringify(v))}catch(e){}}
+};
+const navLang = (navigator.language || "en").toLowerCase().slice(0, 2);
+let lang = store.get("lang", LANGS.some(x => x.code === navLang) ? navLang : "en");
+if (!LANGS.some(x => x.code === lang)) lang = "en";
+let alwaysTrans = store.get("alwaysTrans", false);
+let progress = store.get("progress", {}); // id -> 1 correct / 0 wrong
+const t = k => (UI[lang]||UI.en)[k] || UI.en[k];
+const transLang = () => lang === "fi" ? "en" : lang; // translation shown under Finnish text
+
+/* ---------- helpers ---------- */
+const $app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const shuffle = a => {a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const byTopic = tp => DATA.questions.filter(q => q.t === tp);
+function opts(q, L){ return q.type === "tf" ? (L==="fi"?["Totta","Väärin"]:[UI[L]?.tTrue||"True",UI[L]?.tFalse||"False"]) : q[L].o; }
+
+let fiVoice = null;
+function loadVoices(){ try{ const v = speechSynthesis.getVoices(); fiVoice = v.find(x => /^fi/i.test(x.lang)) || null; }catch(e){} }
+try{ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }catch(e){}
+function speak(text){
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = "fi-FI"; u.rate = .9;
+    if(fiVoice) u.voice = fiVoice;
+    speechSynthesis.speak(u);
+    return true;
+  }catch(e){ return false; }
+}
+
+/* ---------- home ---------- */
+function mastery(tp){
+  const qs = byTopic(tp); const ok = qs.filter(q => progress[q.id] === 1).length;
+  return {n: qs.length, ok, pct: Math.round(ok / qs.length * 100)};
+}
+function home(){
+  stopTimer();
+  const mistakes = DATA.questions.filter(q => progress[q.id] === 0).length;
+  $app.innerHTML = `
+  <p class="preview-note">${esc(t("preview"))}</p>
+  <section class="hero">
+    <h1>${esc(t("h1"))}</h1>
+    <p class="lead">${esc(t("lead"))}</p>
+    <span class="deadline">${esc(t("deadline"))} <b>1.3.2027</b></span>
+  </section>
+  <div class="modes">
+    <button class="mode primary" data-go="diag" type="button"><span class="t">${esc(t("diag"))}</span><span class="s">${esc(t("diagS"))}</span></button>
+    <button class="mode" data-go="exam" type="button"><span class="t">${esc(t("exam"))}</span><span class="s">${esc(t("examS"))}</span></button>
+    <button class="mode" data-go="mistakes" type="button"><span class="t">${esc(t("mistakes"))}${mistakes?` (${mistakes})`:""}</span><span class="s">${esc(t("mistakesS"))}</span></button>
+    <button class="mode" data-go="gloss" type="button"><span class="t">${esc(t("gloss"))}</span><span class="s">${esc(t("glossS"))}</span></button>
+  </div>
+  <div class="stack">
+    <h2>${esc(t("topics"))}</h2>
+    <div class="topics">
+      ${Object.keys(TOPICS).map(tp => { const m = mastery(tp); return `
+      <button class="topic" data-topic="${tp}" type="button">
+        <span class="tn">${esc(TOPICS[tp].fi)}</span>
+        <span class="tpct">${m.ok}/${m.n}</span>
+        <span class="tsub">${lang==="fi"?"":esc(TOPICS[tp][lang]||TOPICS[tp].en)+" · "}${m.n} ${esc(t("qs"))}</span>
+        <span class="meter" aria-hidden="true"><i style="width:${m.pct}%"></i></span>
+      </button>`}).join("")}
+    </div>
+  </div>`;
+  $app.querySelectorAll("[data-go]").forEach(b => b.onclick = () => {
+    const g = b.dataset.go;
+    if(g==="gloss") return glossary();
+    if(g==="diag") return startQuiz("diag", diagSet());
+    if(g==="exam") return startQuiz("exam", shuffle(DATA.questions).slice(0, EXAM_N));
+    if(g==="mistakes"){ const m = DATA.questions.filter(q => progress[q.id] === 0);
+      if(!m.length){ $app.querySelector('[data-go="mistakes"] .s').textContent = t("noMistakes"); return; }
+      return startQuiz("practice", shuffle(m)); }
+  });
+  $app.querySelectorAll("[data-topic]").forEach(b => b.onclick = () => startQuiz("practice", shuffle(byTopic(b.dataset.topic))));
+  window.scrollTo(0,0);
+}
+function diagSet(){
+  const per = Object.keys(TOPICS).map(tp => shuffle(byTopic(tp)));
+  const out = []; let i = 0;
+  while(out.length < DIAG_N){ const pool = per[i % per.length]; if(pool.length) out.push(pool.shift()); i++; }
+  return shuffle(out);
+}
+
+/* ---------- quiz ---------- */
+let S = null, timerId = null;
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } try{speechSynthesis.cancel()}catch(e){} }
+function startQuiz(mode, qs){
+  stopTimer();
+  S = {mode, qs: qs.map(q => ({q, order: q.type==="mc" ? shuffle([0,1,2,3]) : [0,1]})), i:0, answers:[], showTrans: alwaysTrans,
+       end: mode==="exam" ? Date.now() + EXAM_MIN*60000 : null};
+  if(S.end){ timerId = setInterval(tick, 1000); }
+  renderQ();
+}
+function tick(){
+  const el = document.getElementById("timer"); if(!S || !S.end) return;
+  const ms = Math.max(0, S.end - Date.now());
+  if(el){ const m = Math.floor(ms/60000), s = Math.floor(ms/1000)%60; el.textContent = `${m}:${String(s).padStart(2,"0")}`; }
+  if(ms === 0){ stopTimer(); results(); }
+}
+function renderQ(){
+  const {q, order} = S.qs[S.i]; const TL = transLang();
+  const instant = S.mode !== "exam";
+  const fo = opts(q,"fi"), to = opts(q,TL);
+  const chosen = S.answers[S.i];
+  const answered = chosen !== undefined;
+  const reveal = instant && answered;
+  const isLast = S.i === S.qs.length - 1;
+  $app.innerHTML = `
+  <div class="qhead">
+    <span class="chip">${esc(TOPICS[q.t].fi)}</span>
+    <span class="count">${S.mode==="exam"?`${esc(t("timeLeft"))} <span class="timer" id="timer"></span> · `:""}${esc(t("q"))} ${S.i+1} ${esc(t("of"))} ${S.qs.length}</span>
+  </div>
+  <div class="bar" aria-hidden="true"><i style="width:${(S.i)/S.qs.length*100}%"></i></div>
+  <h2 class="qtext" lang="fi">${esc(q.fi.q)}</h2>
+  ${S.showTrans?`<p class="qtrans" lang="${TL}">${esc(q[TL].q)}</p>`:""}
+  <div class="tools">
+    <button class="tbtn" id="trBtn" type="button" aria-pressed="${S.showTrans}">${esc(t("trans"))} · ${TL.toUpperCase()}</button>
+    <button class="tbtn" id="spBtn" type="button">${esc(t("listen"))}</button>
+    <span id="voiceMsg" class="count" hidden></span>
+  </div>
+  <div class="opts" role="group" aria-label="${esc(t("q"))}">
+    ${order.map((oi, k) => {
+      let cls = "opt";
+      if(reveal){ if(oi===q.a) cls+=" ok"; else if(oi===chosen) cls+=" bad"; }
+      else if(answered && oi===chosen) cls+=" sel";
+      return `<button class="${cls}" data-oi="${oi}" type="button" ${reveal?"disabled":""}>
+        <span class="k">${"ABCD"[k]}</span>
+        <span class="ot"><span lang="fi">${esc(fo[oi])}</span>${S.showTrans && to[oi]!==fo[oi]?`<span class="otr" lang="${TL}">${esc(to[oi])}</span>`:""}</span>
+      </button>`}).join("")}
+  </div>
+  ${reveal?`<div class="explain ${chosen===q.a?"":"no"}">
+      <span class="v">${esc(chosen===q.a?t("right"):t("wrong"))}</span>
+      ${chosen!==q.a?` ${esc(t("correctIs"))} <b lang="fi">${esc(fo[q.a])}</b>`:""}
+      <p lang="fi">${esc(q.fi.e)}</p>
+      ${S.showTrans?`<p class="tr" lang="${TL}">${esc(q[TL].e)}</p>`:""}
+    </div>`:""}
+  <div class="nav">
+    <button class="btn ghost" id="quitBtn" type="button">${esc(t("back"))}</button>
+    <button class="btn ${isLast?"acc":""}" id="nextBtn" type="button" ${answered?"":"disabled"}>${esc(isLast?t("finish"):t("next"))}</button>
+  </div>`;
+  tick();
+  $app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    if(reveal) return;
+    const oi = +b.dataset.oi; S.answers[S.i] = oi;
+    if(instant){ progress[q.id] = oi===q.a ? 1 : 0; store.set("progress", progress); }
+    renderQ();
+  });
+  document.getElementById("trBtn").onclick = () => { S.showTrans = !S.showTrans; alwaysTrans = S.showTrans; store.set("alwaysTrans", alwaysTrans); renderQ(); };
+  document.getElementById("spBtn").onclick = () => {
+    const txt = q.type==="tf" ? q.fi.q : q.fi.q + " " + order.map((oi,k)=>`${"ABCD"[k]}: ${fo[oi]}.`).join(" ");
+    const ok = speak(txt);
+    const m = document.getElementById("voiceMsg");
+    if(!ok || !fiVoice){ m.textContent = t("noVoice"); m.hidden = false; }
+  };
+  document.getElementById("quitBtn").onclick = home;
+  document.getElementById("nextBtn").onclick = () => {
+    if(S.answers[S.i] === undefined) return;
+    try{speechSynthesis.cancel()}catch(e){}
+    if(isLast) return results();
+    S.i++; renderQ(); window.scrollTo(0,0);
+  };
+}
+
+/* ---------- results ---------- */
+function results(){
+  stopTimer();
+  const TL = transLang();
+  const rows = {}; let ok = 0;
+  S.qs.forEach(({q}, i) => {
+    const r = rows[q.t] ||= {n:0, ok:0}; r.n++;
+    const good = S.answers[i] === q.a; if(good){ r.ok++; ok++; }
+    if(S.mode === "exam" && S.answers[i] !== undefined){ progress[q.id] = good ? 1 : 0; }
+  });
+  store.set("progress", progress);
+  const pct = Math.round(ok / S.qs.length * 100);
+  const passed = ok / S.qs.length >= PASS;
+  const wrong = S.qs.map((x,i)=>({...x, i})).filter(x => S.answers[x.i] !== x.q.a);
+  const prev = S;
+  $app.innerHTML = `
+  <section class="stack">
+    <span class="eyebrow">${esc(t("resTitle"))}</span>
+    <div class="score"><span class="big">${pct} %</span><span class="count">${ok} / ${S.qs.length}</span>
+      <span class="verdict ${passed?"ok":"no"}">${esc(passed?t("passed"):t("notYet"))}</span></div>
+    <p class="lead">${esc(t("resNote"))}</p>
+    <h2>${esc(t("byTopic"))}</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>${esc(t("topic"))}</th><th style="text-align:right">${esc(t("score"))}</th></tr></thead>
+      <tbody>${Object.keys(rows).map(tp => `<tr><td>${esc(TOPICS[tp].fi)}${lang!=="fi"?`<br><span class="count">${esc(TOPICS[tp][lang]||TOPICS[tp].en)}</span>`:""}</td><td class="n">${rows[tp].ok} / ${rows[tp].n}</td></tr>`).join("")}</tbody>
+    </table></div>
+    ${wrong.length?`<h2>${esc(t("reviewW"))}</h2><div class="wrong">${wrong.map(({q}) => `
+      <div class="w"><div lang="fi"><b>${esc(q.fi.q)}</b></div>
+      <div class="a" lang="fi">${esc(opts(q,"fi")[q.a])}</div>
+      <div lang="fi">${esc(q.fi.e)}</div>
+      ${lang!=="fi"?`<div class="count" lang="${TL}">${esc(q[TL].e)}</div>`:""}</div>`).join("")}</div>`:""}
+    <div class="nav">
+      <button class="btn ghost" id="homeB" type="button">${esc(t("back"))}</button>
+      <button class="btn acc" id="retryB" type="button">${esc(t("retry"))}</button>
+    </div>
+  </section>`;
+  document.getElementById("homeB").onclick = home;
+  document.getElementById("retryB").onclick = () => startQuiz(prev.mode, shuffle(prev.qs.map(x=>x.q)));
+  window.scrollTo(0,0);
+}
+
+/* ---------- glossary ---------- */
+function glossary(){
+  stopTimer();
+  const TL = transLang();
+  $app.innerHTML = `
+  <section class="stack">
+    <h1>${esc(t("gloss"))}</h1>
+    <input class="search" id="gq" type="search" placeholder="${esc(t("search"))}" aria-label="${esc(t("search"))}">
+    <div class="gl" id="gl"></div>
+    <div class="nav"><button class="btn ghost" id="homeB" type="button">${esc(t("back"))}</button></div>
+  </section>`;
+  const draw = f => {
+    f = (f||"").toLowerCase().trim();
+    const items = DATA.glossary.filter(g => !f || g.fi.toLowerCase().includes(f) || (g[TL]||g.en).toLowerCase().includes(f));
+    document.getElementById("gl").innerHTML = items.map((g,k) => `
+      <div class="g"><span class="fi" lang="fi">${esc(g.fi)}</span>
+      <span class="en" lang="${TL}">${esc(g[TL]||g.en)}</span>
+      <button class="tbtn" type="button" data-say="${esc(g.fi)}">${esc(t("listen"))}</button>
+      <span class="d" lang="fi">${esc(g.d)}</span></div>`).join("");
+    document.querySelectorAll("[data-say]").forEach(b => b.onclick = () => speak(b.dataset.say));
+  };
+  draw("");
+  document.getElementById("gq").oninput = e => draw(e.target.value);
+  document.getElementById("homeB").onclick = home;
+  window.scrollTo(0,0);
+}
+
+/* ---------- chrome ---------- */
+document.getElementById("langSel").innerHTML = LANGS.map(l => `<option value="${l.code}">${esc(l.name)}</option>`).join("");
+function chrome(){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isRtl(lang) ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i]").forEach(el => el.textContent = t(el.dataset.i));
+  document.getElementById("langSel").value = lang;
+  document.getElementById("foot").textContent = t("foot");
+}
+document.getElementById("langSel").onchange = e => { lang = e.target.value; store.set("lang", lang); chrome(); home(); };
+document.getElementById("homeBtn").onclick = home;
+(function fromHash(){
+  const tokens = (location.hash || "").replace("#","").split("-").filter(Boolean);
+  tokens.forEach(tk => { if (LANGS.some(x => x.code === tk)) { lang = tk; store.set("lang", lang); } });
+  chrome(); home();
+  if (tokens.includes("diag")) startQuiz("diag", diagSet());
+})();
+</script>

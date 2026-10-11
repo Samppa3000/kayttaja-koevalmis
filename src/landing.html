@@ -1,0 +1,151 @@
+<title>Koevalmis Myyntisivu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: single reading column; hero pairs the Finnish question with its translation, the product's core move. Same tokens as the app. */
+:root{
+  --bg:#F2F4F1; --surface:#FFFFFF; --ink:#16201B; --muted:#56635C; --line:#D3DAD5;
+  --accent:#D9851E; --accent-ink:#1A1206; --accent-soft:#F6E3C6; --ok:#2C7A4C; --ok-soft:#DCEFE3;
+  --display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",Roboto,Arial,sans-serif; --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111613; --surface:#1A211D; --ink:#E7EDE9; --muted:#9BA8A1; --line:#2D3832;
+  --accent:#E8A04A; --accent-ink:#1A1206; --accent-soft:#3A2B17; --ok:#62C38D; --ok-soft:#173225; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111613; --surface:#1A211D; --ink:#E7EDE9; --muted:#9BA8A1; --line:#2D3832;
+  --accent:#E8A04A; --accent-ink:#1A1206; --accent-soft:#3A2B17; --ok:#62C38D; --ok-soft:#173225; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 56px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+header{display:flex;justify-content:space-between;align-items:center;padding-block:18px 0;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:22px;display:flex;gap:10px;align-items:center}
+.brand .dot{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.tag{font-size:13px;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.015em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,7vw,52px);line-height:1.05}
+h2{font-size:clamp(24px,4.5vw,30px);line-height:1.15}
+h3{font-size:19px}
+p{margin:0;max-width:62ch}
+.muted{color:var(--muted)}
+.hero{display:flex;flex-direction:column;gap:18px}
+.pair{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.pair .fi{font-weight:700;font-size:20px}
+.pair .en{color:var(--muted);font-style:italic}
+.pair .lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{font:inherit;font-weight:700;border-radius:var(--r);padding:13px 22px;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg);text-decoration:none;cursor:pointer;display:inline-block}
+.btn.acc{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.fact{background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.fact b{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.fact span{font-size:15px;color:var(--muted)}
+.sec{display:flex;flex-direction:column;gap:16px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.feat div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.price{background:var(--surface);border:2px solid var(--accent);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px}
+.price .amt{font-family:var(--display);font-size:44px;font-weight:700;line-height:1}
+.price .amt s{font-size:22px;color:var(--muted);font-weight:500;margin-left:8px}
+.price ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+form{display:flex;gap:10px;flex-wrap:wrap}
+input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.formmsg{font-size:15px;color:var(--ok)}
+details{border-bottom:1px solid var(--line);padding-block:12px}
+summary{cursor:pointer;font-weight:700}
+details p{margin-top:8px}
+.topics{display:flex;flex-wrap:wrap;gap:8px}
+.topics span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:15px;background:var(--surface)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+a{color:inherit}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="brand"><span class="dot" aria-hidden="true"></span>Koevalmis</div>
+  <span class="tag">Independent practice service, not an official Migri site</span>
+</header>
+
+<section class="hero">
+  <h1>The Finnish citizenship test is in Finnish. Practise it in your language.</h1>
+  <p class="muted">From 1 March 2027, most citizenship applicants aged 18–64 must show knowledge of Finnish society. The test is taken in Finnish or Swedish. Koevalmis gives you the practice questions in Finnish, with a translation one tap away.</p>
+  <div class="pair" aria-label="Example question">
+    <span class="lab">Example question</span>
+    <span class="fi" lang="fi">Kenelle voi tehdä kantelun, jos epäilee viranomaisen toimineen lainvastaisesti?</span>
+    <span class="en">Who can you file a complaint with if you suspect an authority has acted unlawfully?</span>
+  </div>
+  <div class="cta">
+    <a class="btn acc" href="https://claude.ai/artifact/FYCPMFQUmSYEHA41VEXMpi" target="_blank" rel="noopener">Take the free level test</a>
+    <a class="btn" href="#price">See the full course</a>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="facts">
+  <h2 id="facts">What we know about the test</h2>
+  <div class="facts">
+    <div class="fact"><b>1.3.2027</b><span>Applies to applications submitted from this date</span></div>
+    <div class="fact"><b>18–64</b><span>Age group that must meet the requirement</span></div>
+    <div class="fact"><b>FI / SV</b><span>The test is taken in Finnish or Swedish</span></div>
+    <div class="fact"><b>7 cities</b><span>Including Helsinki area, Tampere, Turku and Oulu, from spring 2027</span></div>
+  </div>
+  <p>The test is multiple choice. It covers these areas:</p>
+  <div class="topics"><span>Key legislation</span><span>Fundamental and human rights</span><span>Equality</span><span>Gender equality</span><span>Finnish history</span><span>Finnish culture</span></div>
+  <p class="muted">The number of questions, the pass mark and the fee have not been published yet. Sources: <a href="https://migri.fi/en/-/finland-to-introduce-citizenship-test-as-changes-to-citizenship-act-take-effect-on-1-january-2027">Finnish Immigration Service</a>, <a href="https://www.sttinfo.fi/tiedote/72399040/suomi-valmistautuu-ottamaan-kayttoon-kansalaisuuskokeen-oppimateriaalit-julkaistaan-vuodenvaihteessa">Migri press release, STT</a>.</p>
+</section>
+
+<section class="sec" aria-labelledby="how">
+  <h2 id="how">How Koevalmis helps</h2>
+  <div class="feat">
+    <div><h3>Finnish first</h3><p>Every question is written in plain Finnish, like the real test. Open the translation only when you need it, so your Finnish improves as you study.</p></div>
+    <div><h3>Hear it</h3><p>Listen to each question and answer in Finnish. The word list covers the legal and civic terms the test uses, such as <i lang="fi">yhdenvertaisuus</i> and <i lang="fi">perusoikeus</i>.</p></div>
+    <div><h3>Mock exams</h3><p>Timed practice tests with results by topic. Review your mistakes until every topic is green.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="price" aria-labelledby="pricing">
+  <h2 id="pricing">One payment, no subscription</h2>
+  <div class="price">
+    <div class="amt">€9.90<s>€14.90</s></div>
+    <p>Founding price for people who join the waiting list before the official study material is published.</p>
+    <ul>
+      <li>All practice questions and mock exams</li>
+      <li>Translations and Finnish audio</li>
+      <li>Updates when Migri publishes the official material</li>
+      <li>Access until you pass, at least until the end of 2027</li>
+    </ul>
+    <form id="wl" novalidate>
+      <label for="email" class="muted" style="flex-basis:100%">Join the waiting list. We email you once when the course opens.</label>
+      <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+      <button class="btn acc" type="submit">Join</button>
+      <span id="wlmsg" class="formmsg" role="status" style="flex-basis:100%"></span>
+    </form>
+  </div>
+</section>
+
+<section class="sec" id="start" aria-labelledby="faq">
+  <h2 id="faq">Questions</h2>
+  <div>
+    <details><summary>Is Koevalmis the official test or from Migri?</summary><p>No. Koevalmis is an independent practice service. The official test and its study material come from the Finnish Immigration Service (Migri). Always check the official information on migri.fi.</p></details>
+    <details><summary>Are these the real test questions?</summary><p>No. We write our own questions from public information on the topics the law lists. When Migri publishes the official study material around the turn of the year, we update the questions to match it.</p></details>
+    <details><summary>Which languages are available?</summary><p>Questions are in Finnish with English translations. More languages are being added before the course opens.</p></details>
+    <details><summary>Do I have to take the test?</summary><p>It depends. The requirement applies to applications from 1 March 2027 for people aged 18–64. A Finnish or Swedish matriculation exam, or a Finnish- or Swedish-language degree completed in Finland, can replace it. Migri decides on exemptions.</p></details>
+    <details><summary>Can I get a refund?</summary><p>You can cancel within 14 days if you have not started using the course. Once you open the course, the right of withdrawal ends, and we ask you to confirm this at checkout.</p></details>
+  </div>
+</section>
+
+<footer>
+  <span>Koevalmis is not affiliated with the Finnish Immigration Service (Migri), the University of Helsinki or any authority.</span>
+  <span>Business ID, contact details and terms of sale will be shown here before sales open.</span>
+</footer>
+</div>
+
+<script>
+document.getElementById("wl").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = document.getElementById("email").value.trim();
+  const m = document.getElementById("wlmsg");
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ m.style.color = "var(--muted)"; m.textContent = "Check the email address and try again."; return; }
+  m.style.color = ""; m.textContent = "Preview only: the waiting list opens when the site launches. Nothing was saved.";
+});
+</script>

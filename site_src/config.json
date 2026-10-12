@@ -6,5 +6,11 @@
   "waitlist_url": "",
   "waitlist_anon_key": "",
   "reviewed_by_educator": true,
-  "refund_days": 0
+  "refund_days": 14,
+  "paywall": false,
+  "supabase_url": "https://hoobjckuwadcdrgybshc.supabase.co",
+  "supabase_anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvb2JqY2t1d2FkY2RyZ3lic2hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4MTU0ODgsImV4cCI6MjEwNzM5MTQ4OH0.rRrZc3Cg6np6pZmSvtPn2BK6osrwICbGjY7l9OS0q2E",
+  "paddle_env": "sandbox",
+  "paddle_client_token": "",
+  "paddle_price_id": ""
 }

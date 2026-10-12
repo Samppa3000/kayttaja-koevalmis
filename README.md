@@ -36,3 +36,18 @@ Sales copy lives in `site_src/strings_sales.py`; optional `reviewed_by_educator`
 Fill `site_src/config.json`: business name, business ID (Y-tunnus), contact email and the waiting-list endpoint. Until then the legal pages show a draft notice and are not indexed, and the waiting-list form saves nothing.
 
 Koevalmis is an independent service and is not affiliated with the Finnish Immigration Service (Migri).
+
+## Paid access (built, switched off)
+
+`site_src/config.json` `"paywall": false` keeps the app fully free. With it on, the website app contains
+only the 36 free questions (the same ones as the practice pages); the full bank comes from Supabase
+project `koevalmis` after sign-in and purchase.
+
+- Database: `supabase/002_paid_access.sql` (entitlements, max 3 devices, max 8 new devices / 30 days,
+  bank readable only through `get_premium_bank`). Upload the bank from `dist/premium_bank.json`.
+- Paddle webhook: `supabase/functions/paddle-webhook` (deployed). Purchase grants access; an approved
+  full refund ends it. Secrets: `PADDLE_WEBHOOK_SECRET`, optional `PADDLE_PRICE_IDS`.
+- App: email sign-in (link or code), Paddle overlay checkout with `customData.user_id`, device check on
+  start. Texts in `data/paywall_ui.json`.
+- Before switching on: Supabase Auth URL settings (Site URL and redirect URL = the site's `/app/`),
+  custom SMTP for sign-in emails, Paddle client token and price id in config.json.

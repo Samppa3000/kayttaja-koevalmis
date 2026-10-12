@@ -20,7 +20,7 @@ LANGS, RTL, NAMES, SLUGS, SRC = ST.LANGS, ST.RTL, ST.NAMES, ST.SLUGS, ST.SRC
 TOPIC_ORDER = ["valtio", "oikeudet", "tasaarvo", "arki", "historia", "kulttuuri"]
 TOPIC_SLUG = {"valtio": "state-and-democracy", "oikeudet": "rights", "tasaarvo": "equality",
               "arki": "law-and-everyday-life", "historia": "history", "kulttuuri": "culture"}
-PUBLIC_PER_TOPIC = 6
+from build import PUBLIC_PER_TOPIC  # noqa: E402
 PRICE = {"en": ("€9.90", "€14.90")}
 EXAMPLE_FI = "Kenelle voi tehdä kantelun, jos epäilee viranomaisen toimineen lainvastaisesti?"
 TODAY = ST.CHECKED
@@ -169,6 +169,8 @@ ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;g
 ul.ticks li{position:relative;padding-inline-start:32px}
 ul.ticks li::before{content:"";position:absolute;inset-inline-start:0;top:.22em;width:20px;height:20px;border-radius:50%;background:var(--moss) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
 .fee{font-size:15px;color:var(--muted)}
+.guar{font-weight:700;color:var(--moss);display:flex;gap:10px;align-items:flex-start}
+.guar::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l8 3.2v5.8c0 4.9-3.4 9-8 10-4.6-1-8-5.1-8-10V5.7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l8 3.2v5.8c0 4.9-3.4 9-8 10-4.6-1-8-5.1-8-10V5.7z'/%3E%3C/svg%3E") center/contain no-repeat}
 .trust{display:flex;flex-direction:column;gap:20px}
 form{display:flex;gap:10px;flex-wrap:wrap}
 input[type=email]{flex:1 1 220px;min-width:0;min-height:52px;font:inherit;padding:12px 16px;border-radius:12px;border:1.5px solid var(--field);background:var(--paper);color:var(--ink)}
@@ -390,7 +392,6 @@ def landing(lang, S, cfg, tr, qs, gl):
     now, later = PRICE.get(lang, ("9,90 €", "14,90 €"))
     base = cfg["base_url"].rstrip("/")
     TL = tr_lang(lang)
-    faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in S["faq"])
     biz_ready = all(cfg.get(k) for k in ("business_name", "business_id", "email"))
     provider = cfg.get("waitlist_provider", "supabase")
     wl_ready = biz_ready and (provider == "netlify" or bool(cfg.get("waitlist_url") and cfg.get("waitlist_anon_key")))
@@ -426,9 +427,13 @@ def landing(lang, S, cfg, tr, qs, gl):
     trust = [t.replace("{date}", ST.CHECKED_FI) for t in S["trust"]]
     if cfg.get("reviewed_by_educator"):
         trust.insert(1, S["reviewed"])
+    guarantee = ""
     if cfg.get("refund_days"):
-        trust.append(S["refund"].replace("{n}", str(cfg["refund_days"])))
+        guarantee = f'<p class="guar">{e(S["refund"].replace("{n}", str(cfg["refund_days"])))}</p>'
+        S = dict(S, faq=[list(x) for x in S["faq"]])
+        S["faq"][4][1] = S["faqRefund"]
     count = e(S["count"]).replace("{n}", f'<b data-days>{days_left()}</b>')
+    faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in S["faq"])
     jsonld = [{
         "@context": "https://schema.org", "@graph": [
             {"@type": "Organization", "@id": f"{base}/#org", "name": "Koevalmis", "url": f"{base}/", "logo": f"{base}/logo.png",
@@ -476,6 +481,7 @@ def landing(lang, S, cfg, tr, qs, gl):
     <div class="price"><span class="lbl">{e(S['priceNow'])}</span><span class="amt">{num(now)}</span><span class="later">{e(S['priceLaterShort'])}</span>
       <p>{e(S['priceNote'])}</p>
       <ul class="ticks">{''.join(f'<li>{e(x)}</li>' for x in S['li'])}</ul>
+      {guarantee}
       {form}
     </div>
     <p class="fee">{e(S['feeNote'])} <a href="{SRC['havm']}">HaVM 10/2026</a></p>
@@ -529,10 +535,7 @@ def breadcrumbs(base, lang, S, trail):
 
 
 # ---------------------------------------------------------------- practice questions
-def public_questions(qs, tp):
-    pool = sorted([q for q in qs if q["t"] == tp], key=lambda q: q["id"])
-    step = max(1, len(pool) // PUBLIC_PER_TOPIC)
-    return pool[::step][:PUBLIC_PER_TOPIC]
+from build import public_questions  # noqa: E402  (one definition of the free set for site and app)
 
 
 def question_card(q, lang, tr, S, n):

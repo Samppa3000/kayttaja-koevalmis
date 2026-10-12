@@ -13,6 +13,7 @@ TOPIC_ORDER = ["valtio", "oikeudet", "tasaarvo", "arki", "historia", "kulttuuri"
 LANG_NAMES = {"en": "English", "fi": "Suomi", "ru": "Русский", "ar": "العربية",
               "uk": "Українська", "so": "Soomaali", "fa": "دری / فارسی", "et": "Eesti"}
 RTL = {"ar", "fa"}
+PUBLIC_PER_TOPIC = 6   # free questions per topic: shown on the practice pages and, with the paywall on, the only ones in the app
 GOOGLE_FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
                 '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
                 '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400'
@@ -63,9 +64,36 @@ def load():
         ui_out[lang] = L["ui"]
         topics_out[lang] = L["topics"]
 
+    with open(os.path.join(ROOT, "data", "paywall_ui.json"), encoding="utf-8") as fh:
+        for lang, strings in json.load(fh).items():
+            ui_out.setdefault(lang, {}).update({k: v for k, v in strings.items() if k not in ui_out.get(lang, {})})
     available = ["en", "fi"] + sorted(l for l in langs if not any(e.startswith(l + ":") and "untranslated" in e for e in errors))
     return {"questions": qs, "glossary": gl, "ui": ui_out, "topics": topics_out,
             "langs": [{"code": c, "name": LANG_NAMES.get(c, c), "rtl": c in RTL} for c in available]}, errors
+
+
+def public_questions(qs, tp):
+    """The free questions of a topic (same set on the website's practice pages)."""
+    pool = sorted([q for q in qs if q["t"] == tp], key=lambda q: q["id"])
+    step = max(1, len(pool) // PUBLIC_PER_TOPIC)
+    return pool[::step][:PUBLIC_PER_TOPIC]
+
+
+def paid_config(qs):
+    """Paid-access settings for the app, from site_src/config.json. Everything here is public."""
+    with open(os.path.join(ROOT, "site_src", "config.json"), encoding="utf-8") as fh:
+        cfg = json.load(fh)
+    cfg.update(json.loads(os.environ.get("KOEVALMIS_CONFIG_OVERRIDE", "{}")))  # for tests only
+    on = bool(cfg.get("paywall")) and bool(cfg.get("supabase_url") and cfg.get("supabase_anon_key"))
+    return {"on": on, "supabaseUrl": cfg.get("supabase_url", ""), "anonKey": cfg.get("supabase_anon_key", ""),
+            "paddleEnv": cfg.get("paddle_env", "sandbox"), "paddleToken": cfg.get("paddle_client_token", ""),
+            "priceId": cfg.get("paddle_price_id", ""), "total": len(qs),
+            "totals": {tp: len([q for q in qs if q["t"] == tp]) for tp in TOPIC_ORDER}}
+
+
+def render(html, data):
+    blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return html.replace("/*__DATA__*/", blob)
 
 
 def main():
@@ -74,11 +102,19 @@ def main():
         print("WARN", e)
     with open(os.path.join(ROOT, "src", "app.html"), encoding="utf-8") as fh:
         html = fh.read()
-    blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    out = html.replace("/*__DATA__*/", blob)
-    site_out = out.replace("<!--FONTS-->", '<link rel="stylesheet" href="/fonts/fonts.css">')
-    out = out.replace("<!--FONTS-->", GOOGLE_FONTS)
+    qs = data["questions"]
+    paid = paid_config(qs)
+    # Preview (Claude artifact): everything, no paywall.
+    out = render(html, dict(data, paid=dict(paid, on=False))).replace("<!--FONTS-->", GOOGLE_FONTS)
+    # Website app: with the paywall on, only the free questions are in the page; the rest come from Supabase.
+    site_data = dict(data, paid=paid)
+    if paid["on"]:
+        site_data["questions"] = [q for tp in TOPIC_ORDER for q in public_questions(qs, tp)]
+    site_out = render(html, site_data).replace("<!--FONTS-->", '<link rel="stylesheet" href="/fonts/fonts.css">')
     os.makedirs(os.path.join(ROOT, "dist"), exist_ok=True)
+    # Full bank for upload to Supabase (dist/ is not committed or published).
+    with open(os.path.join(ROOT, "dist", "premium_bank.json"), "w", encoding="utf-8") as fh:
+        json.dump(qs, fh, ensure_ascii=False)
     path = os.path.join(ROOT, "dist", "koevalmis.html")
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(out)

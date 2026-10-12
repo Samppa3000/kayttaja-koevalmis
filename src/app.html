@@ -117,6 +117,18 @@ th.n,td.n{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
 .wrong .a{color:var(--ok);font-weight:700}
 .wrong .body{display:flex;flex-direction:column;gap:6px;padding-bottom:12px}
 /* glossary */
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+.pay .field{display:flex;flex-direction:column;gap:6px}
+.pay label{font-weight:700}
+.pay .row{display:flex;gap:10px;flex-wrap:wrap}
+.pay .row .search{flex:1 1 220px;width:auto}
+.pay .step{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px}
+.pay .step[aria-disabled="true"]{opacity:.55}
+.pay .price{font-size:20px;margin:0}
+.pay .msg{margin:0}
+.acct{font-size:14px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.acct button{all:unset;cursor:pointer;text-decoration:underline;padding-block:10px}
+.mode.unlock{border-color:var(--ink);border-width:2px}
 .search{width:100%;font:inherit;min-height:48px;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--field);background:var(--surface);color:var(--ink)}
 ::placeholder{color:var(--muted);opacity:1}
 .gl{display:flex;flex-direction:column}
@@ -206,7 +218,7 @@ const TOPICS = {
   kulttuuri:{fi:"Kulttuuri ja tavat",en:"Culture and customs"}
 };
 const PASS = 0.75, EXAM_N = 30, EXAM_MIN = 45, DIAG_N = 20;
-Object.entries(DATA.ui || {}).forEach(([l, u]) => { UI[l] = Object.assign({}, UI.en, u); });
+Object.entries(DATA.ui || {}).forEach(([l, u]) => { UI[l] = Object.assign({}, UI.en, UI[l] || {}, u); });
 Object.entries(DATA.topics || {}).forEach(([l, names]) => { Object.entries(names).forEach(([tp, n]) => { if (TOPICS[tp]) TOPICS[tp][l] = n; }); });
 const LANGS = DATA.langs || [{code:"en",name:"English"},{code:"fi",name:"Suomi"}];
 const isRtl = l => !!(LANGS.find(x => x.code === l) || {}).rtl;
@@ -235,6 +247,191 @@ const byTopic = tp => DATA.questions.filter(q => q.t === tp);
 const qById = id => DATA.questions.find(q => q.id === id);
 function opts(q, L){ return q.type === "tf" ? (L==="fi"?["Totta","Väärin"]:[UI[L]?.tTrue||"True",UI[L]?.tFalse||"False"]) : q[L].o; }
 function announce(msg){ const el=document.getElementById("live"); el.textContent=""; setTimeout(()=>{el.textContent=msg},50); }
+
+/* ---------- paid access (on when DATA.paid.on; the full bank comes from Supabase) ---------- */
+const PAID = DATA.paid || {on:false};
+const FREE = DATA.questions.slice();
+const TOPIC_KEYS = Object.keys(TOPICS);
+let unlocked = !PAID.on;
+const auth = {
+  get(){ return store.get("sb", null); },
+  set(v){ store.set("sb", v); },
+  clear(){ store.set("sb", null); store.set("bank", null); lockBank(); },
+};
+function lockBank(){ unlocked = !PAID.on; DATA.questions = FREE.slice(); }
+function applyBank(bank){
+  DATA.questions = bank.slice().sort((a,b) => TOPIC_KEYS.indexOf(a.t) - TOPIC_KEYS.indexOf(b.t) || (a.id < b.id ? -1 : 1));
+  unlocked = true;
+}
+function deviceId(){
+  let d = store.get("dev", null);
+  if(!d){ const a = new Uint8Array(18); crypto.getRandomValues(a);
+    d = btoa(String.fromCharCode(...a)).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); store.set("dev", d); }
+  return d;
+}
+async function sb(path, {method="GET", body, token}={}){
+  const r = await fetch(PAID.supabaseUrl + path, {method,
+    headers: {apikey: PAID.anonKey, "Content-Type": "application/json", Authorization: "Bearer " + (token || PAID.anonKey)},
+    body: body ? JSON.stringify(body) : undefined});
+  const txt = await r.text(); let data = null; try{ data = txt ? JSON.parse(txt) : null; }catch(e){}
+  if(!r.ok){ const err = new Error((data && (data.message || data.msg || data.error_description || data.error)) || ("http " + r.status)); err.status = r.status; throw err; }
+  return data;
+}
+function keepSession(d){
+  const v = {access_token: d.access_token, refresh_token: d.refresh_token,
+    expires_at: Math.floor(Date.now()/1000) + Number(d.expires_in || 3600),
+    email: (d.user && d.user.email) || null, user_id: (d.user && d.user.id) || null};
+  auth.set(v); return v;
+}
+async function session(){
+  let v = auth.get(); if(!v) return null;
+  if(v.expires_at - 60 < Date.now()/1000){
+    try{ v = keepSession(await sb("/auth/v1/token?grant_type=refresh_token", {method:"POST", body:{refresh_token: v.refresh_token}})); }
+    catch(e){ if(e.status && e.status < 500){ auth.clear(); return null; } throw e; }
+  }
+  if(!v.email || !v.user_id){ const u = await sb("/auth/v1/user", {token: v.access_token}); v.email = u.email; v.user_id = u.id; auth.set(v); }
+  return v;
+}
+const appUrl = () => location.origin + location.pathname;
+async function hasPurchase(v){
+  const rows = await sb("/rest/v1/entitlements?select=status", {token: v.access_token});
+  return Array.isArray(rows) && rows.some(r => r.status === "active");
+}
+// "ok" | "signed_out" | "no_purchase" | "device_removed" | "device_quota" | "empty"; throws on network errors
+async function unlockBank(claim){
+  const v = await session(); if(!v) return "signed_out";
+  try{
+    if(claim) await sb("/rest/v1/rpc/claim_device", {method:"POST", token: v.access_token, body:{p_device: deviceId()}});
+    const bank = await sb("/rest/v1/rpc/get_premium_bank", {method:"POST", token: v.access_token, body:{p_device: deviceId()}});
+    if(!Array.isArray(bank) || !bank.length) return "empty";
+    store.set("bank", {at: Date.now(), qs: bank}); applyBank(bank); return "ok";
+  }catch(e){
+    const code = ["no_purchase","device_removed","device_quota","not_signed_in"].find(c => String(e.message).includes(c));
+    if(!code) throw e;
+    store.set("bank", null); lockBank();
+    return code === "not_signed_in" ? "signed_out" : code;
+  }
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+let paddleReady = null, payWatch = false;
+function loadPaddle(){
+  if(paddleReady) return paddleReady;
+  paddleReady = new Promise((res, rej) => {
+    const sc = document.createElement("script"); sc.src = "https://cdn.paddle.com/paddle/v2/paddle.js";
+    sc.onload = () => { try{ if(PAID.paddleEnv === "sandbox") Paddle.Environment.set("sandbox");
+      Paddle.Initialize({token: PAID.paddleToken, eventCallback: ev => { if(ev && ev.name === "checkout.completed") waitForPurchase(); }}); res(); }catch(e){ rej(e); } };
+    sc.onerror = () => { paddleReady = null; rej(new Error("paddle")); };
+    document.head.appendChild(sc);
+  });
+  return paddleReady;
+}
+async function waitForPurchase(){
+  if(payWatch) return; payWatch = true;
+  payMsg(t("waitPay"));
+  for(let i = 0; i < 40; i++){
+    await sleep(2500);
+    try{ const v = await session(); if(v && await hasPurchase(v) && await unlockBank(true) === "ok"){
+      payWatch = false; try{ Paddle.Checkout.close(); }catch(e){} return paywall(); } }catch(e){}
+  }
+  payWatch = false; payMsg(t("paidSlow"));
+}
+function payMsg(text){ const m = document.getElementById("payMsg"); if(m) m.textContent = text; }
+function paywall(note){
+  stopTimer(); S = null;
+  document.title = t("payH") + " | Koevalmis";
+  const v = auth.get();
+  $app.innerHTML = `<section class="stack pay">
+    <h1 tabindex="-1" id="payH">${esc(t("payH"))}</h1>
+    ${note ? `<p class="warn" role="status">${esc(note)}</p>` : ""}
+    <p class="lead">${esc(t("payP").replace("{n}", PAID.total))}</p>
+    <p class="price"><b>${esc(t("payPrice"))}</b><br><span class="count">${esc(t("payGuar"))}</span></p>
+    <div id="payBody" class="stack"></div>
+    <p id="payMsg" class="msg" role="status" aria-live="polite"></p>
+  </section>`;
+  const body = document.getElementById("payBody");
+  if(unlocked){
+    body.innerHTML = `<p>${esc(t("unlocked"))}</p><div><button class="btn acc" id="toHome" type="button">${esc(t("toHome"))}</button></div>`;
+    document.getElementById("toHome").onclick = home;
+  } else if(!v){
+    const sent = store.get("otpEmail", "") || "";
+    body.innerHTML = `<div class="step"><h2>${esc(t("step1"))}</h2>
+      <div class="field"><label for="payEmail">${esc(t("emailLbl"))}</label>
+        <div class="row"><input class="search" id="payEmail" type="email" autocomplete="email" inputmode="email" dir="ltr" value="${esc(sent)}">
+        <button class="btn acc" id="sendBtn" type="button">${esc(t("sendLink"))}</button></div></div>
+      <div id="codeBox" class="field" ${sent ? "" : "hidden"}><p>${esc(t("linkSent"))}</p>
+        <label for="payCode">${esc(t("codeLbl"))}</label>
+        <div class="row"><input class="search" id="payCode" inputmode="numeric" autocomplete="one-time-code" maxlength="10" dir="ltr">
+        <button class="btn" id="codeBtn" type="button">${esc(t("codeBtn"))}</button></div></div></div>
+      <div class="step" aria-disabled="true"><h2>${esc(t("step2"))}</h2></div>`;
+    document.getElementById("sendBtn").onclick = async () => {
+      const em = document.getElementById("payEmail").value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ payMsg(t("badEmail")); return document.getElementById("payEmail").focus(); }
+      try{ await sb("/auth/v1/otp?redirect_to=" + encodeURIComponent(appUrl()), {method:"POST", body:{email: em, create_user: true}});
+        store.set("otpEmail", em); document.getElementById("codeBox").hidden = false; payMsg(t("linkSent")); document.getElementById("payCode").focus(); }
+      catch(e){ payMsg(e.status ? t("authErr") : t("netErr")); }
+    };
+    document.getElementById("codeBtn").onclick = async () => {
+      const em = document.getElementById("payEmail").value.trim(), code = document.getElementById("payCode").value.replace(/\s/g, "");
+      try{ keepSession(await sb("/auth/v1/verify", {method:"POST", body:{type:"email", email: em, token: code}}));
+        store.set("otpEmail", null); afterSignIn(); }
+      catch(e){ payMsg(e.status ? t("authErr") : t("netErr")); }
+    };
+  } else {
+    body.innerHTML = `<p class="acct">${esc(t("signedAs"))} <b>${esc(v.email || "")}</b> <button id="outBtn" type="button">${esc(t("signOut"))}</button></p>
+      <div class="step" id="buyStep"><h2>${esc(t("step2"))}</h2></div>`;
+    document.getElementById("outBtn").onclick = () => { auth.clear(); paywall(); };
+    const step = document.getElementById("buyStep");
+    const showBuy = () => {
+      step.insertAdjacentHTML("beforeend", PAID.paddleToken && PAID.priceId
+        ? `<div><button class="btn acc" id="buyBtn" type="button">${esc(t("buyBtn"))}</button></div>` : `<p>${esc(t("salesSoon"))}</p>`);
+      const bb = document.getElementById("buyBtn"); if(bb) bb.onclick = buy;
+    };
+    // Already paid (e.g. this device was signed out): offer to use it here instead of buying again.
+    session().then(s1 => s1 ? hasPurchase(s1) : false).then(paid => {
+      if(!paid) return showBuy();
+      step.outerHTML = `<div><button class="btn acc" id="hereBtn" type="button">${esc(t("useHere"))}</button></div>`;
+      document.getElementById("hereBtn").onclick = async () => {
+        try{ const r = await unlockBank(true);
+          if(r === "ok") return home();
+          paywall(r === "device_quota" ? t("devQuota") : undefined);
+        }catch(e){ payMsg(t("netErr")); }
+      };
+    }).catch(() => { showBuy(); });
+    const buy = async () => {
+      try{ const s2 = await session(); if(!s2) return paywall();
+        await loadPaddle();
+        Paddle.Checkout.open({items:[{priceId: PAID.priceId, quantity: 1}], customer:{email: s2.email}, customData:{user_id: s2.user_id},
+          settings:{displayMode:"overlay", locale: ({fi:"fi", ru:"ru", ar:"ar"})[lang] || "en"}});
+      }catch(e){ payMsg(t("netErr")); }
+    };
+  }
+  window.scrollTo(0, 0);
+  document.getElementById("payH").focus({preventScroll: true});
+}
+// After a sign-in (link or code): unlock straight away if this account has already paid.
+async function afterSignIn(){
+  try{
+    const v = await session();
+    if(v && await hasPurchase(v)){
+      const r = await unlockBank(true);
+      if(r === "ok") return paywall();
+      if(r === "device_quota") return paywall(t("devQuota"));
+    }
+  }catch(e){ return paywall(t("netErr")); }
+  paywall();
+}
+// On start: use the stored bank at once, then check in the background that this device still has access.
+function startPaid(){
+  if(!PAID.on) return;
+  const cached = store.get("bank", null);
+  if(cached && auth.get() && Array.isArray(cached.qs) && cached.qs.length) applyBank(cached.qs);
+  if(!auth.get()) return;
+  unlockBank(false).then(r => {
+    if(r === "device_removed") paywallDevice();
+    else if(r !== "ok" && cached && !S) home();
+  }).catch(() => {});  // offline: keep the stored bank
+}
+function paywallDevice(){ paywall(t("devRemoved")); }
 
 let fiVoice = null;
 function loadVoices(){ try{ const v = speechSynthesis.getVoices(); fiVoice = v.find(x => /^fi/i.test(x.lang)) || null; }catch(e){} }
@@ -289,7 +486,8 @@ function home(){
   </section>
   <div class="modes">
     <button class="mode primary" data-go="diag" type="button"><span class="t">${esc(t("diag"))}</span><span class="s">${esc(t("diagS"))}</span></button>
-    <button class="mode" data-go="exam" type="button"><span class="t">${esc(t("exam"))}</span><span class="s">${esc(t("examS"))}</span></button>
+    ${unlocked ? "" : `<button class="mode unlock" data-go="unlock" type="button"><span class="t">${esc(t("unlockCta"))}</span><span class="s">${esc(t("unlockS").replace("{n}", PAID.total))}</span></button>`}
+    <button class="mode" data-go="exam" type="button"><span class="t">${esc(t("exam"))}</span><span class="s">${esc(unlocked ? t("examS") : t("lockExam"))}</span></button>
     <button class="mode" data-go="mistakes" type="button" ${mistakes?"":'aria-disabled="true"'}><span class="t">${esc(t("mistakes"))}${mistakes?` (${num(mistakes)})`:""}</span><span class="s">${esc(mistakes?t("mistakesS"):t("noMistakes"))}</span></button>
     <button class="mode" data-go="gloss" type="button"><span class="t">${esc(t("gloss"))}</span><span class="s">${esc(t("glossS"))}</span></button>
   </div>
@@ -300,15 +498,22 @@ function home(){
       <button class="topic" data-topic="${tp}" type="button">
         <span class="tn" lang="fi">${esc(TOPICS[tp].fi)}</span>
         <span class="tpct">${num(m.ok+"/"+m.n)}</span>
-        <span class="tsub">${lang==="fi"?"":esc(TOPICS[tp][lang]||TOPICS[tp].en)+" · "}${num(m.n)} ${esc(t("qs"))}</span>
+        <span class="tsub">${lang==="fi"?"":esc(TOPICS[tp][lang]||TOPICS[tp].en)+" · "}${unlocked ? `${num(m.n)} ${esc(t("qs"))}` : esc(t("lockedTopic").replace("{f}", m.n).replace("{n}", (PAID.totals||{})[tp] || m.n))}</span>
         <span class="meter" aria-hidden="true"><i style="width:${m.pct}%"></i></span>
       </button>`}).join("")}
     </div>
   </div>`;
+  if(PAID.on && auth.get()){
+    const v = auth.get();
+    $app.insertAdjacentHTML("beforeend", `<p class="acct">${esc(t("signedAs"))} <b>${esc(v.email || "")}</b> <button id="outBtn" type="button">${esc(t("signOut"))}</button></p>`);
+    document.getElementById("outBtn").onclick = () => { auth.clear(); home(); };
+  }
   if(ss) document.getElementById("resumeBtn").onclick = () => resumeSession(ss);
   $app.querySelectorAll("[data-go]").forEach(b => b.onclick = () => {
     const g = b.dataset.go;
     if(g==="gloss") return glossary();
+    if(g==="unlock") return paywall();
+    if(g==="exam" && !unlocked) return paywall(t("lockExam"));
     if(g==="diag") return startQuiz("diag", diagSet());
     if(g==="exam") return startQuiz("exam", shuffle(DATA.questions).slice(0, EXAM_N));
     if(g==="mistakes"){ const m = DATA.questions.filter(q => progress[q.id] === 0);
@@ -440,7 +645,8 @@ function results(){
       <span class="verdict ${passed?"ok":"no"}">${esc(passed?t("passed"):t("notYet"))}</span></div>
     ${unanswered?`<p class="count">${esc(t("unanswered"))}: ${num(unanswered)}</p>`:""}
     <p class="lead">${esc(t("resNote"))}</p>
-    ${ON_SITE?`<div class="upsell"><h2>${esc(t("upH"))}</h2><p>${esc(t("upP"))}</p><a class="btn acc" href="${SITE_BASE}${lang==="en"?"/":`/${lang}/`}#price">${esc(t("upBtn"))}</a></div>`:""}
+    ${PAID.on ? (unlocked ? "" : `<div class="upsell"><h2>${esc(t("upH"))}</h2><p>${esc(t("unlockS").replace("{n}", PAID.total))}</p><button class="btn acc" id="upBtn" type="button">${esc(t("unlockCta"))}</button></div>`)
+      : ON_SITE?`<div class="upsell"><h2>${esc(t("upH"))}</h2><p>${esc(t("upP"))}</p><a class="btn acc" href="${SITE_BASE}${lang==="en"?"/":`/${lang}/`}#price">${esc(t("upBtn"))}</a></div>`:""}
     <h2>${esc(t("byTopic"))}</h2>
     <div class="scroll"><table>
       <thead><tr><th>${esc(t("topic"))}</th><th class="n">${esc(t("score"))}</th></tr></thead>
@@ -459,6 +665,7 @@ function results(){
   </section>`;
   S = null;
   document.getElementById("homeB").onclick = home;
+  const ub = document.getElementById("upBtn"); if(ub) ub.onclick = () => paywall();
   document.getElementById("retryB").onclick = () => startQuiz(prev.mode, shuffle(prev.qs.map(x=>x.q)));
   window.scrollTo(0,0);
   document.getElementById("resH").focus({preventScroll:true});
@@ -514,15 +721,25 @@ document.getElementById("langSel").onchange = e => {
 };
 document.getElementById("homeBtn").onclick = home;
 function fromHash(){
-  const tokens = (location.hash || "").replace("#","").split("-").filter(Boolean);
+  const raw = (location.hash || "").replace("#", "");
+  if(PAID.on && /(^|&)(access_token|error)=/.test(raw)){   // returning from the sign-in email
+    const p = new URLSearchParams(raw);
+    try{ history.replaceState(null, "", location.pathname + location.search); }catch(e){}
+    chrome();
+    if(p.get("access_token")){ keepSession({access_token: p.get("access_token"), refresh_token: p.get("refresh_token"), expires_in: p.get("expires_in")}); store.set("otpEmail", null); return afterSignIn(); }
+    return paywall(t("authErr"));
+  }
+  const tokens = raw.split("-").filter(Boolean);
   tokens.forEach(tk => { if (LANGS.some(x => x.code === tk)) { lang = tk; store.set("lang", lang); } });
   if (location.hash) { try{ history.replaceState(null, "", location.pathname + location.search); }catch(e){} }
   chrome();
   if (tokens.includes("diag")) return startQuiz("diag", diagSet());
-  if (tokens.includes("exam")) return startQuiz("exam", shuffle(DATA.questions).slice(0, EXAM_N));
+  if (tokens.includes("exam")) return unlocked ? startQuiz("exam", shuffle(DATA.questions).slice(0, EXAM_N)) : paywall(t("lockExam"));
   if (tokens.includes("gloss")) return glossary();
+  if (tokens.includes("unlock")) return paywall();
   home();
 }
+startPaid();
 fromHash();
 window.addEventListener("hashchange", fromHash);
 </script>

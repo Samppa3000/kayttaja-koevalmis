@@ -208,7 +208,8 @@ Object.entries(DATA.ui || {}).forEach(([l, u]) => { UI[l] = Object.assign({}, UI
 Object.entries(DATA.topics || {}).forEach(([l, names]) => { Object.entries(names).forEach(([tp, n]) => { if (TOPICS[tp]) TOPICS[tp][l] = n; }); });
 const LANGS = DATA.langs || [{code:"en",name:"English"},{code:"fi",name:"Suomi"}];
 const isRtl = l => !!(LANGS.find(x => x.code === l) || {}).rtl;
-const ON_SITE = /^\/app\/?$/.test(location.pathname);
+const ON_SITE = /\/app\/?$/.test(location.pathname);
+const SITE_BASE = ON_SITE ? location.pathname.replace(/\/app\/?$/, "") : "";
 
 /* ---------- storage (optional) ---------- */
 const store = {
@@ -500,9 +501,9 @@ function chrome(){
   document.documentElement.dir = isRtl(lang) ? "rtl" : "ltr";
   document.querySelectorAll("[data-i]").forEach(el => el.textContent = t(el.dataset.i));
   document.getElementById("langSel").value = lang;
-  const sitePath = lang === "en" ? "/" : `/${lang}/`;
+  const sitePath = SITE_BASE + (lang === "en" ? "/" : `/${lang}/`);
   document.getElementById("foot").innerHTML = `<span>${esc(t("foot"))}</span><span>${esc(t("preview"))}</span>`
-    + (ON_SITE ? `<nav aria-label="Koevalmis"><a href="${sitePath}">${esc(t("site"))}</a><a href="/privacy/">${esc(t("privacy"))}</a><a href="/terms/">${esc(t("terms"))}</a></nav>` : "");
+    + (ON_SITE ? `<nav aria-label="Koevalmis"><a href="${sitePath}">${esc(t("site"))}</a><a href="${SITE_BASE}/privacy/">${esc(t("privacy"))}</a><a href="${SITE_BASE}/terms/">${esc(t("terms"))}</a></nav>` : "");
 }
 document.getElementById("langSel").onchange = e => {
   lang = e.target.value; store.set("lang", lang); chrome();

@@ -465,16 +465,19 @@ def make_images(out):
     from PIL import Image, ImageDraw, ImageFont
     bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
     reg = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+
+    def font(path, size):  # build servers without DejaVu fall back to Pillow's bundled font
+        return ImageFont.truetype(path, size) if os.path.exists(path) else ImageFont.load_default(size=size)
     bg, ink, muted, acc = (242, 244, 241), (22, 32, 27), (86, 99, 92), (217, 133, 30)
     img = Image.new("RGB", (1200, 630), bg)
     d = ImageDraw.Draw(img)
     d.ellipse((80, 92, 128, 140), fill=acc)
-    d.text((150, 84), "Koevalmis", font=ImageFont.truetype(bold, 56), fill=ink)
-    d.text((80, 200), "Finnish citizenship test 2027", font=ImageFont.truetype(bold, 64), fill=ink)
-    d.text((80, 290), "Practice questions in Finnish, with translations", font=ImageFont.truetype(reg, 38), fill=muted)
-    d.text((80, 340), "EN · FI · RU · AR · FA · SO", font=ImageFont.truetype(reg, 38), fill=muted)
+    d.text((150, 84), "Koevalmis", font=font(bold, 56), fill=ink)
+    d.text((80, 200), "Finnish citizenship test 2027", font=font(bold, 64), fill=ink)
+    d.text((80, 290), "Practice questions in Finnish, with translations", font=font(reg, 38), fill=muted)
+    d.text((80, 340), "EN · FI · RU · AR · FA · SO", font=font(reg, 38), fill=muted)
     d.rounded_rectangle((80, 430, 1120, 540), radius=16, fill=(255, 255, 255), outline=(211, 218, 213), width=2)
-    d.text((110, 462), "Kuka säätää Suomen lait?  A) Eduskunta", font=ImageFont.truetype(bold, 36), fill=ink)
+    d.text((110, 462), "Kuka säätää Suomen lait?  A) Eduskunta", font=font(bold, 36), fill=ink)
     img.save(os.path.join(out, "og.png"), optimize=True)
     for size, name in ((180, "apple-touch-icon.png"), (512, "logo.png"), (192, "icon-192.png")):
         ic = Image.new("RGB", (size, size), bg)
@@ -487,6 +490,28 @@ def make_images(out):
     ico.save(os.path.join(out, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48)])
     with open(os.path.join(out, "favicon.svg"), "w") as fh:
         fh.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#D9851E"/></svg>')
+
+
+# Set by the deploy workflow when the site is served from a sub-path such as
+# https://samppa3000.github.io/kayttaja-koevalmis/ instead of its own domain.
+BASE_PATH = os.environ.get("BASE_PATH", "").rstrip("/")
+
+
+def apply_base_path(out):
+    """Prefix root-relative links for a sub-path preview and keep the preview out of search engines."""
+    attr = re.compile(r'(\b(?:href|src|action)=")/(?!/)')
+    for d, _, fs in os.walk(out):
+        for f in fs:
+            if not f.endswith((".html", ".css")):
+                continue
+            p = os.path.join(d, f)
+            with open(p, encoding="utf-8") as fh:
+                t = fh.read()
+            t = attr.sub(lambda m: m.group(1) + BASE_PATH + "/", t)
+            t = t.replace("url(/fonts/", f"url({BASE_PATH}/fonts/")
+            t = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex,nofollow">', t)
+            with open(p, "w", encoding="utf-8") as fh:
+                fh.write(t)
 
 
 def write(rel, content):
@@ -565,11 +590,14 @@ def main():
     write("/sitemap.xml", sitemap(cfg))
     write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {cfg['base_url'].rstrip('/')}/sitemap.xml\n")
     write("/llms.txt", llms_txt(cfg, ALL))
-    write("/CNAME", cfg["base_url"].split("//")[1].strip("/") + "\n")
+    if not BASE_PATH:
+        write("/CNAME", cfg["base_url"].split("//")[1].strip("/") + "\n")
     write("/.nojekyll", "")
     shutil.copytree(os.path.join(ROOT, "site_src", "fonts"), os.path.join(OUT, "fonts"))
     shutil.copy(os.path.join(ROOT, "site_src", "fonts.css"), os.path.join(OUT, "fonts", "fonts.css"))
     make_images(OUT)
+    if BASE_PATH:
+        apply_base_path(OUT)
     n = sum(len(fs) for _, _, fs in os.walk(OUT))
     missing = [k for k in ("business_name", "business_id", "email", "waitlist_url", "waitlist_anon_key") if not cfg.get(k)]
     print(f"site built: {n} files")

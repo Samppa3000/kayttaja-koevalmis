@@ -9,14 +9,14 @@
 "112",
 "116 117"
 ],
-"e": "Lambarka degdegga 112 waa xaaladaha degdegga ah, marka aad u baahan tahay booliska, ambalaaska ama dab-demiska."
+"e": "Lambarka degdegga 112 waxaa loogu talagalay xaaladaha degdegga ah, marka aad u baahan tahay booliska, ambalaaska ama dab-demiska."
 },
 "ar02": {
 "q": "Lambarkee ayaad wici kartaa si aad talo uga hesho xanuun degdeg ah marka aysan xaalad degdeg ah ahayn?",
 "o": [
 "112",
 "118",
-"0800",
+"100",
 "116 117"
 ],
 "e": "Lambarka talobixinta caafimaadka 116 117 wuxuu talo ka bixiyaa xanuunnada iyo dhaawacyada degdegga ah ee aan nolosha khatar gelin."
@@ -46,7 +46,7 @@
 "e": "Run. Madax-bannaanida maxkamaduhu waa mabda' aasaasi ah oo ka mid ah dawladda sharciga."
 },
 "ar06": {
-"q": "Kiis dembiyeed caadi ahaan sidee buu u socdaa?",
+"q": "Kiis dembiyeed caadi ahaan marxaladihiisu sidee bay isugu xigaan?",
 "o": [
 "Maxkamad – boolis – xeer-ilaaliye",
 "Xeer-ilaaliye – maxkamad – boolis",
@@ -74,38 +74,38 @@
 "e": "Saacadaha shaqada caadiga ahi waa ugu badnaan 8 saacadood maalintii iyo 40 saacadood toddobaadkii. Saacadaha dheeraadka ah waxaa lagu bixiyaa mushahar ka badan."
 },
 "ar10": {
-"q": "Markaad u guurto guri cusub, maxaad samaynaysaa ugu dambayn hal toddobaad gudihiis?",
+"q": "Markaad u guurto guri cusub, maxaa waajib kugu ah inaad samayso hal toddobaad gudihiis?",
 "o": [
 "Ogeysiinta guuritaanka",
 "Codsiga baasaboor cusub",
 "U sheegidda booliska",
 "Beddelidda bangiga"
 ],
-"e": "Ogeysiinta guuritaanka waa in la sameeyaa ugu dambayn hal toddobaad guuritaanka kadib. Waxay gaartaa Hay'adda Adeegyada Dijitaalka iyo Xogta Dadweynaha iyo hay'ado kale."
+"e": "Ogeysiinta guuritaanka waa in la sameeyaa ugu dambayn hal toddobaad guuritaanka kadib. Waxaa loo gudbiyaa Hay'adda Adeegyada Dijitaalka iyo Xogta Dadweynaha (DVV), macluumaadkuna wuxuu sidoo kale gaaraa hay'ado kale."
 },
 "ar11": {
-"q": "Maxuu oggol yahay «xaqa qof walba» (jokamiehenoikeus)?",
+"q": "Muxuu «xaqa qof walba» (jokamiehenoikeus) kuu oggolaanayaa?",
 "o": [
 "Gooynta geedaha kaynta qof kale",
 "Toddobaadyo ku noolaanshaha barxadda qof kale",
 "Ugaarsi ogolaansho la'aan",
 "Gurashada miraha duurka iyo boqoshaada"
 ],
-"e": "«Xaqa qof walba» wuxuu oggol yahay tusaale ahaan socodka dabeecadda iyo gurashada miraha iyo boqoshaada. Geedo lama goyn karo, lamana dhibi karo nabadda guriga dadka kale."
+"e": "«Xaqa qof walba» wuxuu kuu oggolaanayaa tusaale ahaan ku socodka dabeecadda iyo gurashada miraha iyo boqoshaada. Geedo lama goyn karo, lamana dhibi karo nabadda guriga dadka kale."
 },
 "ar12": {
-"q": "Sannadkee ayay waxbarashada qasabka ah ee ilmuhu bilaabataa?",
+"q": "Caadi ahaan sannadkee ayay waxbarashada qasabka ahi bilaabataa?",
 "o": [
 "Sannadka ilmuhu gaaro 5 jir",
 "Sannadka ilmuhu gaaro 6 jir",
 "Sannadka ilmuhu gaaro 7 jir",
 "Sannadka ilmuhu gaaro 8 jir"
 ],
-"e": "Waxbarashada qasabka ahi waxay bilaabataa sannadka ilmuhu gaaro toddoba jir. Kahor, ilmuhu wuxuu sannad qaataa waxbarasho dugsi-hore ah."
+"e": "Caadi ahaan waxbarashada qasabka ahi waxay bilaabataa sannadka ilmuhu gaaro toddoba jir. Kahor, ilmuhu wuxuu sannad qaataa waxbarasho dugsi-hore ah."
 },
 "ar13": {
 "q": "Ardayda dugsiga aasaasiga ah waxay helaan cunto dugsi oo bilaash ah.",
-"e": "Run. Finland waxay ardayda oo dhan siisay cunto dugsi oo bilaash ah tan iyo 1940-meeyadii."
+"e": "Run. Tan iyo 1948, dhammaan ardayda Finland waxay helaan cunto dugsi oo bilaash ah."
 },
 "ar14": {
 "q": "Waa maxay «neuvola»?",
@@ -119,7 +119,7 @@
 },
 "ar15": {
 "q": "Gaadiidka matoorka leh waa inay leeyihiin caymiska gaadiidka (caymiska dhinac saddexaad).",
-"e": "Run. Caymiska gaadiidku waa qasab. Caymiska gurigu waa ikhtiyaari, inkastoo milkiilayaashu ay inta badan u baahdaan."
+"e": "Run. Caymiska gaadiidku waa qasab. Caymiska gurigu waa ikhtiyaari, inkastoo milkiilayaasha guryaha kirada ahi ay inta badan shardi ka dhigaan."
 },
 "ar16": {
 "q": "Finland, xadka khamriga dhiigga ee wadista sakhraanka waa imisa?",
@@ -177,14 +177,14 @@
 "q": "Muxuu ahaa xaalka Finland 1809 ilaa 1917?",
 "o": [
 "Qayb ka mid ah Iswiidhan",
-"Dugsi-boqortooyo (Grand Duchy) is-xukuma oo ka tirsan Boqortooyada Ruushka",
+"Amiirnimo weyn (Grand Duchy) oo is-xukuma oo ka tirsan Imbaraadooriyadda Ruushka",
 "Jamhuuriyad madax-bannaan",
 "Qayb ka mid ah Jarmalka"
 ],
-"e": "1809, Finland waxay noqotay dugsi-boqortooyo is-xukuma oo ka tirsan Boqortooyada Ruushka. Finland waxay lahayd sharciyo iyo maamul u gaar ah."
+"e": "Sannadkii 1809, Finland waxay noqotay Amiirnimo weyn (Grand Duchy) oo is-xukuma oo ka tirsan Imbaraadooriyadda Ruushka. Finland waxay lahayd sharciyo iyo maamul u gaar ah."
 },
 "hi03": {
-"q": "Kahor 1809, Finland waxay qayb ka ahayd boqortooyadee?",
+"q": "Kahor 1809, boqollaal sano qaybta ugu badan ee Finland waxay ka tirsanayd boqortooyadee?",
 "o": [
 "Iswiidhan",
 "Ruushka",
@@ -201,7 +201,7 @@
 "Ciyaaraha Olombikada",
 "Dagaal sokeeye"
 ],
-"e": "1918, Finland waxaa ka dhacay dagaal sokeeye oo u dhexeeyay «Cascaasta» iyo «Caddaanka». Dagaalku wuxuu bulshada ku reebay raad qoto dheer."
+"e": "Sannadkii 1918, Finland waxaa ka dhacay dagaal sokeeye oo u dhexeeyay «Kuwa Cas» iyo «Kuwa Cad». Dagaalku wuxuu bulshada ku reebay raad qoto dheer."
 },
 "hi05": {
 "q": "Dagaalkii Jiilaalka 1939–1940, Finland yay la dagaallantay?",
@@ -231,10 +231,10 @@
 "1945",
 "1971"
 ],
-"e": "1906, haweenka Finland waxay ahaayeen kuwii ugu horreeyay Yurub ee hela xaqa codbixinta iyo isu-taagidda labadaba. Xildhibaannadii ugu horreeyay ee dumar ah waxaa la doortay 1907."
+"e": "Sannadkii 1906, haweenka Finland waxay ahaayeen kuwii ugu horreeyay Yurub ee hela xaqa codbixinta iyo isu-taagidda labadaba. Xildhibaannadii ugu horreeyay ee dumar ah waxaa la doortay 1907."
 },
 "hi08": {
-"q": "Yaa ururiyay suugaanta qaranka Finland ee «Kalevala»?",
+"q": "Yaa ururiyay maanso-halyeeyeedka qaranka Finland, «Kalevala»?",
 "o": [
 "Jean Sibelius",
 "Aleksis Kivi",
@@ -281,7 +281,7 @@
 "Shir madaxeed NATO",
 "Shirkii aasaasidda Midowga Yurub"
 ],
-"e": "1975, dukumentiga kama dambaysta ah ee CSCE waxaa lagu saxiixay Helsinki. Shirku wuxuu muhiim ahaa xilligii Dagaalkii Qaboobaa."
+"e": "Sannadkii 1975, dukumentiga kama dambaysta ah ee CSCE waxaa lagu saxiixay Helsinki. Shirku wuxuu muhiim ahaa xilligii Dagaalkii Qaboobaa."
 },
 "hi13": {
 "q": "Sannadkee ayay Finland ku biirtay Qaramada Midoobay?",
@@ -314,8 +314,8 @@
 "e": "Dugsiga aasaasiga ah waxaa si tartiib ah loo bilaabay 1970-meeyadii. Wuxuu beddelay kala qaybintii hore ee dugsiga dadweynaha iyo dugsiga sare."
 },
 "hi16": {
-"q": "Dagaalkii Labaad ee Adduunka kadib, Finland waxay bixisay dhulal, boqollaal kun oo Kareliyaan ahna waxay u guureen meelo kale oo Finland ah.",
-"e": "Run. Qiyaastii 400 000 qof ayaa ka guuray dhulalkii la bixiyay. Waxaa la dejiyay meelo kale oo Finland ah."
+"q": "Dagaalkii Jiilaalka iyo Dagaalkii Sii-wadista kadib, Finland waxaa lagu qasbay inay dhulal siiso Midowgii Soofiyeeti. Boqollaal kun oo qof, oo badankoodu Kareliyaan ahaayeen, ayaa u guuray meelo kale oo Finland ah.",
+"e": "Run. Qiyaastii 430 000 qof ayaa ka guuray dhulalkii la bixiyay. Waxaa la dejiyay meelo kale oo Finland ah."
 },
 "hi17": {
 "q": "Calanka Finland sidee buu u eg yahay?",
@@ -389,7 +389,7 @@
 },
 "ku04": {
 "q": "Dhaqanka sauna-da Finland wuxuu ku jiraa liiska UNESCO ee dhaxalka dhaqanka aan la taaban karin.",
-"e": "Run. Dhaqanka sauna-da Finland waxaa lagu daray liiska UNESCO 2020."
+"e": "Run. Dhaqanka sauna-da Finland waxaa lagu daray liiska UNESCO sannadkii 2020."
 },
 "ku05": {
 "q": "Dadkee ayaa ah dadka asalka ah ee keliya ee Midowga Yurub?",
@@ -409,7 +409,7 @@
 "Pentecostal-ka iyo Baptist-ka",
 "Kaatooligga iyo Ortodokska"
 ],
-"e": "Meesha kaniisadda Lutheran-ka Injiilka iyo kaniisadda Ortodokska waxaa lagu qeexay sharciyo gaar ah. Hase yeeshee Finland waxaa ka jirta xorriyadda diinta."
+"e": "Maqaamka kaniisadda Lutheran-ka Injiilka iyo kaniisadda Ortodokska waxaa lagu qeexay sharciyo gaar ah. Hase yeeshee Finland waxaa ka jirta xorriyadda diinta."
 },
 "ku07": {
 "q": "Maalintee ayaa ah maalinta ugu muhiimsan ee Kirismaska reer Finland?",
@@ -444,12 +444,12 @@
 "ku10": {
 "q": "Waa maxay ubaxa qaranka Finland?",
 "o": [
-"Ubaxa rose",
-"Tulip",
+"Ubaxa warda (rose)",
+"Ubaxa tulib (tulip)",
 "Ubaxa beerka (liverleaf)",
-"Lily of the valley"
+"Ubaxa liili-dooxada (lily of the valley)"
 ],
-"e": "Lily of the valley waxaa loo doortay ubaxa qaranka Finland 1967."
+"e": "Ubaxa liili-dooxada (lily of the valley) waxaa loo doortay ubaxa qaranka Finland sannadkii 1967."
 },
 "ku11": {
 "q": "Ciyaartee ayaa loo yaqaan ciyaarta qaranka Finland?",
@@ -469,7 +469,7 @@
 "Tove Jansson",
 "Minna Canth"
 ],
-"e": "Tove Jansson waxay ahayd qoraa iyo farshaxan Finnish ah oo ku hadasha Iswiidhish, waxayna abuurtay Moomin-ka."
+"e": "Tove Jansson waxay ahayd qoraa iyo farshaxanyahan Finnish ah oo ku hadasha Iswiidhish, waxayna abuurtay Moomin-ka."
 },
 "ku13": {
 "q": "Waa maxay caasimadda Finland?",
@@ -479,7 +479,7 @@
 "Tampere",
 "Espoo"
 ],
-"e": "Helsinki waa caasimadda Finland. Turku ayaa caasimad ahayd kahor 1812."
+"e": "Helsinki waa caasimadda Finland tan iyo 1812. Kahor, Turku waxay ahayd magaalada ugu muhiimsan iyo xarunta maamulka Finland."
 },
 "ku14": {
 "q": "Qiyaastii imisa qof ayaa ku nool Finland?",
@@ -489,7 +489,7 @@
 "10 milyan",
 "15 milyan"
 ],
-"e": "Finland waxaa ku nool qiyaastii 5.6 milyan oo qof."
+"e": "Finland waxaa ku nool wax yar oo ka badan 5.6 milyan oo qof."
 },
 "ku15": {
 "q": "Yaa qoray buugga sheekada «Toddobada Walaalaha»?",
@@ -512,7 +512,7 @@
 "e": "Qiyaastii 5% dadka Finland afkooda hooyo waa Iswiidhish, gaar ahaan xeebaha iyo Åland."
 },
 "ku17": {
-"q": "Roma-du waxay ku noolaayeen Finland qiyaastii 500 sano.",
+"q": "Roma-du muddo qiyaastii 500 sano ah ayay Finland ku nool yihiin.",
 "e": "Run. Roma-du waxay Finland ku noolaayeen tan iyo qarnigii 16aad. Waa mid ka mid ah dadka laga tirada badan yahay ee dhaqan ahaan Finland ku nool."
 },
 "ku18": {
@@ -569,7 +569,7 @@
 "listen": "Dhegayso",
 "next": "Xiga",
 "finish": "Dhammee",
-"back": "Bilowga",
+"back": "Ku noqo bilowga",
 "right": "Waa sax.",
 "wrong": "Ma aha sax.",
 "correctIs": "Jawaabta saxda ah:",
@@ -590,7 +590,7 @@
 "noMistakes": "Weli khalad lama kaydin. Marka hore ku tababbaro mawduuc.",
 "search": "Raadi eray (Finnish ama Soomaali)",
 "noVoice": "Codka Finnish-ka laguma helin qalabkan.",
-"foot": "Koevalmis waa adeeg tababar oo madax-bannaan. Ma bixiso Hay'adda Socdaalka Finland (Migri) ama hay'ad dawladeed oo kale. Mawduucyada imtixaanka waxaa lagu qeexay sharciga dhalashada ee la beddelay: sharciyada muhiimka ah, xuquuqda aasaasiga ah iyo xuquuqda aadanaha, takoor-la'aanta, sinnaanta jinsiga, iyo taariikhda iyo dhaqanka Finland."
+"foot": "Koevalmis waa adeeg tababar oo madax-bannaan. Ma aha adeeg ay bixiso Hay'adda Socdaalka Finland (Migri) ama hay'ad dawladeed oo kale. Mawduucyada imtixaanka waxaa lagu qeexay sharciga dhalashada ee la beddelay: sharciyada muhiimka ah, xuquuqda aasaasiga ah iyo xuquuqda aadanaha, takoor-la'aanta, sinnaanta jinsiga, iyo taariikhda iyo dhaqanka Finland."
 },
 "glossary": {
 "perustuslaki": "dastuur",
@@ -651,9 +651,9 @@
 "alkuperäiskansa": "dad asal ah",
 "vähemmistö": "dad laga tirada badan yahay",
 "itsenäisyys": "xorriyad",
-"suuriruhtinaskunta": "dugsi-boqortooyo (grand duchy)",
+"suuriruhtinaskunta": "amiirnimo weyn (grand duchy)",
 "sisällissota": "dagaal sokeeye",
-"kansalliseepos": "suugaanta qaranka",
+"kansalliseepos": "maanso-halyeeyeed qaran (national epic)",
 "liputuspäivä": "maalinta calanka",
 "suostumus": "oggolaansho",
 "lähisuhdeväkivalta": "rabshadda qoyska"

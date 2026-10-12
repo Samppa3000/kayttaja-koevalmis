@@ -1,65 +1,488 @@
 [
-{"id":"va01","t":"valtio","type":"mc","a":1,
- "fi":{"q":"Kenellä on Suomessa valtiovalta perustuslain mukaan?","o":["Presidentillä","Kansalla","Hallituksella","Armeijalla"],"e":"Perustuslain mukaan valtiovalta kuuluu kansalle, jota edustaa eduskunta."},
- "en":{"q":"According to the Constitution, who holds state power in Finland?","o":["The President","The people","The Government","The army"],"e":"Under the Constitution, state power belongs to the people, who are represented by Parliament."}},
-{"id":"va02","t":"valtio","type":"mc","a":2,
- "fi":{"q":"Montako kansanedustajaa eduskunnassa on?","o":["100","150","200","250"],"e":"Eduskunnassa on 200 kansanedustajaa."},
- "en":{"q":"How many Members of Parliament are there?","o":["100","150","200","250"],"e":"The Finnish Parliament has 200 members."}},
-{"id":"va03","t":"valtio","type":"mc","a":1,
- "fi":{"q":"Kuinka usein eduskuntavaalit järjestetään?","o":["Joka toinen vuosi","Joka neljäs vuosi","Joka viides vuosi","Joka kuudes vuosi"],"e":"Eduskuntavaalit järjestetään neljän vuoden välein."},
- "en":{"q":"How often are parliamentary elections held?","o":["Every two years","Every four years","Every five years","Every six years"],"e":"Parliamentary elections are held every four years."}},
-{"id":"va04","t":"valtio","type":"mc","a":2,
- "fi":{"q":"Kuinka pitkä on tasavallan presidentin toimikausi?","o":["4 vuotta","5 vuotta","6 vuotta","8 vuotta"],"e":"Presidentti valitaan kuudeksi vuodeksi. Sama henkilö voi olla presidenttinä enintään kaksi peräkkäistä kautta."},
- "en":{"q":"How long is the President's term of office?","o":["4 years","5 years","6 years","8 years"],"e":"The President is elected for six years. The same person can serve at most two consecutive terms."}},
-{"id":"va05","t":"valtio","type":"mc","a":0,
- "fi":{"q":"Kuka säätää Suomen lait?","o":["Eduskunta","Presidentti yksin","Korkein oikeus","Poliisi"],"e":"Eduskunta säätää lait. Se myös päättää valtion budjetista."},
- "en":{"q":"Who makes the laws in Finland?","o":["Parliament","The President alone","The Supreme Court","The police"],"e":"Parliament makes the laws. It also decides on the state budget."}},
-{"id":"va06","t":"valtio","type":"mc","a":3,
- "fi":{"q":"Kuka johtaa Suomen hallitusta eli valtioneuvostoa?","o":["Presidentti","Eduskunnan puhemies","Oikeuskansleri","Pääministeri"],"e":"Pääministeri johtaa valtioneuvostoa. Hallituksen on nautittava eduskunnan luottamusta."},
- "en":{"q":"Who leads the Finnish Government (Council of State)?","o":["The President","The Speaker of Parliament","The Chancellor of Justice","The Prime Minister"],"e":"The Prime Minister leads the Government. The Government must have the confidence of Parliament."}},
-{"id":"va07","t":"valtio","type":"tf","a":0,
- "fi":{"q":"Vaaleissa äänestäminen on salaista. Kenenkään ei tarvitse kertoa, ketä äänesti.","e":"Totta. Vaalisalaisuus suojaa äänestäjää. Kukaan ei saa painostaa sinua kertomaan valintaasi."},
- "en":{"q":"Voting in elections is secret. Nobody has to tell who they voted for.","e":"True. Ballot secrecy protects voters. No one may pressure you to reveal your choice."}},
-{"id":"va08","t":"valtio","type":"mc","a":1,
- "fi":{"q":"Kuinka vanha pitää olla, että saa äänestää eduskuntavaaleissa?","o":["16 vuotta","18 vuotta","20 vuotta","21 vuotta"],"e":"Eduskuntavaaleissa saa äänestää Suomen kansalainen, joka on täyttänyt 18 vuotta viimeistään vaalipäivänä."},
- "en":{"q":"How old must you be to vote in parliamentary elections?","o":["16","18","20","21"],"e":"Finnish citizens who are 18 at the latest on election day may vote in parliamentary elections."}},
-{"id":"va09","t":"valtio","type":"tf","a":0,
- "fi":{"q":"Kuntavaaleissa voi tietyin edellytyksin äänestää myös henkilö, joka ei ole Suomen kansalainen.","e":"Totta. Ulkomaan kansalainen voi äänestää kuntavaaleissa, jos hänen kotikuntansa on Suomessa ja laissa säädetyt edellytykset täyttyvät."},
- "en":{"q":"Under certain conditions, a person who is not a Finnish citizen can vote in municipal elections.","e":"True. A foreign citizen can vote in municipal elections if their municipality of residence is in Finland and the legal conditions are met."}},
-{"id":"va10","t":"valtio","type":"mc","a":2,
- "fi":{"q":"Minä vuonna Suomesta tuli Euroopan unionin jäsen?","o":["1975","1989","1995","2004"],"e":"Suomi liittyi Euroopan unioniin vuonna 1995."},
- "en":{"q":"In which year did Finland become a member of the European Union?","o":["1975","1989","1995","2004"],"e":"Finland joined the European Union in 1995."}},
-{"id":"va11","t":"valtio","type":"mc","a":3,
- "fi":{"q":"Minä vuonna Suomesta tuli Naton jäsen?","o":["1995","2002","2017","2023"],"e":"Suomi liittyi puolustusliitto Natoon vuonna 2023."},
- "en":{"q":"In which year did Finland become a member of NATO?","o":["1995","2002","2017","2023"],"e":"Finland joined the NATO defence alliance in 2023."}},
-{"id":"va12","t":"valtio","type":"mc","a":1,
- "fi":{"q":"Mitkä ovat Suomen kansalliskielet?","o":["Suomi ja englanti","Suomi ja ruotsi","Suomi ja saame","Suomi, ruotsi ja venäjä"],"e":"Perustuslain mukaan Suomen kansalliskielet ovat suomi ja ruotsi."},
- "en":{"q":"What are Finland's national languages?","o":["Finnish and English","Finnish and Swedish","Finnish and Sami","Finnish, Swedish and Russian"],"e":"According to the Constitution, Finland's national languages are Finnish and Swedish."}},
-{"id":"va13","t":"valtio","type":"mc","a":2,
- "fi":{"q":"Kuka järjestää sosiaali- ja terveyspalvelut sekä pelastustoimen (Helsinkiä lukuun ottamatta)?","o":["Kunta","Kela","Hyvinvointialue","Valtioneuvosto"],"e":"Vuodesta 2023 alkaen hyvinvointialueet ovat järjestäneet sosiaali- ja terveyspalvelut sekä pelastustoimen. Helsingissä niistä vastaa kaupunki."},
- "en":{"q":"Who organises social and health services and rescue services (except in Helsinki)?","o":["The municipality","Kela","The wellbeing services county","The Government"],"e":"Since 2023, wellbeing services counties have organised social and health services and rescue services. In Helsinki, the city is responsible."}},
-{"id":"va14","t":"valtio","type":"mc","a":0,
- "fi":{"q":"Mikä seuraavista on kunnan tehtävä?","o":["Perusopetus","Puolustusvoimat","Eduskuntavaalien tulos","Ulkopolitiikka"],"e":"Kunta järjestää muun muassa perusopetuksen ja varhaiskasvatuksen. Puolustus ja ulkopolitiikka ovat valtion asioita."},
- "en":{"q":"Which of the following is a task of the municipality?","o":["Basic education","The Defence Forces","The result of parliamentary elections","Foreign policy"],"e":"Municipalities organise, for example, basic education and early childhood education. Defence and foreign policy are state matters."}},
-{"id":"va15","t":"valtio","type":"tf","a":0,
- "fi":{"q":"Ahvenanmaalla on itsehallinto.","e":"Totta. Ahvenanmaa on itsehallinnollinen maakunta, jonka virallinen kieli on ruotsi."},
- "en":{"q":"Åland has self-government.","e":"True. Åland is an autonomous region whose official language is Swedish."}},
-{"id":"va16","t":"valtio","type":"mc","a":1,
- "fi":{"q":"Kuka on Suomen puolustusvoimien ylipäällikkö?","o":["Pääministeri","Tasavallan presidentti","Puolustusministeri","Eduskunnan puhemies"],"e":"Tasavallan presidentti on puolustusvoimien ylipäällikkö. Presidentti johtaa ulkopolitiikkaa yhdessä valtioneuvoston kanssa."},
- "en":{"q":"Who is the Commander-in-Chief of the Finnish Defence Forces?","o":["The Prime Minister","The President of the Republic","The Minister of Defence","The Speaker of Parliament"],"e":"The President is the Commander-in-Chief. The President leads foreign policy together with the Government."}},
-{"id":"va17","t":"valtio","type":"mc","a":2,
- "fi":{"q":"Kenelle voi tehdä kantelun, jos epäilee viranomaisen toimineen lainvastaisesti?","o":["Pääministerille","Kansanedustajalle","Eduskunnan oikeusasiamiehelle","Presidentille"],"e":"Eduskunnan oikeusasiamies valvoo, että viranomaiset noudattavat lakia. Kantelun voi tehdä kuka tahansa, ja se on maksuton."},
- "en":{"q":"Who can you file a complaint with if you suspect an authority has acted unlawfully?","o":["The Prime Minister","A Member of Parliament","The Parliamentary Ombudsman","The President"],"e":"The Parliamentary Ombudsman oversees that authorities follow the law. Anyone can file a complaint, and it is free."}},
-{"id":"va18","t":"valtio","type":"mc","a":1,
- "fi":{"q":"Montako äänioikeutetun Suomen kansalaisen allekirjoitusta kansalaisaloite tarvitsee, jotta eduskunta käsittelee sen?","o":["5 000","50 000","100 000","500 000"],"e":"Kansalaisaloite etenee eduskunnan käsiteltäväksi, jos sen allekirjoittaa vähintään 50 000 äänioikeutettua Suomen kansalaista."},
- "en":{"q":"How many signatures of Finnish citizens entitled to vote does a citizens' initiative need to be considered by Parliament?","o":["5,000","50,000","100,000","500,000"],"e":"A citizens' initiative goes to Parliament if at least 50,000 Finnish citizens entitled to vote sign it."}},
-{"id":"va19","t":"valtio","type":"tf","a":0,
- "fi":{"q":"Suomessa on asevelvollisuus, joka koskee miehiä. Naiset voivat suorittaa asepalveluksen vapaaehtoisesti.","e":"Totta. Asevelvollisuus koskee Suomen kansalaisia miehiä. Naiset voivat hakea vapaaehtoiseen asepalvelukseen."},
- "en":{"q":"Finland has conscription for men. Women can do military service voluntarily.","e":"True. Conscription applies to male Finnish citizens. Women can apply for voluntary military service."}},
-{"id":"va20","t":"valtio","type":"mc","a":3,
- "fi":{"q":"Mikä on Suomen valuutta?","o":["Markka","Kruunu","Dollari","Euro"],"e":"Suomen valuutta on euro. Euroseteleitä ja -kolikoita on käytetty vuodesta 2002."},
- "en":{"q":"What is Finland's currency?","o":["Markka","Krona","Dollar","Euro"],"e":"Finland's currency is the euro. Euro notes and coins have been used since 2002."}},
-{"id":"va21","t":"valtio","type":"tf","a":1,
- "fi":{"q":"Presidentti voi säätää lain yksin ilman eduskuntaa.","e":"Väärin. Lait säätää eduskunta. Presidentti vahvistaa lait, mutta ei voi säätää niitä yksin."},
- "en":{"q":"The President can make a law alone without Parliament.","e":"False. Parliament makes the laws. The President confirms laws but cannot make them alone."}}
+ {
+  "id": "va01",
+  "t": "valtio",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kenellä on Suomessa valtiovalta perustuslain mukaan?",
+   "o": [
+    "Presidentillä",
+    "Kansalla",
+    "Hallituksella",
+    "Armeijalla"
+   ],
+   "e": "Perustuslain mukaan valtiovalta kuuluu kansalle, jota edustaa eduskunta."
+  },
+  "en": {
+   "q": "According to the Constitution, who holds state power in Finland?",
+   "o": [
+    "The President",
+    "The people",
+    "The Government",
+    "The army"
+   ],
+   "e": "Under the Constitution, state power belongs to the people, who are represented by Parliament."
+  }
+ },
+ {
+  "id": "va02",
+  "t": "valtio",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Montako kansanedustajaa eduskunnassa on?",
+   "o": [
+    "100",
+    "150",
+    "200",
+    "250"
+   ],
+   "e": "Eduskunnassa on 200 kansanedustajaa."
+  },
+  "en": {
+   "q": "How many Members of Parliament are there?",
+   "o": [
+    "100",
+    "150",
+    "200",
+    "250"
+   ],
+   "e": "The Finnish Parliament has 200 members."
+  }
+ },
+ {
+  "id": "va03",
+  "t": "valtio",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kuinka usein eduskuntavaalit järjestetään?",
+   "o": [
+    "Joka toinen vuosi",
+    "Joka neljäs vuosi",
+    "Joka viides vuosi",
+    "Joka kuudes vuosi"
+   ],
+   "e": "Eduskuntavaalit järjestetään neljän vuoden välein."
+  },
+  "en": {
+   "q": "How often are parliamentary elections held?",
+   "o": [
+    "Every two years",
+    "Every four years",
+    "Every five years",
+    "Every six years"
+   ],
+   "e": "Parliamentary elections are held every four years."
+  }
+ },
+ {
+  "id": "va04",
+  "t": "valtio",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Kuinka pitkä on tasavallan presidentin toimikausi?",
+   "o": [
+    "4 vuotta",
+    "5 vuotta",
+    "6 vuotta",
+    "8 vuotta"
+   ],
+   "e": "Presidentti valitaan kuudeksi vuodeksi. Sama henkilö voi olla presidenttinä enintään kaksi peräkkäistä kautta."
+  },
+  "en": {
+   "q": "How long is the President's term of office?",
+   "o": [
+    "4 years",
+    "5 years",
+    "6 years",
+    "8 years"
+   ],
+   "e": "The President is elected for six years. The same person can serve at most two consecutive terms."
+  }
+ },
+ {
+  "id": "va05",
+  "t": "valtio",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Kuka säätää Suomen lait?",
+   "o": [
+    "Eduskunta",
+    "Presidentti yksin",
+    "Korkein oikeus",
+    "Poliisi"
+   ],
+   "e": "Eduskunta säätää lait. Se myös päättää valtion budjetista."
+  },
+  "en": {
+   "q": "Who makes the laws in Finland?",
+   "o": [
+    "Parliament",
+    "The President alone",
+    "The Supreme Court",
+    "The police"
+   ],
+   "e": "Parliament makes the laws. It also decides on the state budget."
+  }
+ },
+ {
+  "id": "va06",
+  "t": "valtio",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Kuka johtaa Suomen hallitusta eli valtioneuvostoa?",
+   "o": [
+    "Presidentti",
+    "Eduskunnan puhemies",
+    "Oikeuskansleri",
+    "Pääministeri"
+   ],
+   "e": "Pääministeri johtaa valtioneuvostoa. Hallituksen on nautittava eduskunnan luottamusta."
+  },
+  "en": {
+   "q": "Who leads the Finnish Government (Council of State)?",
+   "o": [
+    "The President",
+    "The Speaker of Parliament",
+    "The Chancellor of Justice",
+    "The Prime Minister"
+   ],
+   "e": "The Prime Minister leads the Government. The Government must have the confidence of Parliament."
+  }
+ },
+ {
+  "id": "va07",
+  "t": "valtio",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Vaaleissa äänestäminen on salaista. Kenenkään ei tarvitse kertoa, ketä äänesti.",
+   "e": "Totta. Vaalisalaisuus suojaa äänestäjää. Kukaan ei saa painostaa sinua kertomaan valintaasi."
+  },
+  "en": {
+   "q": "Voting in elections is secret. Nobody has to tell who they voted for.",
+   "e": "True. Ballot secrecy protects voters. No one may pressure you to reveal your choice."
+  }
+ },
+ {
+  "id": "va08",
+  "t": "valtio",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kuinka vanha pitää olla, että saa äänestää eduskuntavaaleissa?",
+   "o": [
+    "16 vuotta",
+    "18 vuotta",
+    "20 vuotta",
+    "21 vuotta"
+   ],
+   "e": "Eduskuntavaaleissa saa äänestää Suomen kansalainen, joka on täyttänyt 18 vuotta viimeistään vaalipäivänä."
+  },
+  "en": {
+   "q": "How old must you be to vote in parliamentary elections?",
+   "o": [
+    "16",
+    "18",
+    "20",
+    "21"
+   ],
+   "e": "Finnish citizens who are 18 at the latest on election day may vote in parliamentary elections."
+  }
+ },
+ {
+  "id": "va09",
+  "t": "valtio",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Kuntavaaleissa voi tietyin edellytyksin äänestää myös henkilö, joka ei ole Suomen kansalainen.",
+   "e": "Totta. EU-maan, Islannin ja Norjan kansalainen voi äänestää, jos hänen kotikuntansa on Suomessa. Muun maan kansalaisella kotikunnan pitää olla Suomessa vähintään kaksi vuotta."
+  },
+  "en": {
+   "q": "Under certain conditions, a person who is not a Finnish citizen can vote in municipal elections.",
+   "e": "True. Citizens of EU countries, Iceland and Norway can vote if their municipality of residence is in Finland. Citizens of other countries must have had a municipality of residence in Finland for at least two years."
+  }
+ },
+ {
+  "id": "va10",
+  "t": "valtio",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Minä vuonna Suomesta tuli Euroopan unionin jäsen?",
+   "o": [
+    "1975",
+    "1989",
+    "1995",
+    "2004"
+   ],
+   "e": "Suomi liittyi Euroopan unioniin vuonna 1995."
+  },
+  "en": {
+   "q": "In which year did Finland become a member of the European Union?",
+   "o": [
+    "1975",
+    "1989",
+    "1995",
+    "2004"
+   ],
+   "e": "Finland joined the European Union in 1995."
+  }
+ },
+ {
+  "id": "va11",
+  "t": "valtio",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Minä vuonna Suomesta tuli Naton jäsen?",
+   "o": [
+    "1995",
+    "2002",
+    "2017",
+    "2023"
+   ],
+   "e": "Suomi liittyi puolustusliitto Natoon vuonna 2023."
+  },
+  "en": {
+   "q": "In which year did Finland become a member of NATO?",
+   "o": [
+    "1995",
+    "2002",
+    "2017",
+    "2023"
+   ],
+   "e": "Finland joined the NATO defence alliance in 2023."
+  }
+ },
+ {
+  "id": "va12",
+  "t": "valtio",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Mitkä ovat Suomen kansalliskielet?",
+   "o": [
+    "Suomi ja englanti",
+    "Suomi ja ruotsi",
+    "Suomi ja saame",
+    "Suomi, ruotsi ja venäjä"
+   ],
+   "e": "Perustuslain mukaan Suomen kansalliskielet ovat suomi ja ruotsi."
+  },
+  "en": {
+   "q": "What are Finland's national languages?",
+   "o": [
+    "Finnish and English",
+    "Finnish and Swedish",
+    "Finnish and Sami",
+    "Finnish, Swedish and Russian"
+   ],
+   "e": "According to the Constitution, Finland's national languages are Finnish and Swedish."
+  }
+ },
+ {
+  "id": "va13",
+  "t": "valtio",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Kuka järjestää sosiaali- ja terveyspalvelut sekä pelastustoimen? (Helsinki on poikkeus.)",
+   "o": [
+    "Kunta",
+    "Kela",
+    "Hyvinvointialue",
+    "Valtioneuvosto"
+   ],
+   "e": "Vuodesta 2023 alkaen hyvinvointialueet ovat järjestäneet sosiaali- ja terveyspalvelut sekä pelastustoimen. Helsingissä niistä vastaa kaupunki."
+  },
+  "en": {
+   "q": "Who organises social and health services and rescue services? (Helsinki is an exception.)",
+   "o": [
+    "The municipality",
+    "Kela",
+    "The wellbeing services county",
+    "The Government"
+   ],
+   "e": "Since 2023, wellbeing services counties have organised social and health services and rescue services. In Helsinki, the city is responsible."
+  }
+ },
+ {
+  "id": "va14",
+  "t": "valtio",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Mikä seuraavista on kunnan tehtävä?",
+   "o": [
+    "Perusopetus",
+    "Puolustusvoimat",
+    "Rajavalvonta",
+    "Ulkopolitiikka"
+   ],
+   "e": "Kunta järjestää muun muassa perusopetuksen ja varhaiskasvatuksen. Puolustus ja ulkopolitiikka ovat valtion asioita."
+  },
+  "en": {
+   "q": "Which of the following is a task of the municipality?",
+   "o": [
+    "Basic education",
+    "The Defence Forces",
+    "Border control",
+    "Foreign policy"
+   ],
+   "e": "Municipalities organise, for example, basic education and early childhood education. Defence and foreign policy are state matters."
+  }
+ },
+ {
+  "id": "va15",
+  "t": "valtio",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Ahvenanmaalla on itsehallinto.",
+   "e": "Totta. Ahvenanmaa on itsehallinnollinen maakunta, jonka virallinen kieli on ruotsi."
+  },
+  "en": {
+   "q": "Åland has self-government.",
+   "e": "True. Åland is an autonomous region whose official language is Swedish."
+  }
+ },
+ {
+  "id": "va16",
+  "t": "valtio",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kuka on Suomen puolustusvoimien ylipäällikkö?",
+   "o": [
+    "Pääministeri",
+    "Tasavallan presidentti",
+    "Puolustusministeri",
+    "Eduskunnan puhemies"
+   ],
+   "e": "Tasavallan presidentti on puolustusvoimien ylipäällikkö. Presidentti johtaa ulkopolitiikkaa yhdessä valtioneuvoston kanssa."
+  },
+  "en": {
+   "q": "Who is the Commander-in-Chief of the Finnish Defence Forces?",
+   "o": [
+    "The Prime Minister",
+    "The President of the Republic",
+    "The Minister of Defence",
+    "The Speaker of Parliament"
+   ],
+   "e": "The President is the Commander-in-Chief. The President leads foreign policy together with the Government."
+  }
+ },
+ {
+  "id": "va17",
+  "t": "valtio",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Kenelle voi tehdä kantelun, jos epäilee viranomaisen toimineen lainvastaisesti?",
+   "o": [
+    "Pääministerille",
+    "Kansanedustajalle",
+    "Eduskunnan oikeusasiamiehelle",
+    "Presidentille"
+   ],
+   "e": "Eduskunnan oikeusasiamies valvoo, että viranomaiset noudattavat lakia. Kantelun voi tehdä kuka tahansa, ja se on maksuton."
+  },
+  "en": {
+   "q": "Who can you file a complaint with if you suspect an authority has acted unlawfully?",
+   "o": [
+    "The Prime Minister",
+    "A Member of Parliament",
+    "The Parliamentary Ombudsman",
+    "The President"
+   ],
+   "e": "The Parliamentary Ombudsman ensures that authorities comply with the law. Anyone can file a complaint, and it is free."
+  }
+ },
+ {
+  "id": "va18",
+  "t": "valtio",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kansalaisaloite menee eduskunnan käsiteltäväksi, jos sillä on tarpeeksi allekirjoituksia. Montako allekirjoitusta tarvitaan?",
+   "o": [
+    "5 000",
+    "50 000",
+    "100 000",
+    "500 000"
+   ],
+   "e": "Vähintään 50 000 äänioikeutetun Suomen kansalaisen pitää allekirjoittaa aloite kuuden kuukauden aikana."
+  },
+  "en": {
+   "q": "A citizens' initiative goes to Parliament if it has enough signatures. How many signatures are needed?",
+   "o": [
+    "5,000",
+    "50,000",
+    "100,000",
+    "500,000"
+   ],
+   "e": "At least 50,000 Finnish citizens entitled to vote must sign the initiative within six months."
+  }
+ },
+ {
+  "id": "va19",
+  "t": "valtio",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Suomessa on asevelvollisuus, joka koskee miehiä. Naiset voivat suorittaa asepalveluksen vapaaehtoisesti.",
+   "e": "Totta. Asevelvollisuus koskee miehiä, jotka ovat Suomen kansalaisia. Naiset voivat hakea vapaaehtoiseen asepalvelukseen."
+  },
+  "en": {
+   "q": "Finland has conscription for men. Women can do military service voluntarily.",
+   "e": "True. Conscription applies to male Finnish citizens. Women can apply for voluntary military service."
+  }
+ },
+ {
+  "id": "va20",
+  "t": "valtio",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Mikä on Suomen valuutta?",
+   "o": [
+    "Markka",
+    "Kruunu",
+    "Dollari",
+    "Euro"
+   ],
+   "e": "Suomen valuutta on euro. Euroseteleitä ja -kolikoita on käytetty vuodesta 2002."
+  },
+  "en": {
+   "q": "What is Finland's currency?",
+   "o": [
+    "Markka",
+    "Krona",
+    "Dollar",
+    "Euro"
+   ],
+   "e": "Finland's currency is the euro. Euro notes and coins have been used since 2002."
+  }
+ },
+ {
+  "id": "va21",
+  "t": "valtio",
+  "type": "tf",
+  "a": 1,
+  "fi": {
+   "q": "Presidentti voi säätää lain yksin ilman eduskuntaa.",
+   "e": "Väärin. Lait säätää eduskunta. Presidentti vahvistaa lait, mutta ei voi säätää niitä yksin."
+  },
+  "en": {
+   "q": "The President can make a law alone without Parliament.",
+   "e": "False. Parliament makes the laws. The President confirms laws but cannot make them alone."
+  }
+ }
 ]

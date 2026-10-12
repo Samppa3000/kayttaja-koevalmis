@@ -1,56 +1,338 @@
 [
-{"id":"ta01","t":"tasaarvo","type":"mc","a":3,
- "fi":{"q":"Millä perusteella ihmistä EI saa syrjiä yhdenvertaisuuslain mukaan?","o":["Iän","Uskonnon","Vammaisuuden","Kaikkien edellä mainittujen"],"e":"Yhdenvertaisuuslaki kieltää syrjinnän esimerkiksi iän, alkuperän, kansalaisuuden, kielen, uskonnon, vakaumuksen, mielipiteen, terveydentilan, vammaisuuden ja seksuaalisen suuntautumisen perusteella."},
- "en":{"q":"On which grounds must a person NOT be discriminated against under the Non-Discrimination Act?","o":["Age","Religion","Disability","All of the above"],"e":"The Non-Discrimination Act prohibits discrimination based on, for example, age, origin, nationality, language, religion, belief, opinion, health, disability and sexual orientation."}},
-{"id":"ta02","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Naisille ja miehille on maksettava samasta tai samanarvoisesta työstä sama palkka.","e":"Totta. Tasa-arvolaki kieltää palkkasyrjinnän sukupuolen perusteella."},
- "en":{"q":"Women and men must be paid the same for the same work or work of equal value.","e":"True. The Equality Act prohibits pay discrimination based on gender."}},
-{"id":"ta03","t":"tasaarvo","type":"tf","a":1,
- "fi":{"q":"Työnantaja saa jättää naisen palkkaamatta, koska tämä on raskaana.","e":"Väärin. Raskauteen tai perhevapaaseen perustuva syrjintä on tasa-arvolain mukaan kiellettyä."},
- "en":{"q":"An employer may refuse to hire a woman because she is pregnant.","e":"False. Discrimination based on pregnancy or family leave is prohibited under the Equality Act."}},
-{"id":"ta04","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Suomessa kaksi samaa sukupuolta olevaa ihmistä voi solmia avioliiton.","e":"Totta. Avioliittolaki on ollut sukupuolineutraali vuodesta 2017."},
- "en":{"q":"In Finland, two people of the same sex can marry.","e":"True. The Marriage Act has been gender-neutral since 2017."}},
-{"id":"ta05","t":"tasaarvo","type":"mc","a":1,
- "fi":{"q":"Kenen puoleen voi kääntyä, jos kokee syrjintää esimerkiksi palveluissa tai koulussa?","o":["Puolustusvoimien","Yhdenvertaisuusvaltuutetun","Verohallinnon","Tullin"],"e":"Yhdenvertaisuusvaltuutettu neuvoo syrjintää kokeneita ja valvoo yhdenvertaisuuslain noudattamista. Työelämän syrjintää valvoo työsuojeluviranomainen."},
- "en":{"q":"Who can you contact if you experience discrimination, for example in services or at school?","o":["The Defence Forces","The Non-Discrimination Ombudsman","The Tax Administration","Customs"],"e":"The Non-Discrimination Ombudsman advises people who have faced discrimination and oversees the Non-Discrimination Act. Discrimination at work is overseen by the occupational safety and health authority."}},
-{"id":"ta06","t":"tasaarvo","type":"mc","a":0,
- "fi":{"q":"Mikä viranomainen valvoo naisten ja miesten välistä tasa-arvoa koskevaa lakia?","o":["Tasa-arvovaltuutettu","Poliisi","Kela","Digi- ja väestötietovirasto"],"e":"Tasa-arvovaltuutettu valvoo tasa-arvolain noudattamista ja neuvoo sukupuoleen perustuvaa syrjintää kokeneita."},
- "en":{"q":"Which authority oversees the law on equality between women and men?","o":["The Ombudsman for Equality","The police","Kela","The Digital and Population Data Services Agency"],"e":"The Ombudsman for Equality oversees the Equality Act and advises people who have faced gender-based discrimination."}},
-{"id":"ta07","t":"tasaarvo","type":"tf","a":1,
- "fi":{"q":"Avioliitossa mies päättää lain mukaan perheen tärkeimmistä asioista.","e":"Väärin. Puolisot ovat avioliitossa tasavertaisia. Kumpikin päättää omista asioistaan, ja yhteisistä asioista päätetään yhdessä."},
- "en":{"q":"In a marriage, the law says the husband decides the family's most important matters.","e":"False. Spouses are equal in marriage. Each decides on their own affairs, and joint matters are decided together."}},
-{"id":"ta08","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Väkivalta parisuhteessa on rikos myös silloin, kun se tapahtuu kotona.","e":"Totta. Lähisuhdeväkivalta on rikos. Apua saa esimerkiksi hätänumerosta 112 ja turvakodeista."},
- "en":{"q":"Violence in a relationship is a crime, also when it happens at home.","e":"True. Domestic violence is a crime. Help is available, for example, through the emergency number 112 and shelters."}},
-{"id":"ta09","t":"tasaarvo","type":"mc","a":2,
- "fi":{"q":"Mihin Suomen rikoslaissa raiskauksen määritelmä perustuu vuodesta 2023 alkaen?","o":["Siihen, käytettiinkö väkivaltaa","Siihen, olivatko ihmiset naimisissa","Suostumuksen puuttumiseen","Uhrin ikään"],"e":"Vuodesta 2023 alkaen raiskaus on määritelty suostumuksen puuttumisen kautta. Seksiin osallistumisen on oltava vapaaehtoista."},
- "en":{"q":"Since 2023, what is the definition of rape in the Finnish Criminal Code based on?","o":["Whether violence was used","Whether the people were married","The lack of consent","The victim's age"],"e":"Since 2023, rape has been defined by the lack of consent. Taking part in sex must be voluntary."}},
-{"id":"ta10","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Työnhakijaa ei saa syrjiä hänen nimensä, ihonvärinsä tai uskontonsa perusteella.","e":"Totta. Syrjintä on kielletty myös rekrytoinnissa. Syrjintä työelämässä voi olla rikos."},
- "en":{"q":"A job applicant must not be discriminated against because of their name, skin colour or religion.","e":"True. Discrimination is also prohibited in recruitment. Discrimination at work can be a crime."}},
-{"id":"ta11","t":"tasaarvo","type":"mc","a":3,
- "fi":{"q":"Kuka oli Suomen ensimmäinen naispresidentti?","o":["Sanna Marin","Minna Canth","Anneli Jäätteenmäki","Tarja Halonen"],"e":"Tarja Halonen oli Suomen presidentti vuosina 2000–2012. Hän oli Suomen ensimmäinen naispresidentti."},
- "en":{"q":"Who was Finland's first female president?","o":["Sanna Marin","Minna Canth","Anneli Jäätteenmäki","Tarja Halonen"],"e":"Tarja Halonen was President of Finland from 2000 to 2012. She was Finland's first female president."}},
-{"id":"ta12","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Tyttären ja pojan perintöoikeus on Suomessa yhtä suuri.","e":"Totta. Lapset perivät vanhempansa yhtä suurin osuuksin sukupuolesta riippumatta."},
- "en":{"q":"In Finland, daughters and sons have equal inheritance rights.","e":"True. Children inherit from their parents in equal shares regardless of gender."}},
-{"id":"ta13","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Tyttöjen ympärileikkaus on Suomessa rikos.","e":"Totta. Tyttöjen ympärileikkaus on rangaistava teko, vaikka se tehtäisiin ulkomailla tai vanhempien luvalla."},
- "en":{"q":"Female genital mutilation is a crime in Finland.","e":"True. Female genital mutilation is a punishable act, even if done abroad or with the parents' permission."}},
-{"id":"ta14","t":"tasaarvo","type":"mc","a":1,
- "fi":{"q":"Mitä tarkoittaa seksuaalinen häirintä työpaikalla Suomen lain mukaan?","o":["Se on sallittua, jos kyse on vitsistä","Se on kiellettyä syrjintää, ja työnantajan on puututtava siihen","Siitä ei saa kertoa kenellekään","Se koskee vain naisia"],"e":"Seksuaalinen häirintä on tasa-arvolaissa kiellettyä syrjintää. Työnantajan on ryhdyttävä toimiin, kun se saa tietää häirinnästä."},
- "en":{"q":"Under Finnish law, what is sexual harassment at work?","o":["Allowed if it is a joke","Prohibited discrimination that the employer must address","Something you must not tell anyone about","Something that only concerns women"],"e":"Sexual harassment is prohibited discrimination under the Equality Act. The employer must act when it learns about harassment."}},
-{"id":"ta15","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Vammaisella henkilöllä on oikeus kohtuullisiin mukautuksiin esimerkiksi työpaikalla ja koulussa.","e":"Totta. Yhdenvertaisuuslain mukaan esimerkiksi työnantajan ja oppilaitoksen on tehtävä kohtuulliset mukautukset, jotta vammainen henkilö voi toimia yhdenvertaisesti."},
- "en":{"q":"A person with a disability has the right to reasonable accommodation, for example at work and at school.","e":"True. Under the Non-Discrimination Act, employers and schools, for example, must make reasonable accommodations so that a person with a disability can take part on an equal basis."}},
-{"id":"ta16","t":"tasaarvo","type":"mc","a":0,
- "fi":{"q":"Kumpi vanhempi voi Suomessa käyttää perhevapaata lapsen syntymän jälkeen?","o":["Kumpi tahansa vanhempi","Vain äiti","Vain isä","Vain se, joka ansaitsee enemmän"],"e":"Molemmilla vanhemmilla on oikeus vanhempainvapaaseen. Perhevapaajärjestelmä uudistettiin vuonna 2022 tasa-arvoisemmaksi."},
- "en":{"q":"Which parent can take family leave after a child is born in Finland?","o":["Either parent","Only the mother","Only the father","Only the one who earns more"],"e":"Both parents have the right to parental leave. The family leave system was reformed in 2022 to make it more equal."}},
-{"id":"ta17","t":"tasaarvo","type":"tf","a":1,
- "fi":{"q":"Kauppa saa kieltäytyä palvelemasta asiakasta tämän etnisen alkuperän vuoksi.","e":"Väärin. Palveluissa syrjintä on kiellettyä. Palvelun epääminen alkuperän perusteella voi olla myös rikos."},
- "en":{"q":"A shop may refuse to serve a customer because of their ethnic origin.","e":"False. Discrimination in services is prohibited. Refusing service because of origin can also be a crime."}},
-{"id":"ta18","t":"tasaarvo","type":"tf","a":0,
- "fi":{"q":"Jokainen saa itse päättää, kenen kanssa menee naimisiin.","e":"Totta. Avioliiton solmiminen edellyttää molempien vapaata tahtoa. Pakkoavioliitto on rikos."},
- "en":{"q":"Everyone decides for themselves whom they marry.","e":"True. Marriage requires the free will of both people. Forced marriage is a crime."}}
+ {
+  "id": "ta01",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Mitä yhdenvertaisuuslaki kieltää?",
+   "o": [
+    "Syrjinnän esimerkiksi iän, uskonnon tai vammaisuuden perusteella",
+    "Vain sukupuoleen perustuvan syrjinnän",
+    "Vain työpaikalla tapahtuvan syrjinnän",
+    "Vain Suomen kansalaisiin kohdistuvan syrjinnän"
+   ],
+   "e": "Yhdenvertaisuuslaki kieltää syrjinnän esimerkiksi iän, alkuperän, kansalaisuuden, kielen, uskonnon, vakaumuksen, mielipiteen, terveydentilan, vammaisuuden ja seksuaalisen suuntautumisen perusteella."
+  },
+  "en": {
+   "q": "What does the Non-Discrimination Act prohibit?",
+   "o": [
+    "Discrimination based on, for example, age, religion or disability",
+    "Only discrimination based on gender",
+    "Only discrimination at the workplace",
+    "Only discrimination against Finnish citizens"
+   ],
+   "e": "The Non-Discrimination Act prohibits discrimination based on, for example, age, origin, nationality, language, religion, belief, opinion, health, disability and sexual orientation."
+  }
+ },
+ {
+  "id": "ta02",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Naisille ja miehille on maksettava samasta tai samanarvoisesta työstä sama palkka.",
+   "e": "Totta. Tasa-arvolaki kieltää palkkasyrjinnän sukupuolen perusteella."
+  },
+  "en": {
+   "q": "Women and men must be paid the same for the same work or work of equal value.",
+   "e": "True. The Equality Act prohibits pay discrimination based on gender."
+  }
+ },
+ {
+  "id": "ta03",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 1,
+  "fi": {
+   "q": "Työnantaja saa jättää naisen palkkaamatta, koska tämä on raskaana.",
+   "e": "Väärin. Raskauteen tai perhevapaaseen perustuva syrjintä on tasa-arvolain mukaan kiellettyä."
+  },
+  "en": {
+   "q": "An employer may refuse to hire a woman because she is pregnant.",
+   "e": "False. Discrimination based on pregnancy or family leave is prohibited under the Equality Act."
+  }
+ },
+ {
+  "id": "ta04",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Suomessa kaksi samaa sukupuolta olevaa ihmistä voi solmia avioliiton.",
+   "e": "Totta. Avioliittolaki on ollut sukupuolineutraali vuodesta 2017."
+  },
+  "en": {
+   "q": "In Finland, two people of the same sex can marry.",
+   "e": "True. The Marriage Act has been gender-neutral since 2017."
+  }
+ },
+ {
+  "id": "ta05",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kenen puoleen voi kääntyä, jos kokee syrjintää esimerkiksi palveluissa tai koulussa?",
+   "o": [
+    "Puolustusvoimien",
+    "Yhdenvertaisuusvaltuutetun",
+    "Verohallinnon",
+    "Tullin"
+   ],
+   "e": "Yhdenvertaisuusvaltuutettu neuvoo syrjintää kokeneita ja valvoo yhdenvertaisuuslain noudattamista. Työelämän syrjintää valvoo myös työsuojeluviranomainen."
+  },
+  "en": {
+   "q": "Who can you contact if you experience discrimination, for example in services or at school?",
+   "o": [
+    "The Defence Forces",
+    "The Non-Discrimination Ombudsman",
+    "The Tax Administration",
+    "Customs"
+   ],
+   "e": "The Non-Discrimination Ombudsman advises people who have faced discrimination and oversees the Non-Discrimination Act. Discrimination at work is also overseen by the occupational safety and health authority."
+  }
+ },
+ {
+  "id": "ta06",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Kuka valvoo tasa-arvolakia, joka koskee naisten ja miesten tasa-arvoa?",
+   "o": [
+    "Tasa-arvovaltuutettu",
+    "Poliisi",
+    "Kela",
+    "Digi- ja väestötietovirasto"
+   ],
+   "e": "Tasa-arvovaltuutettu valvoo tasa-arvolain noudattamista ja neuvoo sukupuoleen perustuvaa syrjintää kokeneita."
+  },
+  "en": {
+   "q": "Which authority oversees the law on equality between women and men?",
+   "o": [
+    "The Ombudsman for Equality",
+    "The police",
+    "Kela",
+    "The Digital and Population Data Services Agency"
+   ],
+   "e": "The Ombudsman for Equality oversees the Equality Act and advises people who have faced gender-based discrimination."
+  }
+ },
+ {
+  "id": "ta07",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 1,
+  "fi": {
+   "q": "Avioliitossa mies päättää lain mukaan perheen tärkeimmistä asioista.",
+   "e": "Väärin. Puolisot ovat avioliitossa tasavertaisia. Kumpikin päättää omista asioistaan, ja yhteisistä asioista päätetään yhdessä."
+  },
+  "en": {
+   "q": "In a marriage, the law says the husband decides the family's most important matters.",
+   "e": "False. Spouses are equal in marriage. Each decides on their own affairs, and joint matters are decided together."
+  }
+ },
+ {
+  "id": "ta08",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Väkivalta parisuhteessa on rikos myös silloin, kun se tapahtuu kotona.",
+   "e": "Totta. Lähisuhdeväkivalta on rikos. Apua saa esimerkiksi hätänumerosta 112 ja turvakodeista."
+  },
+  "en": {
+   "q": "Violence in a relationship is a crime, also when it happens at home.",
+   "e": "True. Domestic violence is a crime. Help is available, for example, through the emergency number 112 and shelters."
+  }
+ },
+ {
+  "id": "ta09",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Mihin Suomen rikoslaissa raiskauksen määritelmä perustuu vuodesta 2023 alkaen?",
+   "o": [
+    "Siihen, käytettiinkö väkivaltaa",
+    "Siihen, olivatko ihmiset naimisissa",
+    "Suostumuksen puuttumiseen",
+    "Uhrin ikään"
+   ],
+   "e": "Vuodesta 2023 alkaen raiskaus on määritelty suostumuksen puuttumisen kautta. Seksiin osallistumisen on oltava vapaaehtoista."
+  },
+  "en": {
+   "q": "Since 2023, what is the definition of rape in the Finnish Criminal Code based on?",
+   "o": [
+    "Whether violence was used",
+    "Whether the people were married",
+    "The lack of consent",
+    "The victim's age"
+   ],
+   "e": "Since 2023, rape has been defined by the lack of consent. Taking part in sex must be voluntary."
+  }
+ },
+ {
+  "id": "ta10",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Työnhakijaa ei saa syrjiä hänen nimensä, ihonvärinsä tai uskontonsa perusteella.",
+   "e": "Totta. Syrjintä on kielletty myös rekrytoinnissa. Syrjintä työelämässä voi olla rikos."
+  },
+  "en": {
+   "q": "A job applicant must not be discriminated against because of their name, skin colour or religion.",
+   "e": "True. Discrimination is also prohibited in recruitment. Discrimination at work can be a crime."
+  }
+ },
+ {
+  "id": "ta11",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Kuka oli Suomen ensimmäinen naispresidentti?",
+   "o": [
+    "Sanna Marin",
+    "Minna Canth",
+    "Anneli Jäätteenmäki",
+    "Tarja Halonen"
+   ],
+   "e": "Tarja Halonen oli Suomen presidentti vuosina 2000–2012. Hän oli Suomen ensimmäinen naispresidentti."
+  },
+  "en": {
+   "q": "Who was Finland's first female president?",
+   "o": [
+    "Sanna Marin",
+    "Minna Canth",
+    "Anneli Jäätteenmäki",
+    "Tarja Halonen"
+   ],
+   "e": "Tarja Halonen was President of Finland from 2000 to 2012. She was Finland's first female president."
+  }
+ },
+ {
+  "id": "ta12",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Tyttären ja pojan perintöoikeus on Suomessa yhtä suuri.",
+   "e": "Totta. Lapset perivät vanhempansa yhtä suurin osuuksin sukupuolesta riippumatta."
+  },
+  "en": {
+   "q": "In Finland, daughters and sons have equal inheritance rights.",
+   "e": "True. Children inherit from their parents in equal shares regardless of gender."
+  }
+ },
+ {
+  "id": "ta13",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Tyttöjen ja naisten sukuelinten silpominen (ympärileikkaus) on Suomessa rikos.",
+   "e": "Totta. Vuodesta 2025 alkaen silpominen on rikoslaissa oma rikoksensa. Se on rangaistava myös, jos se tehdään ulkomailla tai vanhempien luvalla."
+  },
+  "en": {
+   "q": "Female genital mutilation (of girls and women) is a crime in Finland.",
+   "e": "True. Since 2025, female genital mutilation has been a separate crime in the Criminal Code. It is punishable even if done abroad or with the parents' permission."
+  }
+ },
+ {
+  "id": "ta14",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Mitä Suomen laki sanoo seksuaalisesta häirinnästä työpaikalla?",
+   "o": [
+    "Se on sallittua, jos kyse on vitsistä",
+    "Se on kiellettyä syrjintää, ja työnantajan on puututtava siihen",
+    "Siitä ei saa kertoa kenellekään",
+    "Se koskee vain naisia"
+   ],
+   "e": "Seksuaalinen häirintä on tasa-arvolaissa kiellettyä syrjintää. Työnantajan on ryhdyttävä toimiin, kun se saa tietää häirinnästä."
+  },
+  "en": {
+   "q": "What does Finnish law say about sexual harassment at work?",
+   "o": [
+    "Allowed if it is a joke",
+    "Prohibited discrimination that the employer must address",
+    "Something you must not tell anyone about",
+    "Something that only concerns women"
+   ],
+   "e": "Sexual harassment is prohibited discrimination under the Equality Act. The employer must act when it learns about harassment."
+  }
+ },
+ {
+  "id": "ta15",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Vammaisella henkilöllä on oikeus kohtuullisiin mukautuksiin esimerkiksi työpaikalla ja koulussa.",
+   "e": "Totta. Yhdenvertaisuuslain mukaan esimerkiksi työnantajan ja oppilaitoksen on tehtävä kohtuulliset mukautukset, jotta vammainen henkilö voi toimia yhdenvertaisesti."
+  },
+  "en": {
+   "q": "A person with a disability has the right to reasonable accommodation, for example at work and at school.",
+   "e": "True. Under the Non-Discrimination Act, employers and schools, for example, must make reasonable accommodations so that a person with a disability can take part on an equal basis."
+  }
+ },
+ {
+  "id": "ta16",
+  "t": "tasaarvo",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Kumpi vanhempi voi Suomessa käyttää perhevapaata lapsen syntymän jälkeen?",
+   "o": [
+    "Kumpi tahansa vanhempi",
+    "Vain äiti",
+    "Vain isä",
+    "Vain se, joka ansaitsee enemmän"
+   ],
+   "e": "Molemmilla vanhemmilla on oikeus vanhempainvapaaseen. Perhevapaajärjestelmä uudistettiin vuonna 2022 tasa-arvoisemmaksi."
+  },
+  "en": {
+   "q": "Which parent can take family leave after a child is born in Finland?",
+   "o": [
+    "Either parent",
+    "Only the mother",
+    "Only the father",
+    "Only the one who earns more"
+   ],
+   "e": "Both parents have the right to parental leave. The family leave system was reformed in 2022 to make it more equal."
+  }
+ },
+ {
+  "id": "ta17",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 1,
+  "fi": {
+   "q": "Kauppa saa kieltäytyä palvelemasta asiakasta tämän etnisen alkuperän vuoksi.",
+   "e": "Väärin. Palveluissa syrjintä on kiellettyä. Palvelun epääminen alkuperän perusteella voi olla myös rikos."
+  },
+  "en": {
+   "q": "A shop may refuse to serve a customer because of their ethnic origin.",
+   "e": "False. Discrimination in services is prohibited. Refusing service because of origin can also be a crime."
+  }
+ },
+ {
+  "id": "ta18",
+  "t": "tasaarvo",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Jokainen saa itse päättää, kenen kanssa menee naimisiin.",
+   "e": "Totta. Avioliiton solmiminen edellyttää molempien vapaata tahtoa. Pakkoavioliitto on rikos."
+  },
+  "en": {
+   "q": "Everyone decides for themselves whom they marry.",
+   "e": "True. Marriage requires the free will of both people. Forced marriage is a crime."
+  }
+ }
 ]

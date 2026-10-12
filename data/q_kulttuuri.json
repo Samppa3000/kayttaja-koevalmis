@@ -1,62 +1,486 @@
 [
-{"id":"ku01","t":"kulttuuri","type":"mc","a":1,
- "fi":{"q":"Missä kuussa juhlitaan juhannusta?","o":["Toukokuussa","Kesäkuussa","Heinäkuussa","Elokuussa"],"e":"Juhannus on keskikesän juhla kesäkuun lopulla. Silloin poltetaan perinteisesti kokkoja ja vietetään aikaa mökillä."},
- "en":{"q":"In which month is Midsummer (juhannus) celebrated?","o":["May","June","July","August"],"e":"Midsummer is celebrated in late June. People traditionally light bonfires and spend time at summer cottages."}},
-{"id":"ku02","t":"kulttuuri","type":"mc","a":0,
- "fi":{"q":"Mikä juhla on 1. toukokuuta?","o":["Vappu","Juhannus","Itsenäisyyspäivä","Pääsiäinen"],"e":"Vappu on kevään, työn ja opiskelijoiden juhla 1. toukokuuta."},
- "en":{"q":"Which celebration is on 1 May?","o":["Vappu (May Day)","Midsummer","Independence Day","Easter"],"e":"Vappu is a celebration of spring, work and students on 1 May."}},
-{"id":"ku03","t":"kulttuuri","type":"mc","a":2,
- "fi":{"q":"Mikä on itsenäisyyspäivän perinne?","o":["Kokon polttaminen","Vesisota","Kahden kynttilän sytyttäminen ikkunalle","Ilotulitus aamulla"],"e":"Itsenäisyyspäivänä 6.12. moni sytyttää ikkunalle kaksi kynttilää. Illalla presidentti järjestää Linnan juhlat."},
- "en":{"q":"What is an Independence Day tradition?","o":["Lighting a bonfire","A water fight","Lighting two candles in the window","Fireworks in the morning"],"e":"On Independence Day, 6 December, many people light two candles in the window. In the evening the President hosts the Independence Day reception."}},
-{"id":"ku04","t":"kulttuuri","type":"tf","a":0,
- "fi":{"q":"Suomalainen saunakulttuuri on UNESCOn aineettoman kulttuuriperinnön luettelossa.","e":"Totta. Suomalainen saunakulttuuri lisättiin UNESCOn luetteloon vuonna 2020."},
- "en":{"q":"Finnish sauna culture is on UNESCO's list of intangible cultural heritage.","e":"True. Finnish sauna culture was added to the UNESCO list in 2020."}},
-{"id":"ku05","t":"kulttuuri","type":"mc","a":3,
- "fi":{"q":"Mikä kansa on Euroopan unionin ainoa alkuperäiskansa?","o":["Romanit","Suomenruotsalaiset","Tataarit","Saamelaiset"],"e":"Saamelaiset ovat EU:n ainoa alkuperäiskansa. Heitä asuu Suomen, Ruotsin, Norjan ja Venäjän pohjoisosissa."},
- "en":{"q":"Which people are the only indigenous people in the European Union?","o":["The Roma","Swedish-speaking Finns","The Tatars","The Sami"],"e":"The Sami are the only indigenous people in the EU. They live in the northern parts of Finland, Sweden, Norway and Russia."}},
-{"id":"ku06","t":"kulttuuri","type":"mc","a":1,
- "fi":{"q":"Mitkä kaksi kirkkoa ovat Suomessa erityisasemassa?","o":["Katolinen ja anglikaaninen kirkko","Evankelis-luterilainen ja ortodoksinen kirkko","Helluntaiseurakunta ja baptistikirkko","Katolinen ja ortodoksinen kirkko"],"e":"Evankelis-luterilaisen ja ortodoksisen kirkon asemasta säädetään omilla laeillaan. Suomessa vallitsee kuitenkin uskonnonvapaus."},
- "en":{"q":"Which two churches have a special status in Finland?","o":["The Catholic and Anglican churches","The Evangelical Lutheran and Orthodox churches","The Pentecostal and Baptist churches","The Catholic and Orthodox churches"],"e":"The status of the Evangelical Lutheran and Orthodox churches is set out in their own laws. Finland still has freedom of religion."}},
-{"id":"ku07","t":"kulttuuri","type":"mc","a":0,
- "fi":{"q":"Mikä päivä on suomalaisille joulun tärkein juhlapäivä?","o":["Jouluaatto 24.12.","Joulupäivä 25.12.","Tapaninpäivä 26.12.","Uudenvuodenaatto 31.12."],"e":"Suomessa joulua juhlitaan erityisesti jouluaattona 24. joulukuuta."},
- "en":{"q":"Which day is the most important Christmas day for Finns?","o":["Christmas Eve, 24 Dec","Christmas Day, 25 Dec","St Stephen's Day, 26 Dec","New Year's Eve, 31 Dec"],"e":"In Finland, Christmas is celebrated especially on Christmas Eve, 24 December."}},
-{"id":"ku08","t":"kulttuuri","type":"mc","a":2,
- "fi":{"q":"Mitä juhlitaan 28. helmikuuta?","o":["Runebergin päivää","Ystävänpäivää","Kalevalan päivää eli suomalaisen kulttuurin päivää","Naistenpäivää"],"e":"Kalevalan päivä 28.2. on suomalaisen kulttuurin päivä ja liputuspäivä."},
- "en":{"q":"What is celebrated on 28 February?","o":["Runeberg Day","Valentine's Day","Kalevala Day, the day of Finnish culture","Women's Day"],"e":"Kalevala Day on 28 February is the day of Finnish culture and a flag day."}},
-{"id":"ku09","t":"kulttuuri","type":"mc","a":1,
- "fi":{"q":"Mikä on Suomen kansallislintu?","o":["Kotka","Laulujoutsen","Talitiainen","Korppi"],"e":"Laulujoutsen on Suomen kansallislintu. Se näkyy myös Suomen euron kolikossa."},
- "en":{"q":"What is Finland's national bird?","o":["The eagle","The whooper swan","The great tit","The raven"],"e":"The whooper swan is Finland's national bird. It also appears on a Finnish euro coin."}},
-{"id":"ku10","t":"kulttuuri","type":"mc","a":3,
- "fi":{"q":"Mikä on Suomen kansalliskukka?","o":["Ruusu","Tulppaani","Sinivuokko","Kielo"],"e":"Kielo valittiin Suomen kansalliskukaksi vuonna 1967."},
- "en":{"q":"What is Finland's national flower?","o":["The rose","The tulip","The liverleaf","The lily of the valley"],"e":"The lily of the valley was chosen as Finland's national flower in 1967."}},
-{"id":"ku11","t":"kulttuuri","type":"mc","a":0,
- "fi":{"q":"Mitä urheilulajia kutsutaan Suomen kansallispeliksi?","o":["Pesäpalloa","Jääkiekkoa","Jalkapalloa","Salibandya"],"e":"Pesäpallo on suomalainen versio baseballista, ja sitä kutsutaan kansallispeliksi."},
- "en":{"q":"Which sport is called Finland's national game?","o":["Pesäpallo (Finnish baseball)","Ice hockey","Football","Floorball"],"e":"Pesäpallo is a Finnish version of baseball and is called the national game."}},
-{"id":"ku12","t":"kulttuuri","type":"mc","a":2,
- "fi":{"q":"Kuka loi Muumit?","o":["Astrid Lindgren","Mauri Kunnas","Tove Jansson","Minna Canth"],"e":"Tove Jansson oli suomenruotsalainen kirjailija ja taiteilija, joka loi Muumit."},
- "en":{"q":"Who created the Moomins?","o":["Astrid Lindgren","Mauri Kunnas","Tove Jansson","Minna Canth"],"e":"Tove Jansson was a Swedish-speaking Finnish writer and artist who created the Moomins."}},
-{"id":"ku13","t":"kulttuuri","type":"mc","a":1,
- "fi":{"q":"Mikä on Suomen pääkaupunki?","o":["Turku","Helsinki","Tampere","Espoo"],"e":"Helsinki on Suomen pääkaupunki. Turku oli pääkaupunki ennen vuotta 1812."},
- "en":{"q":"What is the capital of Finland?","o":["Turku","Helsinki","Tampere","Espoo"],"e":"Helsinki is the capital of Finland. Turku was the capital before 1812."}},
-{"id":"ku14","t":"kulttuuri","type":"mc","a":1,
- "fi":{"q":"Kuinka monta asukasta Suomessa on noin?","o":["1,5 miljoonaa","5,6 miljoonaa","10 miljoonaa","15 miljoonaa"],"e":"Suomessa on noin 5,6 miljoonaa asukasta."},
- "en":{"q":"Approximately how many people live in Finland?","o":["1.5 million","5.6 million","10 million","15 million"],"e":"Finland has about 5.6 million inhabitants."}},
-{"id":"ku15","t":"kulttuuri","type":"mc","a":0,
- "fi":{"q":"Kuka kirjoitti romaanin Seitsemän veljestä?","o":["Aleksis Kivi","Väinö Linna","Juhani Aho","Sofi Oksanen"],"e":"Aleksis Kiven Seitsemän veljestä (1870) on ensimmäinen merkittävä suomenkielinen romaani."},
- "en":{"q":"Who wrote the novel Seven Brothers?","o":["Aleksis Kivi","Väinö Linna","Juhani Aho","Sofi Oksanen"],"e":"Aleksis Kivi's Seven Brothers (1870) is the first major novel written in Finnish."}},
-{"id":"ku16","t":"kulttuuri","type":"mc","a":2,
- "fi":{"q":"Kuinka suuri osa suomalaisista puhuu äidinkielenään ruotsia?","o":["Alle 1 %","Noin 25 %","Noin 5 %","Noin 50 %"],"e":"Noin 5 % Suomen asukkaista puhuu äidinkielenään ruotsia. Ruotsinkielisiä asuu etenkin rannikolla ja Ahvenanmaalla."},
- "en":{"q":"About what share of people in Finland speak Swedish as their mother tongue?","o":["Less than 1%","About 25%","About 5%","About 50%"],"e":"About 5% of Finland's population speak Swedish as their mother tongue, especially on the coast and in Åland."}},
-{"id":"ku17","t":"kulttuuri","type":"tf","a":0,
- "fi":{"q":"Romanit ovat asuneet Suomessa jo noin 500 vuotta.","e":"Totta. Romaneja on asunut Suomessa 1500-luvulta lähtien. He ovat yksi Suomen perinteisistä vähemmistöistä."},
- "en":{"q":"The Roma have lived in Finland for about 500 years.","e":"True. Roma have lived in Finland since the 16th century. They are one of Finland's traditional minorities."}},
-{"id":"ku18","t":"kulttuuri","type":"mc","a":3,
- "fi":{"q":"Mitä juhlitaan 5. helmikuuta?","o":["Kalevalan päivää","Laskiaista","Ystävänpäivää","Runebergin päivää"],"e":"Runebergin päivänä 5.2. muistetaan kansallisrunoilija Johan Ludvig Runebergia. Silloin syödään usein Runebergin torttuja."},
- "en":{"q":"What is celebrated on 5 February?","o":["Kalevala Day","Shrovetide","Valentine's Day","Runeberg Day"],"e":"Runeberg Day on 5 February honours the national poet Johan Ludvig Runeberg. People often eat Runeberg tarts."}},
-{"id":"ku19","t":"kulttuuri","type":"tf","a":0,
- "fi":{"q":"Suomessa pidetään tärkeänä, että sovittuihin tapaamisiin tullaan ajallaan.","e":"Totta. Täsmällisyyttä arvostetaan Suomessa sekä työelämässä että viranomaisasioinnissa."},
- "en":{"q":"In Finland, it is considered important to arrive on time for agreed meetings.","e":"True. Punctuality is valued in Finland, both at work and when dealing with authorities."}},
-{"id":"ku20","t":"kulttuuri","type":"mc","a":1,
- "fi":{"q":"Mikä on Linnan juhlat?","o":["Keskiaikainen markkinatapahtuma","Presidentin itsenäisyyspäivän vastaanotto","Kesäinen musiikkifestivaali","Yliopiston valmistujaiset"],"e":"Linnan juhlat on tasavallan presidentin itsenäisyyspäivän vastaanotto Presidentinlinnassa. Moni katsoo sen televisiosta."},
- "en":{"q":"What is Linnan juhlat?","o":["A medieval market event","The President's Independence Day reception","A summer music festival","A university graduation"],"e":"Linnan juhlat is the President's Independence Day reception at the Presidential Palace. Many people watch it on TV."}}
+ {
+  "id": "ku01",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Missä kuussa juhlitaan juhannusta?",
+   "o": [
+    "Toukokuussa",
+    "Kesäkuussa",
+    "Heinäkuussa",
+    "Elokuussa"
+   ],
+   "e": "Juhannus on keskikesän juhla kesäkuun lopulla. Silloin poltetaan perinteisesti kokkoja ja vietetään aikaa mökillä."
+  },
+  "en": {
+   "q": "In which month is Midsummer (juhannus) celebrated?",
+   "o": [
+    "May",
+    "June",
+    "July",
+    "August"
+   ],
+   "e": "Midsummer is celebrated in late June. People traditionally light bonfires and spend time at summer cottages."
+  }
+ },
+ {
+  "id": "ku02",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Mikä juhla on 1. toukokuuta?",
+   "o": [
+    "Vappu",
+    "Juhannus",
+    "Itsenäisyyspäivä",
+    "Pääsiäinen"
+   ],
+   "e": "Vappu on kevään, työn ja opiskelijoiden juhla 1. toukokuuta."
+  },
+  "en": {
+   "q": "Which celebration is on 1 May?",
+   "o": [
+    "Vappu (May Day)",
+    "Midsummer",
+    "Independence Day",
+    "Easter"
+   ],
+   "e": "Vappu is a celebration of spring, work and students on 1 May."
+  }
+ },
+ {
+  "id": "ku03",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Mikä on itsenäisyyspäivän perinne?",
+   "o": [
+    "Kokon polttaminen",
+    "Vesisota",
+    "Kahden kynttilän sytyttäminen ikkunalle",
+    "Ilotulitus aamulla"
+   ],
+   "e": "Itsenäisyyspäivänä 6.12. moni sytyttää ikkunalle kaksi kynttilää. Illalla presidentti järjestää Linnan juhlat."
+  },
+  "en": {
+   "q": "What is an Independence Day tradition?",
+   "o": [
+    "Lighting a bonfire",
+    "A water fight",
+    "Lighting two candles in the window",
+    "Fireworks in the morning"
+   ],
+   "e": "On Independence Day, 6 December, many people light two candles in the window. In the evening the President hosts the Independence Day reception."
+  }
+ },
+ {
+  "id": "ku04",
+  "t": "kulttuuri",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Suomalainen saunakulttuuri on UNESCOn aineettoman kulttuuriperinnön luettelossa.",
+   "e": "Totta. Suomalainen saunakulttuuri lisättiin UNESCOn luetteloon vuonna 2020."
+  },
+  "en": {
+   "q": "Finnish sauna culture is on UNESCO's list of intangible cultural heritage.",
+   "e": "True. Finnish sauna culture was added to the UNESCO list in 2020."
+  }
+ },
+ {
+  "id": "ku05",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Mikä kansa on Euroopan unionin ainoa alkuperäiskansa?",
+   "o": [
+    "Romanit",
+    "Suomenruotsalaiset",
+    "Tataarit",
+    "Saamelaiset"
+   ],
+   "e": "Saamelaiset ovat EU:n ainoa alkuperäiskansa. Heitä asuu Suomen, Ruotsin, Norjan ja Venäjän pohjoisosissa."
+  },
+  "en": {
+   "q": "Which people are the only indigenous people in the European Union?",
+   "o": [
+    "The Roma",
+    "Swedish-speaking Finns",
+    "The Tatars",
+    "The Sami"
+   ],
+   "e": "The Sami are the only indigenous people in the EU. They live in the northern parts of Finland, Sweden, Norway and Russia."
+  }
+ },
+ {
+  "id": "ku06",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Mitkä kaksi kirkkoa ovat Suomessa erityisasemassa?",
+   "o": [
+    "Katolinen ja anglikaaninen kirkko",
+    "Evankelis-luterilainen ja ortodoksinen kirkko",
+    "Helluntaiseurakunta ja baptistikirkko",
+    "Katolinen ja ortodoksinen kirkko"
+   ],
+   "e": "Evankelis-luterilaisen ja ortodoksisen kirkon asemasta on omat lakinsa. Suomessa on kuitenkin uskonnonvapaus."
+  },
+  "en": {
+   "q": "Which two churches have a special status in Finland?",
+   "o": [
+    "The Catholic and Anglican churches",
+    "The Evangelical Lutheran and Orthodox churches",
+    "The Pentecostal and Baptist churches",
+    "The Catholic and Orthodox churches"
+   ],
+   "e": "The status of the Evangelical Lutheran and Orthodox churches is set out in their own laws. Finland still has freedom of religion."
+  }
+ },
+ {
+  "id": "ku07",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Mikä päivä on suomalaisille joulun tärkein juhlapäivä?",
+   "o": [
+    "Jouluaatto 24.12.",
+    "Joulupäivä 25.12.",
+    "Tapaninpäivä 26.12.",
+    "Uudenvuodenaatto 31.12."
+   ],
+   "e": "Suomessa joulua juhlitaan erityisesti jouluaattona 24. joulukuuta."
+  },
+  "en": {
+   "q": "Which day is the most important Christmas day for Finns?",
+   "o": [
+    "Christmas Eve, 24 Dec",
+    "Christmas Day, 25 Dec",
+    "St Stephen's Day, 26 Dec",
+    "New Year's Eve, 31 Dec"
+   ],
+   "e": "In Finland, Christmas is celebrated especially on Christmas Eve, 24 December."
+  }
+ },
+ {
+  "id": "ku08",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Mitä juhlitaan 28. helmikuuta?",
+   "o": [
+    "Runebergin päivää",
+    "Ystävänpäivää",
+    "Kalevalan päivää eli suomalaisen kulttuurin päivää",
+    "Naistenpäivää"
+   ],
+   "e": "Kalevalan päivä 28.2. on suomalaisen kulttuurin päivä ja liputuspäivä."
+  },
+  "en": {
+   "q": "What is celebrated on 28 February?",
+   "o": [
+    "Runeberg Day",
+    "Valentine's Day",
+    "Kalevala Day, the day of Finnish culture",
+    "Women's Day"
+   ],
+   "e": "Kalevala Day on 28 February is the day of Finnish culture and a flag day."
+  }
+ },
+ {
+  "id": "ku09",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Mikä on Suomen kansallislintu?",
+   "o": [
+    "Kotka",
+    "Laulujoutsen",
+    "Talitiainen",
+    "Korppi"
+   ],
+   "e": "Laulujoutsen on Suomen kansallislintu. Se näkyy myös Suomen euron kolikossa."
+  },
+  "en": {
+   "q": "What is Finland's national bird?",
+   "o": [
+    "The eagle",
+    "The whooper swan",
+    "The great tit",
+    "The raven"
+   ],
+   "e": "The whooper swan is Finland's national bird. It also appears on a Finnish euro coin."
+  }
+ },
+ {
+  "id": "ku10",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Mikä on Suomen kansalliskukka?",
+   "o": [
+    "Ruusu",
+    "Tulppaani",
+    "Sinivuokko",
+    "Kielo"
+   ],
+   "e": "Kielo valittiin Suomen kansalliskukaksi vuonna 1967."
+  },
+  "en": {
+   "q": "What is Finland's national flower?",
+   "o": [
+    "The rose",
+    "The tulip",
+    "The liverleaf",
+    "The lily of the valley"
+   ],
+   "e": "The lily of the valley was chosen as Finland's national flower in 1967."
+  }
+ },
+ {
+  "id": "ku11",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Mitä urheilulajia kutsutaan Suomen kansallispeliksi?",
+   "o": [
+    "Pesäpalloa",
+    "Jääkiekkoa",
+    "Jalkapalloa",
+    "Salibandya"
+   ],
+   "e": "Pesäpallo on suomalainen versio baseballista, ja sitä kutsutaan kansallispeliksi."
+  },
+  "en": {
+   "q": "Which sport is called Finland's national game?",
+   "o": [
+    "Pesäpallo (Finnish baseball)",
+    "Ice hockey",
+    "Football",
+    "Floorball"
+   ],
+   "e": "Pesäpallo is a Finnish version of baseball and is called the national game."
+  }
+ },
+ {
+  "id": "ku12",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Kuka loi Muumit?",
+   "o": [
+    "Astrid Lindgren",
+    "Mauri Kunnas",
+    "Tove Jansson",
+    "Minna Canth"
+   ],
+   "e": "Tove Jansson oli suomenruotsalainen kirjailija ja taiteilija, joka loi Muumit."
+  },
+  "en": {
+   "q": "Who created the Moomins?",
+   "o": [
+    "Astrid Lindgren",
+    "Mauri Kunnas",
+    "Tove Jansson",
+    "Minna Canth"
+   ],
+   "e": "Tove Jansson was a Swedish-speaking Finnish writer and artist who created the Moomins."
+  }
+ },
+ {
+  "id": "ku13",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Mikä on Suomen pääkaupunki?",
+   "o": [
+    "Turku",
+    "Helsinki",
+    "Tampere",
+    "Espoo"
+   ],
+   "e": "Helsinki on Suomen pääkaupunki vuodesta 1812. Sitä ennen Turku oli Suomen tärkein kaupunki ja hallinnon keskus."
+  },
+  "en": {
+   "q": "What is the capital of Finland?",
+   "o": [
+    "Turku",
+    "Helsinki",
+    "Tampere",
+    "Espoo"
+   ],
+   "e": "Helsinki has been the capital of Finland since 1812. Before that, Turku was Finland's most important city and administrative centre."
+  }
+ },
+ {
+  "id": "ku14",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Kuinka monta asukasta Suomessa on noin?",
+   "o": [
+    "1,5 miljoonaa",
+    "5,6 miljoonaa",
+    "10 miljoonaa",
+    "15 miljoonaa"
+   ],
+   "e": "Suomessa on vähän yli 5,6 miljoonaa asukasta."
+  },
+  "en": {
+   "q": "Approximately how many people live in Finland?",
+   "o": [
+    "1.5 million",
+    "5.6 million",
+    "10 million",
+    "15 million"
+   ],
+   "e": "Finland has just over 5.6 million inhabitants."
+  }
+ },
+ {
+  "id": "ku15",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 0,
+  "fi": {
+   "q": "Kuka kirjoitti romaanin Seitsemän veljestä?",
+   "o": [
+    "Aleksis Kivi",
+    "Väinö Linna",
+    "Juhani Aho",
+    "Sofi Oksanen"
+   ],
+   "e": "Aleksis Kiven Seitsemän veljestä (1870) on ensimmäinen merkittävä suomenkielinen romaani."
+  },
+  "en": {
+   "q": "Who wrote the novel Seven Brothers?",
+   "o": [
+    "Aleksis Kivi",
+    "Väinö Linna",
+    "Juhani Aho",
+    "Sofi Oksanen"
+   ],
+   "e": "Aleksis Kivi's Seven Brothers (1870) is the first major novel written in Finnish."
+  }
+ },
+ {
+  "id": "ku16",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 2,
+  "fi": {
+   "q": "Kuinka suuri osa suomalaisista puhuu äidinkielenään ruotsia?",
+   "o": [
+    "Alle 1 %",
+    "Noin 25 %",
+    "Noin 5 %",
+    "Noin 50 %"
+   ],
+   "e": "Noin 5 % Suomen asukkaista puhuu äidinkielenään ruotsia. Ruotsinkielisiä asuu etenkin rannikolla ja Ahvenanmaalla."
+  },
+  "en": {
+   "q": "About what share of people in Finland speak Swedish as their mother tongue?",
+   "o": [
+    "Less than 1%",
+    "About 25%",
+    "About 5%",
+    "About 50%"
+   ],
+   "e": "About 5% of Finland's population speak Swedish as their mother tongue, especially on the coast and in Åland."
+  }
+ },
+ {
+  "id": "ku17",
+  "t": "kulttuuri",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Romanit ovat asuneet Suomessa jo noin 500 vuotta.",
+   "e": "Totta. Romaneja on asunut Suomessa 1500-luvulta lähtien. He ovat yksi Suomen perinteisistä vähemmistöistä."
+  },
+  "en": {
+   "q": "The Roma have lived in Finland for about 500 years.",
+   "e": "True. Roma have lived in Finland since the 16th century. They are one of Finland's traditional minorities."
+  }
+ },
+ {
+  "id": "ku18",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 3,
+  "fi": {
+   "q": "Mitä juhlitaan 5. helmikuuta?",
+   "o": [
+    "Kalevalan päivää",
+    "Laskiaista",
+    "Ystävänpäivää",
+    "Runebergin päivää"
+   ],
+   "e": "Runebergin päivänä 5.2. muistetaan kansallisrunoilija Johan Ludvig Runebergia. Silloin syödään usein Runebergin torttuja."
+  },
+  "en": {
+   "q": "What is celebrated on 5 February?",
+   "o": [
+    "Kalevala Day",
+    "Shrovetide",
+    "Valentine's Day",
+    "Runeberg Day"
+   ],
+   "e": "Runeberg Day on 5 February honours the national poet Johan Ludvig Runeberg. People often eat Runeberg tarts."
+  }
+ },
+ {
+  "id": "ku19",
+  "t": "kulttuuri",
+  "type": "tf",
+  "a": 0,
+  "fi": {
+   "q": "Suomessa pidetään tärkeänä, että sovittuihin tapaamisiin tullaan ajallaan.",
+   "e": "Totta. Täsmällisyyttä arvostetaan Suomessa sekä työelämässä että viranomaisasioinnissa."
+  },
+  "en": {
+   "q": "In Finland, it is considered important to arrive on time for agreed meetings.",
+   "e": "True. Punctuality is valued in Finland, both at work and when dealing with authorities."
+  }
+ },
+ {
+  "id": "ku20",
+  "t": "kulttuuri",
+  "type": "mc",
+  "a": 1,
+  "fi": {
+   "q": "Mikä on Linnan juhlat?",
+   "o": [
+    "Keskiaikainen markkinatapahtuma",
+    "Presidentin itsenäisyyspäivän vastaanotto",
+    "Kesäinen musiikkifestivaali",
+    "Yliopiston valmistujaiset"
+   ],
+   "e": "Linnan juhlat on tasavallan presidentin itsenäisyyspäivän vastaanotto Presidentinlinnassa. Moni katsoo sen televisiosta."
+  },
+  "en": {
+   "q": "What is Linnan juhlat?",
+   "o": [
+    "A medieval market event",
+    "The President's Independence Day reception",
+    "A summer music festival",
+    "A university graduation"
+   ],
+   "e": "Linnan juhlat is the President's Independence Day reception at the Presidential Palace. Many people watch it on TV."
+  }
+ }
 ]

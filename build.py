@@ -15,8 +15,8 @@ LANG_NAMES = {"en": "English", "fi": "Suomi", "ru": "Русский", "ar": "ا�
 RTL = {"ar", "fa"}
 GOOGLE_FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
                 '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-                '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@700'
-                '&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">')
+                '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400'
+                '&family=Golos+Text:wght@400..800&family=Vazirmatn:wght@400..800&display=swap">')
 
 
 def jload(path):

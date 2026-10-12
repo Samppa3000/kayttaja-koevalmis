@@ -474,4 +474,7 @@ def load():
     }
     for lang, line in langs_line.items():
         out[lang]["faq"][2][1] = line
+    from strings_sales import S2
+    for lang in LANGS:
+        out[lang].update(S2[lang])
     return out

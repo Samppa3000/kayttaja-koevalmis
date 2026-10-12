@@ -3,33 +3,33 @@
 <style>
 /* Layout: one narrow study column; question text is the hero; topic meters as quiet bars. Cloudberry accent on birch-and-spruce neutrals. */
 :root{
-  --bg:#F2F4F1; --surface:#FFFFFF; --ink:#16201B; --muted:#56635C; --line:#D3DAD5; --field:#78857E;
-  --accent:#D9851E; --accent-ink:#1A1206; --accent-soft:#F6E3C6; --focus:#16201B;
-  --ok:#246B41; --ok-soft:#DCEFE3; --bad:#B3363D; --bad-soft:#F6DEDF;
-  --display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --body:"Atkinson Hyperlegible", "Segoe UI", Roboto, "Noto Sans", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
-  --r:10px;
+  --bg:#F4F6F3; --surface:#FFFFFF; --ink:#10201F; --muted:#4C5E5B; --line:#D4DCD9; --field:#7A8B88;
+  --accent:#F3A43B; --accent-ink:#1C1405; --accent-soft:#FCEBD2; --focus:#10201F;
+  --ok:#1F6B45; --ok-soft:#DDEFE4; --bad:#B3343C; --bad-soft:#F7E0E1;
+  --display:"Koe Sans","Atkinson Hyperlegible Next","Golos Text","Vazirmatn","Segoe UI",Roboto,"Noto Sans",Tahoma,Arial,sans-serif;
+  --body:var(--display);
+  --r:14px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#111613; --surface:#1A211D; --ink:#E7EDE9; --muted:#9BA8A1; --line:#2D3832; --field:#738279;
-  --accent:#E8A04A; --accent-ink:#1A1206; --accent-soft:#3A2B17; --focus:#E8A04A;
-  --ok:#62C38D; --ok-soft:#173225; --bad:#EC7A82; --bad-soft:#3A1C1F; color-scheme:dark}}
+  --bg:#0C1B1C; --surface:#13282A; --ink:#E4EDEB; --muted:#9FB3AF; --line:#25403F; --field:#6F8784;
+  --accent:#F5B04F; --accent-ink:#1C1405; --accent-soft:#3A2B17; --focus:#F5B04F;
+  --ok:#63C190; --ok-soft:#143326; --bad:#F07D84; --bad-soft:#3A1D20; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#111613; --surface:#1A211D; --ink:#E7EDE9; --muted:#9BA8A1; --line:#2D3832; --field:#738279;
-  --accent:#E8A04A; --accent-ink:#1A1206; --accent-soft:#3A2B17; --focus:#E8A04A;
-  --ok:#62C38D; --ok-soft:#173225; --bad:#EC7A82; --bad-soft:#3A1C1F; color-scheme:dark}
+  --bg:#0C1B1C; --surface:#13282A; --ink:#E4EDEB; --muted:#9FB3AF; --line:#25403F; --field:#6F8784;
+  --accent:#F5B04F; --accent-ink:#1C1405; --accent-soft:#3A2B17; --focus:#F5B04F;
+  --ok:#63C190; --ok-soft:#143326; --bad:#F07D84; --bad-soft:#3A1D20; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
 .wrap{max-width:720px;margin:0 auto}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px;flex-wrap:wrap}
 .brand{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;background:none;border:0;color:var(--ink);cursor:pointer;padding:0;min-height:44px}
-.brand .dot{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.brand .dot{width:26px;height:26px;border-radius:50%;background:#F3A43B url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M8.5 14.5l3.8 3.8 7.2-8.3' fill='none' stroke='%231C1405' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/26px no-repeat}
 .langs{display:flex;gap:6px;align-items:center}
 .langs label{font-size:13px;color:var(--muted)}
 select{font:inherit;font-size:15px;min-height:44px;padding:6px 10px;border-radius:8px;border:1.5px solid var(--field);background:var(--surface);color:var(--ink)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 5px var(--bg)}
-h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;letter-spacing:-.01em;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-wrap:balance;letter-spacing:-.01em;margin:0}
 h1{font-size:clamp(28px,6vw,40px);line-height:1.1}
 h2{font-size:22px}
 .lead{color:var(--muted);max-width:60ch;margin:10px 0 0}
@@ -96,6 +96,8 @@ h2{font-size:22px}
 .btn{font:inherit;font-weight:700;cursor:pointer;border-radius:var(--r);min-height:48px;padding:12px 20px;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg)}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--field)}
 .btn.acc{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.upsell{background:var(--surface);border:2px solid var(--ink);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.upsell .btn{text-decoration:none;display:inline-flex;align-items:center}
 .btn[disabled]{opacity:.45;cursor:default}
 .warn{background:var(--accent-soft);border-radius:var(--r);padding:10px 14px;margin:0}
 /* results */
@@ -148,7 +150,7 @@ footer nav a{display:inline-block;padding-block:10px}
 const DATA = /*__DATA__*/;
 
 const UI = {
-  en:{uiLang:"Language",preview:"Preview version. Questions are written by us from public information and will be updated when Migri publishes the official study material.",
+  en:{upH:"Keep your progress going",upP:"When Migri publishes the official study material, Koevalmis is updated to match it. Join at the pre-sale price: €9.90, one payment, no subscription.",upBtn:"See the pre-sale offer",uiLang:"Language",preview:"Preview version. Questions are written by us from public information and will be updated when Migri publishes the official study material.",
     h1:"Practise for the Finnish citizenship test",lead:"The test is in Finnish or Swedish. Practise the questions in Finnish, open a translation when you need it, and listen to the pronunciation.",
     indep:"Independent practice service – not Migri.",
     deadline:"Required for applications from",
@@ -171,7 +173,7 @@ const UI = {
     yourAnswer:"Your answer",privacy:"Privacy",terms:"Terms of sale",site:"About Koevalmis",
     foot:"Koevalmis is an independent practice service. It is not provided by the Finnish Immigration Service (Migri) or any authority. The test topics are set out in the amended Citizenship Act: key legislation, fundamental and human rights, equality, gender equality, and Finnish history and culture.",
     alwaysTrans:"Always show translation"},
-  fi:{uiLang:"Kieli",preview:"Esikatseluversio. Kysymykset on laadittu julkisen tiedon pohjalta, ja ne päivitetään, kun Migri julkaisee virallisen oppimateriaalin.",
+  fi:{upH:"Jatka harjoittelua",upP:"Kun Migri julkaisee virallisen oppimateriaalin, Koevalmis päivitetään vastaamaan sitä. Liity ennakkohintaan: 9,90 €, kertamaksu, ei tilausta.",upBtn:"Katso ennakkotarjous",uiLang:"Kieli",preview:"Esikatseluversio. Kysymykset on laadittu julkisen tiedon pohjalta, ja ne päivitetään, kun Migri julkaisee virallisen oppimateriaalin.",
     h1:"Harjoittele Suomen kansalaisuuskokeeseen",lead:"Koe tehdään suomeksi tai ruotsiksi. Harjoittele kysymyksiä suomeksi, avaa käännös tarvittaessa ja kuuntele ääntäminen.",
     indep:"Itsenäinen harjoituspalvelu – ei Migrin palvelu.",
     deadline:"Vaaditaan hakemuksissa alkaen",
@@ -438,6 +440,7 @@ function results(){
       <span class="verdict ${passed?"ok":"no"}">${esc(passed?t("passed"):t("notYet"))}</span></div>
     ${unanswered?`<p class="count">${esc(t("unanswered"))}: ${num(unanswered)}</p>`:""}
     <p class="lead">${esc(t("resNote"))}</p>
+    ${ON_SITE?`<div class="upsell"><h2>${esc(t("upH"))}</h2><p>${esc(t("upP"))}</p><a class="btn acc" href="${SITE_BASE}${lang==="en"?"/":`/${lang}/`}#price">${esc(t("upBtn"))}</a></div>`:""}
     <h2>${esc(t("byTopic"))}</h2>
     <div class="scroll"><table>
       <thead><tr><th>${esc(t("topic"))}</th><th class="n">${esc(t("score"))}</th></tr></thead>

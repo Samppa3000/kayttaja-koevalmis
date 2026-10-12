@@ -1,0 +1,11 @@
+# Netlify builds the site from this repository on every push to main.
+# Linking: Netlify > koevalmis > Project configuration > Build & deploy > Link repository > GitHub > Samppa3000/kayttaja-koevalmis
+[build]
+  command = "python3 build_site.py"
+  publish = "site"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+  # Keep the temporary koevalmis.netlify.app address out of search engines.
+  # Remove this line once koevalmis.fi points to Netlify.
+  NOINDEX = "1"

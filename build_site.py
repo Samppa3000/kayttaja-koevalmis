@@ -14,6 +14,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
 sys.path.insert(0, os.path.join(ROOT, "site_src"))
 import strings as ST  # noqa: E402
+import strings_sales as SS  # noqa: E402
 
 LANGS, RTL, NAMES, SLUGS, SRC = ST.LANGS, ST.RTL, ST.NAMES, ST.SLUGS, ST.SRC
 TOPIC_ORDER = ["valtio", "oikeudet", "tasaarvo", "arki", "historia", "kulttuuri"]
@@ -26,76 +27,199 @@ TODAY = ST.CHECKED
 SRC_LABEL = {"migri": "Migri", "stt": "STT / Migri", "havm": "HaVM 10/2026", "yle_vote": "Yle", "bs": "Business Standard", "kurs": "kurs.com.ua"}
 
 CSS = """
-:root{--bg:#F2F4F1;--surface:#FFFFFF;--ink:#16201B;--muted:#56635C;--line:#D3DAD5;--field:#78857E;--accent:#D9851E;--accent-ink:#1A1206;--accent-soft:#F6E3C6;--ok:#246B41;--ok-soft:#DCEFE3;--focus:#16201B;
---display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",Roboto,"Noto Sans","Noto Sans Arabic",Tahoma,Arial,sans-serif;--r:10px}
-@media (prefers-color-scheme: dark){:root{--bg:#111613;--surface:#1A211D;--ink:#E7EDE9;--muted:#9BA8A1;--line:#2D3832;--field:#738279;--accent:#E8A04A;--accent-soft:#3A2B17;--ok:#62C38D;--ok-soft:#173225;--focus:#E8A04A;color-scheme:dark}}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 56px}
-.wrap{max-width:780px;margin:0 auto}
-main{display:flex;flex-direction:column;gap:52px;padding-top:28px}
-.skip{position:absolute;inset-inline-start:-999px;top:8px;background:var(--surface);padding:8px 12px;border-radius:8px}
-.skip:focus{inset-inline-start:16px;z-index:9}
-header.top{display:flex;justify-content:space-between;align-items:center;padding-block:14px 0;gap:8px 16px;flex-wrap:wrap}
-.brand{font-family:var(--display);font-weight:700;font-size:22px;display:flex;gap:10px;align-items:center;color:var(--ink);text-decoration:none;min-height:44px}
-.brand .dot{width:14px;height:14px;border-radius:50%;background:var(--accent)}
-nav.main{display:flex;gap:4px 14px;flex-wrap:wrap;font-size:15px;width:100%;border-bottom:1px solid var(--line)}
-nav.main a{display:inline-block;padding-block:10px;min-height:44px;color:var(--muted);text-decoration:none}
-nav.main a[aria-current]{color:var(--ink);font-weight:700;box-shadow:inset 0 -3px 0 var(--accent)}
-nav.langs{display:flex;gap:2px 10px;flex-wrap:wrap;font-size:14px}
-nav.langs a{display:inline-block;padding:10px 4px;min-height:44px;color:var(--muted)}
-nav.langs a[aria-current]{color:var(--ink);font-weight:700;text-decoration:none}
-.tag{font-size:14px;color:var(--muted)}
-h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.015em;text-wrap:balance;margin:0}
-h1{font-size:clamp(30px,6.5vw,48px);line-height:1.08}h2{font-size:clamp(23px,4.2vw,29px);line-height:1.15}h3{font-size:19px}
-p{margin:0;max-width:64ch}.muted{color:var(--muted)}
-:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.hero,.sec{display:flex;flex-direction:column;gap:16px}
-.pair{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
-.pair .fi{font-weight:700;font-size:20px}.pair .tr{color:var(--muted)}
-.lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{font:inherit;font-weight:700;border-radius:var(--r);min-height:48px;padding:12px 22px;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg);text-decoration:none;cursor:pointer;display:inline-flex;align-items:center}
-.btn.acc{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.facts{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-@media(min-width:420px){.facts{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:700px){.facts{grid-template-columns:repeat(4,1fr)}}
-.fact{background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
-.fact b{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}.fact span{font-size:15px;color:var(--muted)}
-.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}.feat div{display:flex;flex-direction:column;gap:6px;min-width:0}
-.price{background:var(--surface);border:2px solid var(--accent);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px}
-.price .amt{font-family:var(--display);font-size:44px;font-weight:700;line-height:1}
-.price ul{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:4px}
+:root{--paper:#F4F6F3;--card:#FFFFFF;--ink:#10201F;--muted:#4C5E5B;--line:#D4DCD9;--field:#7A8B88;
+--lake:#0F3B3D;--lake-ink:#F2F6F4;--lake-muted:#A9C4C0;--lake-line:#2B5759;
+--berry:#F3A43B;--berry-hover:#F7B85F;--berry-ink:#1C1405;--berry-soft:#FCEBD2;
+--moss:#1F6B45;--moss-soft:#DDEFE4;--lingon:#B3343C;--lingon-soft:#F7E0E1;--focus:#10201F;
+--font:"Koe Sans","Atkinson Hyperlegible Next","Segoe UI",Roboto,"Noto Sans",Tahoma,Arial,sans-serif;
+--h1:clamp(34px,6.4vw,58px);--h2:clamp(26px,4vw,36px);--r:14px}
+@media (prefers-color-scheme: dark){:root{--paper:#0C1B1C;--card:#13282A;--ink:#E4EDEB;--muted:#9FB3AF;--line:#25403F;--field:#6F8784;
+--lake:#082B2D;--lake-line:#22494B;--berry:#F5B04F;--berry-hover:#F8C06F;--berry-soft:#3A2B17;--moss:#63C190;--moss-soft:#143326;--lingon:#F07D84;--lingon-soft:#3A1D20;--focus:#F5B04F;color-scheme:dark}}
+*{box-sizing:border-box}[hidden]{display:none!important}html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6}
+[dir=rtl] body{line-height:1.85}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media(min-width:700px){.wrap{padding-inline:28px}}
+.bleed{position:relative;isolation:isolate}
+.bleed::before{content:"";position:absolute;z-index:-1;inset:0 calc(50% - 50vw);background:var(--bgc)}
+header.site{z-index:5}
+.lake{--bgc:var(--lake);--focus:var(--berry);color:var(--lake-ink)}
+.lake a{color:inherit}.lake .muted{color:var(--lake-muted)}
+a{color:inherit;text-underline-offset:.18em}main a{overflow-wrap:anywhere}
+p{margin:0;max-width:66ch}.muted{color:var(--muted)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;inset-inline-start:-999px;top:8px;z-index:50;background:var(--card);color:var(--ink);padding:10px 14px;border-radius:8px}
+.skip:focus{inset-inline-start:16px}
+h1,h2,h3{font-weight:800;text-wrap:balance;margin:0}
+h1{font-size:var(--h1);line-height:1.04;letter-spacing:-.028em;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+:lang(fi) h1,h1:lang(fi){font-size:clamp(32px,5.4vw,50px)}
+h2{font-size:var(--h2);line-height:1.12;letter-spacing:-.02em}
+h3{font-size:20px;line-height:1.25;letter-spacing:-.01em}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3{letter-spacing:0;line-height:1.35}
+/* header */
+header.site{display:flex;flex-wrap:wrap;align-items:center;gap:0 24px;padding-block:8px 0}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.01em;text-decoration:none;min-height:52px;margin-inline-end:auto}
+.brand svg{width:28px;height:28px;flex:none}
+nav.main{order:3;flex-basis:100%;display:flex;gap:2px 6px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:10px;border-top:1px solid var(--lake-line)}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{flex:none;padding:12px 8px;min-height:48px;text-decoration:none;color:var(--lake-muted);font-size:15px;white-space:nowrap}
+nav.main a:hover{color:var(--lake-ink)}
+nav.main a[aria-current]{color:var(--lake-ink);font-weight:700;box-shadow:inset 0 -3px 0 var(--berry)}
+@media(min-width:960px){nav.main{order:0;flex-basis:auto;border:0;margin:0;padding:0}}
+details.langs{position:relative}
+details.langs summary{list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--lake-line);border-radius:999px;cursor:pointer;font-size:15px}
+details.langs summary:hover{border-color:var(--lake-muted)}
+summary::-webkit-details-marker{display:none}
+details.langs svg{width:18px;height:18px}
+details.langs ul{position:absolute;inset-inline-end:0;top:calc(100% + 8px);z-index:40;list-style:none;margin:0;padding:6px;min-width:210px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 18px 40px -10px rgba(5,25,26,.4)}
+details.langs ul a{display:block;padding:10px 14px;border-radius:8px;text-decoration:none;color:var(--ink);min-height:44px}
+details.langs ul a:hover{background:var(--paper)}
+details.langs ul a[aria-current]{background:var(--berry-soft);font-weight:700}
+/* buttons */
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{font:inherit;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 26px;border-radius:999px;border:2px solid transparent;text-decoration:none;cursor:pointer;text-align:center;transition:background-color .15s,border-color .15s,transform .1s}
+.btn.primary{background:var(--berry);color:var(--berry-ink)}
+.btn.primary:hover{background:var(--berry-hover)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{border-color:var(--lake-line);color:var(--lake-ink);background:transparent}
+.btn.ghost:hover{border-color:var(--lake-muted)}
+.btn.dark{background:var(--ink);color:var(--paper)}
+.more{display:inline-flex;align-items:center;min-height:52px;padding-inline:8px;font-weight:700}
+/* hero */
+.hero{padding-block:28px 48px;display:grid;gap:36px;align-items:start}
+@media(min-width:960px){.hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:64px;padding-block:56px 88px;align-items:center}}
+.intro{display:flex;flex-direction:column;gap:20px;min-width:0}
+.tag{font-size:15px;color:var(--lake-muted);display:flex;gap:8px;align-items:center}
+.tag svg{width:16px;height:16px;flex:none}
+.lead{font-size:19px;color:var(--lake-muted);max-width:52ch}
+.count{display:flex;gap:12px;align-items:center;color:var(--lake-muted);font-size:15px;padding-top:4px}
+.count b{color:var(--lake-ink);font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.count svg{width:22px;height:22px;flex:none;color:var(--berry)}
+.proof{font-size:15px;color:var(--lake-muted)}
+/* question card (hero demo and practice pages) */
+.qcard{position:relative;background:var(--card);color:var(--ink);border-radius:20px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:14px;--focus:var(--ink)}
+.hero .qcard{box-shadow:0 30px 60px -18px rgba(0,0,0,.55);animation:rise .7s .15s cubic-bezier(.2,.8,.2,1) both}
+@media (prefers-color-scheme: dark){.qcard{--focus:var(--berry)}}
+@keyframes rise{from{opacity:0;transform:translateY(22px) rotate(1.5deg)}}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.qhead .lbl{font-size:15px;font-weight:700;color:var(--muted)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{font:inherit;font-size:15px;display:inline-flex;gap:6px;align-items:center;min-height:44px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+.tool:hover{border-color:var(--field)}
+.tool svg{width:18px;height:18px}
+.tool[aria-pressed=true]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.qtext{font-size:clamp(21px,2.6vw,25px);font-weight:800;line-height:1.3;letter-spacing:-.01em;margin:0}
+.qtr,.otr{display:block;color:var(--muted);font-size:16px;font-weight:400;letter-spacing:0}
+.opts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.opt{width:100%;font:inherit;text-align:start;display:flex;gap:12px;align-items:flex-start;padding:12px 14px;min-height:54px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);cursor:pointer;transition:border-color .15s,background-color .15s}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt .k{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--field);display:grid;place-items:center;font-weight:700;font-size:14px;margin-top:-1px}
+.opt:disabled{cursor:default}
+.opt:disabled:not(.ok):not(.no){opacity:.55}
+.opt.ok{border-color:var(--moss);background:var(--moss-soft)}.opt.ok .k{background:var(--moss);border-color:var(--moss);color:var(--card)}
+.opt.no{border-color:var(--lingon);background:var(--lingon-soft)}.opt.no .k{background:var(--lingon);border-color:var(--lingon);color:var(--card)}
+.res{display:flex;flex-direction:column;gap:10px;padding-top:4px}
+.res[hidden]{display:none}
+.res .msg{font-weight:700}
+.stamp{position:absolute;top:-16px;inset-inline-start:-6px;padding:4px 14px;border:3px solid currentColor;outline:1.5px solid currentColor;outline-offset:3px;border-radius:10px;font-weight:800;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--moss);background:var(--card);transform:rotate(-7deg);opacity:0;pointer-events:none}
+.qcard.done .qhead .lbl{visibility:hidden}
+.qcard .muted{color:var(--muted)}
+.stamp.no{color:var(--lingon)}
+.stamp.on{opacity:1;animation:thump .45s cubic-bezier(.2,.9,.3,1.25) both}
+@keyframes thump{0%{opacity:0;transform:rotate(-16deg) scale(2)}55%{opacity:1;transform:rotate(-6deg) scale(.92)}100%{opacity:1;transform:rotate(-7deg) scale(1)}}
+.qcard.hit{animation:hit .32s .18s ease-out}
+@keyframes hit{40%{transform:translateY(4px)}}
+/* sections */
+main>section{padding-top:72px}
+main>section.hero,main>section.pagehead{padding-top:28px}
+.sec{display:flex;flex-direction:column;gap:20px;max-width:760px}
+.sec.wide{max-width:none}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;margin:0}
+@media(min-width:820px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.fact{border-top:3px solid var(--ink);padding-top:12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.fact b{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.fact span{font-size:15px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a,.chips span{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:15px}
+.chips a:hover{border-color:var(--ink)}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding-inline-start:64px;padding-bottom:28px;display:flex;flex-direction:column;gap:4px}
+ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:-6px;width:46px;height:46px;border-radius:50%;background:var(--lake);color:var(--lake-ink);display:grid;place-items:center;font-weight:800;font-size:19px}
+ol.steps li:first-child::before{background:var(--berry);color:var(--berry-ink)}
+ol.steps li::after{content:"";position:absolute;inset-inline-start:22px;top:46px;bottom:2px;width:2px;background:var(--line)}
+ol.steps li:last-child::after{display:none}
+ol.steps p{color:var(--muted)}
+@media(min-width:860px){ol.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+ ol.steps li{padding:68px 0 0}ol.steps li::before{top:0}
+ ol.steps li::after{top:22px;bottom:auto;inset-inline-start:58px;inset-inline-end:-26px;width:auto;height:2px}
+ ol.steps li:last-child::after{display:none}}
+dl.words{margin:0;display:grid;grid-template-columns:1fr;gap:0 40px}
+@media(min-width:700px){dl.words{grid-template-columns:1fr 1fr}}
+dl.words div{display:flex;align-items:baseline;gap:8px;padding-block:12px;border-bottom:1px solid var(--line)}
+dl.words dt{font-weight:800;font-size:18px}
+dl.words div::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--line);min-width:16px;transform:translateY(-4px)}
+dl.words dd{order:2;margin:0;color:var(--muted);text-align:end}
+.buy{display:grid;gap:40px}
+@media(min-width:900px){.buy{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}}
+.price{background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:16px}
+.price .lbl{font-weight:700;color:var(--muted);font-size:15px}
+.price .amt{font-size:clamp(48px,8vw,64px);font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.price .later{color:var(--muted);margin-top:-8px}
+ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+ul.ticks li{position:relative;padding-inline-start:32px}
+ul.ticks li::before{content:"";position:absolute;inset-inline-start:0;top:.22em;width:20px;height:20px;border-radius:50%;background:var(--moss) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.fee{font-size:15px;color:var(--muted)}
+.trust{display:flex;flex-direction:column;gap:20px}
 form{display:flex;gap:10px;flex-wrap:wrap}
-input[type=email]{flex:1 1 220px;min-width:0;min-height:48px;font:inherit;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--field);background:var(--bg);color:var(--ink)}
+input[type=email]{flex:1 1 220px;min-width:0;min-height:52px;font:inherit;padding:12px 16px;border-radius:12px;border:1.5px solid var(--field);background:var(--paper);color:var(--ink)}
 ::placeholder{color:var(--muted);opacity:1}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--muted);flex-basis:100%}
 .consent input{width:22px;height:22px;flex:none;margin-top:2px}
 .formmsg{font-size:15px;flex-basis:100%}
-details{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font-weight:700;padding-block:12px;min-height:44px}
-details>p,details>div{margin-bottom:12px}
-.topics{display:flex;flex-wrap:wrap;gap:8px}.topics a,.topics span{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:15px;background:var(--surface);color:inherit;text-decoration:none}
-.topics a:hover{border-color:var(--field)}
+.note{background:var(--berry-soft);color:var(--ink);padding:12px 16px;border-radius:12px}
+.lake .note{background:rgba(255,255,255,.08);color:var(--lake-ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary,details.plain summary{list-style:none;cursor:pointer;font-weight:700;padding-block:16px;min-height:52px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::after,details.plain summary::after{content:"";flex:none;width:10px;height:10px;border-inline-end:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after,details.plain[open] summary::after{transform:translateY(3px) rotate(225deg)}
+.faq details>p{padding-bottom:16px}
+/* inner pages */
+.pagehead{padding-bottom:44px;display:flex;flex-direction:column;gap:14px}
+.pagehead h1{font-size:clamp(30px,5.2vw,48px)}
+.pagehead p{color:var(--lake-muted)}
+.pagehead .big{font-size:19px;color:var(--lake-ink)}
+.crumbs{font-size:15px;color:var(--lake-muted)}.crumbs a{color:inherit}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.card h2{font-size:22px}
+details.plain{border-top:1px solid var(--line)}
+details.plain summary{padding-block:10px;min-height:44px;font-size:16px}
+details.plain>div{padding-bottom:10px;display:flex;flex-direction:column;gap:8px}
+details.plain ol{margin:0;padding-inline-start:24px}
+.ans{color:var(--moss);font-weight:700}
 table{border-collapse:collapse;width:100%;font-size:16px}
-th,td{text-align:start;vertical-align:top;padding:10px 8px;border-bottom:1px solid var(--line)}
-th{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}tbody th{font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink)}
+th,td{text-align:start;vertical-align:top;padding:12px 10px;border-bottom:1px solid var(--line)}
+thead th{font-size:14px;color:var(--muted);font-weight:700}
+tbody th{color:var(--ink)}
 .scroll{overflow-x:auto}
+@media(max-width:640px){table.vt thead{display:none}table.vt,table.vt tbody,table.vt tr,table.vt th,table.vt td{display:block}
+ table.vt tr{padding-block:14px;border-bottom:1px solid var(--line)}table.vt th,table.vt td{border:0;padding:2px 0}
+ table.vt th{font-size:19px}table.vt td:nth-child(2){color:var(--muted)}}
 ol.time{list-style:none;margin:0;padding:0;border-inline-start:2px solid var(--line)}
-ol.time li{padding:0 0 14px 18px;position:relative}
-[dir=rtl] ol.time li{padding:0 18px 14px 0}
-ol.time li::before{content:"";position:absolute;inset-inline-start:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--field)}
+ol.time li{padding:0 0 18px;padding-inline-start:20px;position:relative}
+ol.time li::before{content:"";position:absolute;inset-inline-start:-8px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--lake)}
 ol.time b{display:block}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
-.q .qfi{font-weight:700;font-size:19px}
-.q ol{margin:0;padding-inline-start:24px;display:flex;flex-direction:column;gap:2px}
-.q details{border:0}
-.ans{color:var(--ok);font-weight:700}
-.note{background:var(--accent-soft);padding:10px 14px;border-radius:var(--r)}
-.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:inherit}
-footer{font-size:14px;color:var(--muted);border-top:1px solid var(--line);margin-top:56px;padding-top:16px;display:flex;flex-direction:column;gap:6px}
-footer nav{display:flex;gap:4px 16px;flex-wrap:wrap}footer nav a{display:inline-block;padding-block:10px}
-a{color:inherit}main a{overflow-wrap:anywhere}[dir=rtl] [lang=fi]{direction:ltr;unicode-bidi:isolate;text-align:left}
-.doc{max-width:68ch;display:flex;flex-direction:column;gap:14px}.doc h2{margin-top:12px}.warn{background:var(--accent-soft);padding:10px 14px;border-radius:var(--r)}
+.doc{max-width:68ch;display:flex;flex-direction:column;gap:14px;padding-top:40px}.doc h2{margin-top:12px;font-size:26px}.warn{background:var(--berry-soft);padding:12px 16px;border-radius:12px}
+[dir=rtl] [lang=fi]{direction:ltr;unicode-bidi:isolate;text-align:left}
+[dir=rtl] .opt [lang=fi]{text-align:start}
+/* footer + sticky bar */
+footer.site{margin-top:88px;padding-block:36px 104px;display:flex;flex-direction:column;gap:12px;font-size:15px;color:var(--lake-muted)}
+footer.site .brand{color:var(--lake-ink);min-height:0}
+footer.site nav{display:flex;gap:4px 18px;flex-wrap:wrap}footer.site nav a{display:inline-block;padding-block:10px}
+.sticky{position:fixed;inset-inline:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:30;display:flex;transform:translateY(150%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.on{transform:none}
+.sticky .btn{flex:1;box-shadow:0 14px 34px -8px rgba(5,25,26,.5)}
+@media(min-width:960px){.sticky{display:none}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 """
 
 
@@ -189,31 +313,48 @@ def head(lang, pid, title, desc, cfg, jsonld=None, robots=None, path=None):
             f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
             f'<meta property="og:locale" content="{ST.OG_LOCALE[lang]}">{og_alt}<meta name="twitter:card" content="summary_large_image">'
             f'<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml">'
-            f'<link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#F2F4F1">'
-            f'<link rel="preload" href="/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>'
-            f'<link rel="stylesheet" href="/fonts/fonts.css"><style>{CSS}</style>{ld}</head><body>')
+            f'<link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0F3B3D">'
+            f'<link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>'
+            f'<link rel="stylesheet" href="/fonts/fonts.css"><style>{CSS}</style><script src="/site.js" defer></script>{ld}</head><body>')
 
 
-def header(lang, pid, S):
+ICON = {
+    "logo": '<svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#F3A43B"/><path d="M8.5 14.5l3.8 3.8 7.2-8.3" fill="none" stroke="#1C1405" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    "globe": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg>',
+    "sound": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11"/></svg>',
+    "tr": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5h9M8 3.5v2M5.5 5.5c.8 3.4 3 5.9 6 7.3M11 5.5c-.9 4.2-3.6 7.1-7 8.6"/><path d="M13 20.5l3.8-9 3.7 9M14.3 17.5h5"/></svg>',
+    "cal": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+    "shield": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6z"/></svg>',
+}
+
+
+def header(lang, pid, S, langs=True):
     nav = [("home", S["navHome"]), ("hub", S["navHub"]), ("qs", S["navQs"]), ("voc", S["navVoc"])]
     cur = "qs" if pid.startswith("qs") else pid
     links = "".join(f'<a href="{page_path(p, lang)}"{" aria-current=\"page\"" if p == cur else ""}>{e(lbl)}</a>' for p, lbl in nav)
     links += f'<a href="/app/#{lang}">{e(S["navApp"])}</a>'
-    langs = "".join(f'<a href="{page_path(pid, l)}" hreflang="{l}" lang="{l}"{" aria-current=\"true\"" if l == lang else ""}>{e(NAMES[l])}</a>' for l in LANGS)
-    return (f'<a class="skip" href="#main">{e(S["skip"])}</a><div class="wrap"><header class="top">'
-            f'<a class="brand" href="{page_path("home", lang)}"><span class="dot" aria-hidden="true"></span>Koevalmis</a>'
-            f'<nav class="langs" aria-label="{e(S["langLabel"])}">{langs}</nav>'
-            f'<nav class="main" aria-label="Koevalmis">{links}</nav></header><main id="main">')
+    menu = ""
+    if langs:
+        items = "".join(f'<li><a href="{page_path(pid, l)}" hreflang="{l}" lang="{l}"{" aria-current=\"true\"" if l == lang else ""}>{e(NAMES[l])}</a></li>' for l in LANGS)
+        menu = (f'<details class="langs"><summary aria-label="{e(S["langLabel"])}: {e(NAMES[lang])}">{ICON["globe"]}'
+                f'<span lang="{lang}">{e(NAMES[lang])}</span></summary><ul>{items}</ul></details>')
+    return (f'<a class="skip" href="#main">{e(S["skip"])}</a><div class="wrap"><header class="site bleed lake">'
+            f'<a class="brand" href="{page_path("home", lang)}">{ICON["logo"]}Koevalmis</a>'
+            f'<nav class="main" aria-label="Koevalmis">{links}</nav>{menu}</header><main id="main">')
 
 
-def footer(lang, S, cfg):
+def footer(lang, S, cfg, sticky=""):
     biz = ""
     if all(cfg.get(k) for k in ("business_name", "business_id", "email")):
-        biz = f'<span>{e(cfg["business_name"])} · {e(cfg["business_id"])} · <span dir="ltr">{e(cfg["email"])}</span></span>'
+        biz = f'<span>{e(cfg["business_name"])}, {e(cfg["business_id"])}, <span dir="ltr">{e(cfg["email"])}</span></span>'
     note = f'<span>{e(S["reviewNote"])}</span>' if S.get("reviewNote") else ""
-    return (f'</main><footer><span>{e(S["foot1"])}</span>{biz}{note}'
+    return (f'</main><footer class="site bleed lake"><span class="brand">{ICON["logo"]}Koevalmis</span><span>{e(S["foot1"])}</span>{biz}{note}'
             f'<nav aria-label="{e(S["privacy"])}"><a href="/privacy/">{e(S["privacy"])}</a><a href="/terms/">{e(S["terms"])}</a></nav>'
-            f'</footer></div>')
+            f'</footer></div>{sticky}')
+
+
+def pagehead(crumbs, h1, extra=""):
+    return f'<section class="pagehead bleed lake"><p class="crumbs">{crumbs}</p><h1>{h1}</h1>{extra}</section>'
 
 
 def num(s):
@@ -221,32 +362,73 @@ def num(s):
 
 
 # ---------------------------------------------------------------- landing
-def landing(lang, S, cfg, tr):
+def days_left():
+    return (datetime.date(2027, 3, 1) - datetime.date.fromisoformat(TODAY)).days
+
+
+def demo_card(q, lang, S, tr, label, head_tag="p"):
+    """A question card the visitor can answer. Used in the hero and on practice pages."""
+    TL = tr_lang(lang)
+    fi, tq = q["fi"], q_text(q, TL, tr)
+    fo, to = options(q, "fi", tr, S), options(q, TL, tr, S)
+    opts = "".join(
+        f'<li><button type="button" class="opt" data-i="{i}"><span class="k" aria-hidden="true">{"ABCD"[i]}</span>'
+        f'<span><span lang="fi">{e(o)}</span><span class="otr" lang="{TL}" hidden>{e(to[i])}</span></span></button></li>'
+        for i, o in enumerate(fo))
+    return f"""<div class="qcard" data-q data-a="{q['a']}" id="{q['id']}">
+  <div class="qhead"><span class="lbl">{label}</span><div class="tools">
+    <button type="button" class="tool" data-say hidden>{ICON['sound']}{e(S['listen'])}</button>
+    <button type="button" class="tool" data-tr aria-pressed="false">{ICON['tr']}{e(S['showTr'])}</button></div></div>
+  <{head_tag} class="qtext"><span lang="fi">{e(fi['q'])}</span><span class="qtr" lang="{TL}" hidden>{e(tq['q'])}</span></{head_tag}>
+  <ol class="opts">{opts}</ol>
+  <div class="res" hidden><p lang="fi">{e(fi['e'])}</p><p class="muted" lang="{TL}">{e(tq['e'])}</p>{{after}}</div>
+  <span class="stamp" lang="fi" aria-hidden="true"></span>
+</div>"""
+
+
+def landing(lang, S, cfg, tr, qs, gl):
     now, later = PRICE.get(lang, ("9,90 €", "14,90 €"))
     base = cfg["base_url"].rstrip("/")
+    TL = tr_lang(lang)
     faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in S["faq"])
-    wl_ready = bool(cfg.get("waitlist_url") and cfg.get("waitlist_anon_key"))
+    biz_ready = all(cfg.get(k) for k in ("business_name", "business_id", "email"))
+    provider = cfg.get("waitlist_provider", "supabase")
+    wl_ready = biz_ready and (provider == "netlify" or bool(cfg.get("waitlist_url") and cfg.get("waitlist_anon_key")))
+    msgs = {k: S[k] for k in ("wlBad", "wlOk", "wlErr", "wlConsent")}
     if wl_ready:
-        wl = json.dumps({"url": cfg["waitlist_url"], "key": cfg["waitlist_anon_key"], "lang": lang,
-                         "msg": {k: S[k] for k in ("wlBad", "wlOk", "wlErr", "wlConsent")}}, ensure_ascii=False)
-        form = f"""<form id="wl" novalidate>
+        if provider == "netlify":
+            wl = json.dumps({"provider": "netlify", "lang": lang, "msg": msgs}, ensure_ascii=False)
+            attrs = 'name="waitlist" method="POST" data-netlify="true" netlify-honeypot="website"'
+        else:
+            wl = json.dumps({"provider": "supabase", "url": cfg["waitlist_url"], "key": cfg["waitlist_anon_key"], "lang": lang, "msg": msgs}, ensure_ascii=False)
+            attrs = 'name="waitlist"'
+        form = f"""<form id="wl" {attrs} novalidate>
+      <input type="hidden" name="form-name" value="waitlist"><input type="hidden" name="lang" value="{lang}">
       <label for="email" class="muted" style="flex-basis:100%">{e(S['wlLabel'])}</label>
-      <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="wlmsg">
-      <button class="btn acc" type="submit">{e(S['wlBtn'])}</button>
-      <label class="consent"><input id="consent" type="checkbox" required> <span>{e(S['consent'])} <a href="/privacy/">{e(S['privacy'])}</a></span></label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="wlmsg">
+      <button class="btn primary" type="submit">{e(S['wlBtn'])}</button>
+      <label class="consent"><input id="consent" name="consent" type="checkbox" value="yes" required> <span>{e(S['consent'])} <a href="/privacy/">{e(S['privacy'])}</a></span></label>
       <span id="wlmsg" class="formmsg" role="status"></span>
       <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;inset-inline-start:-9999px">
-    </form>
-    <script>(function(){{const C={wl};const f=document.getElementById("wl"),m=document.getElementById("wlmsg"),em=document.getElementById("email"),cb=document.getElementById("consent");
-f.addEventListener("submit",async ev=>{{ev.preventDefault();if(document.getElementById("hp").value)return;const v=em.value.trim();
-const bad=!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(v);em.setAttribute("aria-invalid",bad);
-if(bad){{m.textContent=C.msg.wlBad;em.focus();return;}}if(!cb.checked){{m.textContent=C.msg.wlConsent;cb.focus();return;}}
-try{{const r=await fetch(C.url+"/rest/v1/waitlist",{{method:"POST",headers:{{"apikey":C.key,"Authorization":"Bearer "+C.key,"Content-Type":"application/json","Prefer":"return=minimal"}},body:JSON.stringify({{email:v,lang:C.lang,consent:true}})}});
-m.textContent=(r.ok||r.status===409)?C.msg.wlOk:C.msg.wlErr;if(r.ok||r.status===409)f.reset();}}catch(err){{m.textContent=C.msg.wlErr;}}}});}})();</script>"""
+    </form><script type="application/json" id="wl-config">{wl}</script>"""
     else:
-        form = f'<p class="note">{e(S["wlClosed"])} <a href="/app/#diag-{lang}">{e(S["cta1"])}</a></p>'
-    tr_ex = S.get("exTr", "")
+        form = f'<p class="note">{e(S["wlClosed"])}</p>'
+    by_id = {q["id"]: q for q in qs}
+    after = (f'<p class="msg" data-ok="{e(S["afterOk"])}" data-no="{e(S["afterNo"])}"></p>'
+             f'<div class="cta"><a class="btn primary" href="/app/#diag-{lang}">{e(S["cta1"])}</a></div>')
+    card = demo_card(by_id[SS.DEMO_QID], lang, S, tr, e(S["tryLabel"])).replace("{after}", after)
     topics = "".join(f'<a href="{page_path("qs-" + tp, lang)}">{e(topic_name(lang, tp, tr))}</a>' for tp in TOPIC_ORDER)
+    steps = "".join(f"<li><h3>{e(h)}</h3><p>{e(t)}</p></li>" for h, t in S["steps"])
+    gl_by = {g["fi"]: g for g in gl}
+    def tword(g):
+        return g["en"] if TL == "en" else tr[TL]["glossary"].get(g["fi"], g["en"])
+    words = "".join(f'<div><dt lang="fi">{e(w)}</dt><dd lang="{TL}">{e(tword(gl_by[w]))}</dd></div>' for w in SS.VOC_TEASER)
+    trust = [t.replace("{date}", ST.CHECKED_FI) for t in S["trust"]]
+    if cfg.get("reviewer"):
+        trust.insert(1, S["reviewed"].replace("{who}", cfg["reviewer"]))
+    if cfg.get("refund_days"):
+        trust.append(S["refund"].replace("{n}", str(cfg["refund_days"])))
+    count = e(S["count"]).replace("{n}", f'<b data-days>{days_left()}</b>')
     jsonld = [{
         "@context": "https://schema.org", "@graph": [
             {"@type": "Organization", "@id": f"{base}/#org", "name": "Koevalmis", "url": f"{base}/", "logo": f"{base}/logo.png",
@@ -259,14 +441,18 @@ m.textContent=(r.ok||r.status===409)?C.msg.wlOk:C.msg.wlErr;if(r.ok||r.status===
             {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in S["faq"]]},
         ]}]
     body = f"""
-<section class="hero">
-  <span class="tag">{e(S['tag'])}</span>
-  <h1>{e(S['h1'])}</h1>
-  <p class="muted">{e(S['lead'])}</p>
-  <div class="pair"><span class="lab">{e(S['exLabel'])}</span><span class="fi" lang="fi">{e(EXAMPLE_FI)}</span>{f'<span class="tr">{e(tr_ex)}</span>' if tr_ex else ''}</div>
-  <div class="cta"><a class="btn acc" href="/app/#diag-{lang}">{e(S['cta1'])}</a><a class="btn" href="#price">{e(S['cta2'])}</a></div>
+<section class="hero bleed lake">
+  <div class="intro">
+    <p class="tag">{ICON['shield']}{e(S['tag'])}</p>
+    <h1>{e(S['heroH1'])}</h1>
+    <p class="lead">{e(S['heroLead'])}</p>
+    <div class="cta"><a class="btn primary" href="/app/#diag-{lang}">{e(S['cta1'])}</a><a class="more" href="#price">{e(S['ctaPrice'])}</a></div>
+    <p class="count">{ICON['cal']}<span>{count}</span></p>
+    <p class="proof">{e(S['proof'])}</p>
+  </div>
+  {card}
 </section>
-<section class="sec" aria-labelledby="facts"><h2 id="facts">{e(S['factsH'])}</h2>
+<section aria-labelledby="facts"><div class="sec wide"><h2 id="facts">{e(S['factsH'])}</h2>
   <div class="facts">
     <div class="fact"><b>{num('1.3.2027')}</b><span>{e(S['f1'])}</span></div>
     <div class="fact"><b>{num('18–64')}</b><span>{e(S['f2'])}</span></div>
@@ -274,20 +460,31 @@ m.textContent=(r.ok||r.status===409)?C.msg.wlOk:C.msg.wlErr;if(r.ok||r.status===
     <div class="fact"><b>{e(S['f4n'])}</b><span>{e(S['f4'])}</span></div>
   </div>
   <p>{e(S['topicsIntro'])}</p>
-  <div class="topics">{topics}</div>
-  <p class="muted">{e(S['unknown'])} <a href="{SRC['migri']}">{e(S['src1'])}</a>, <a href="{SRC['stt']}">{e(S['src2'])}</a>. <a href="{page_path('hub', lang)}">{e(S['navHub'])} →</a></p>
-</section>
-<section class="sec" aria-labelledby="how"><h2 id="how">{e(S['howH'])}</h2>
-  <div class="feat"><div><h3>{e(S['h3a'])}</h3><p>{e(S['pa'])}</p></div><div><h3>{e(S['h3b'])}</h3><p>{e(S['pb'])}</p></div><div><h3>{e(S['h3c'])}</h3><p>{e(S['pc'])}</p></div></div>
-</section>
-<section class="sec" id="price" aria-labelledby="pricing"><h2 id="pricing">{e(S['priceH'])}</h2>
-  <div class="price"><div class="amt">{num(now)}</div><p>{e(S['priceNote'])} {e(S['priceLater'])}</p>
-    <ul>{''.join(f'<li>{e(x)}</li>' for x in S['li'])}</ul>
-    {form}
+  <div class="chips">{topics}</div>
+  <p class="muted">{e(S['unknown'])} <a href="{SRC['migri']}">{e(S['src1'])}</a>, <a href="{SRC['stt']}">{e(S['src2'])}</a>. <a href="{page_path('hub', lang)}">{e(S['navHub'])}</a></p>
+</div></section>
+<section aria-labelledby="steps"><div class="sec wide"><h2 id="steps">{e(S['stepsH'])}</h2>
+  <ol class="steps">{steps}</ol>
+  <div class="cta"><a class="btn dark" href="/app/#diag-{lang}">{e(S['cta1'])}</a></div>
+</div></section>
+<section aria-labelledby="words"><div class="sec"><h2 id="words">{e(S['vocTeaserH'])}</h2><p>{e(S['vocTeaserP'])}</p>
+  <dl class="words">{words}</dl>
+  <p><a href="{page_path('voc', lang)}">{e(S['vocTeaserLink'])}</a></p>
+</div></section>
+<section id="price" aria-labelledby="pricing"><div class="buy">
+  <div class="sec"><h2 id="pricing">{e(S['priceH'])}</h2>
+    <div class="price"><span class="lbl">{e(S['priceNow'])}</span><span class="amt">{num(now)}</span><span class="later">{e(S['priceLaterShort'])}</span>
+      <p>{e(S['priceNote'])}</p>
+      <ul class="ticks">{''.join(f'<li>{e(x)}</li>' for x in S['li'])}</ul>
+      {form}
+    </div>
+    <p class="fee">{e(S['feeNote'])} <a href="{SRC['havm']}">HaVM 10/2026</a></p>
   </div>
-</section>
-<section class="sec" aria-labelledby="faq"><h2 id="faq">{e(S['faqH'])}</h2><div>{faq}</div></section>"""
-    return head(lang, "home", S["title"], S["desc"], cfg, jsonld) + header(lang, "home", S) + body + footer(lang, S, cfg) + "</body></html>"
+  <div class="trust"><h2>{e(S['trustH'])}</h2><ul class="ticks">{''.join(f'<li>{e(t)}</li>' for t in trust)}</ul></div>
+</div></section>
+<section class="faq" aria-labelledby="faq"><div class="sec"><h2 id="faq">{e(S['faqH'])}</h2><div>{faq}</div></div></section>"""
+    sticky = f'<div class="sticky" inert><a class="btn primary" href="/app/#diag-{lang}">{e(S["cta1"])}</a></div>'
+    return head(lang, "home", S["title"], S["desc"], cfg, jsonld) + header(lang, "home", S) + body + footer(lang, S, cfg, sticky) + "</body></html>"
 
 
 # ---------------------------------------------------------------- hub
@@ -306,25 +503,21 @@ def hub(lang, S, cfg, tr):
                "mainEntityOfPage": f"{base}{page_path('hub', lang)}", "image": f"{base}/og.png",
                "citation": list(dict.fromkeys(SRC.values()))},
               breadcrumbs(base, lang, S, [("hub", S["navHub"])])]
-    body = f"""
-<section class="sec">
-  <p class="crumbs"><a href="{page_path('home', lang)}">{e(S['navHome'])}</a> › {e(S['navHub'])}</p>
-  <h1>{e(S['hubH1'])}</h1>
-  <p class="muted">{e(S['updated'])} <time datetime="{TODAY}">{num(ST.CHECKED_FI)}</time></p>
-  <p style="font-size:19px">{e(S['hubAnswer'])}</p>
-</section>
-<section class="sec"><h2>{e(S['factsH'])}</h2>
+    crumbs = f'<a href="{page_path("home", lang)}">{e(S["navHome"])}</a> › {e(S["navHub"])}'
+    body = pagehead(crumbs, e(S['hubH1']), f'<p>{e(S["updated"])} <time datetime="{TODAY}">{num(ST.CHECKED_FI)}</time></p><p class="big">{e(S["hubAnswer"])}</p>'
+                    f'<div class="cta"><a class="btn primary" href="/app/#diag-{lang}">{e(S["cta1"])}</a></div>') + f"""
+<section><div class="sec wide"><h2>{e(S['factsH'])}</h2>
   <div class="scroll"><table><thead><tr>{''.join(f'<th scope="col">{e(h)}</th>' for h in S['factsTH'])}</tr></thead><tbody>{rows}</tbody></table></div>
-</section>
-<section class="sec"><h2>{e(S['notYetH'])} ({e(S['checkedLabel'])} {num(ST.CHECKED_FI)})</h2>
+</div></section>
+<section><div class="sec"><h2>{e(S['notYetH'])} ({e(S['checkedLabel'])} {num(ST.CHECKED_FI)})</h2>
   <ul>{''.join(f'<li>{e(x)}</li>' for x in S['notYet'])}</ul>
   <h3>{e(S['reportedH'])}</h3><ul>{rep}</ul>
-</section>
-<section class="sec"><h2>{e(S['timelineH'])}</h2><ol class="time">{tl}</ol></section>
-<section class="sec"><h2>{e(S['topicsH'])}</h2><div class="topics">{topics}</div>
-  <div class="cta"><a class="btn acc" href="/app/#diag-{lang}">{e(S['cta1'])}</a></div></section>
-<section class="sec"><h2>{e(S['faqH'])}</h2><div>{faq}</div></section>
-<section class="sec"><h2>{e(S['sourcesH'])}</h2><ul>{srcs}</ul><p class="muted">{e(S['notAdvice'])}</p></section>"""
+</div></section>
+<section><div class="sec"><h2>{e(S['timelineH'])}</h2><ol class="time">{tl}</ol></div></section>
+<section><div class="sec"><h2>{e(S['topicsH'])}</h2><div class="chips">{topics}</div>
+  <div class="cta"><a class="btn dark" href="/app/#diag-{lang}">{e(S['cta1'])}</a></div></div></section>
+<section class="faq"><div class="sec"><h2>{e(S['faqH'])}</h2><div>{faq}</div></div></section>
+<section><div class="sec"><h2>{e(S['sourcesH'])}</h2><ul>{srcs}</ul><p class="muted">{e(S['notAdvice'])}</p></div></section>"""
     return head(lang, "hub", S["hubTitle"], S["hubDesc"], cfg, jsonld) + header(lang, "hub", S) + body + footer(lang, S, cfg) + "</body></html>"
 
 
@@ -344,22 +537,14 @@ def public_questions(qs, tp):
 
 def question_card(q, lang, tr, S, n):
     TL = tr_lang(lang)
-    fi = q["fi"]
     fo = options(q, "fi", tr, S)
-    to = options(q, TL, tr, S)
     tq = q_text(q, TL, tr)
-    letters = "ABCD"
-    opts = "".join(f'<li><span lang="fi">{e(o)}</span></li>' for o in fo)
-    tr_opts = "".join(f"<li>{e(o)}</li>" for o in to)
-    return f"""<article class="card q" id="{q['id']}">
-  <p class="qfi" lang="fi">{num(n)}. {e(fi['q'])}</p>
-  <ol type="A" lang="fi">{opts}</ol>
-  <details><summary>{e(S['trLabel'])}</summary><div lang="{TL}"><p>{e(tq['q'])}</p><ol type="A">{tr_opts}</ol></div></details>
-  <details><summary>{e(S['ansLabel'])}</summary><div>
-    <p class="ans">{e(S['correct'])}: {num(letters[q['a']])} – <span lang="fi">{e(fo[q['a']])}</span></p>
-    <p lang="fi">{e(fi['e'])}</p>
-    <p lang="{TL}" class="muted">{e(tq['e'])}</p></div></details>
-</article>"""
+    ans = (f'<details class="plain ans-d"><summary>{e(S["ansLabel"])}</summary><div>'
+           f'<p class="ans">{e(S["correct"])}: {num("ABCD"[q["a"]])}, <span lang="fi">{e(fo[q["a"]])}</span></p>'
+           f'<p lang="fi">{e(q["fi"]["e"])}</p><p class="muted" lang="{TL}">{e(tq["e"])}</p></div></details>')
+    card = demo_card(q, lang, S, tr, f'{num(n)} / {num(PUBLIC_PER_TOPIC)}', head_tag="h2")
+    card = re.sub(r'<div class="res" hidden>.*?\{after\}</div>', ans, card, flags=re.S)
+    return card
 
 
 def qs_index(lang, S, cfg, tr, qs):
@@ -370,14 +555,12 @@ def qs_index(lang, S, cfg, tr, qs):
         name = topic_name(lang, tp, tr)
         total = len([q for q in qs if q["t"] == tp])
         blocks.append(f'<div class="card"><h2><a href="{page_path("qs-" + tp, lang)}">{e(name)}</a></h2>'
-                      f'<p lang="fi">{e(sample["fi"]["q"])}</p><p class="muted">{e(S["qCount"].format(n=total))} · '
-                      f'<a href="{page_path("qs-" + tp, lang)}">{num(PUBLIC_PER_TOPIC)} →</a></p></div>')
+                      f'<p lang="fi">{e(sample["fi"]["q"])}</p><p class="muted">{e(S["qCount"].format(n=total))}</p></div>')
     jsonld = [breadcrumbs(base, lang, S, [("qs", S["navQs"])])]
-    body = f"""<section class="sec">
-  <p class="crumbs"><a href="{page_path('home', lang)}">{e(S['navHome'])}</a> › {e(S['navQs'])}</p>
-  <h1>{e(S['qsH1'])}</h1><p>{e(S['qsIntro'])}</p><p class="note">{e(S['qsDisc'])}</p>
-  <div class="cta"><a class="btn acc" href="/app/#diag-{lang}">{e(S['cta1'])}</a></div>
-</section><section class="sec">{''.join(blocks)}</section>"""
+    crumbs = f'<a href="{page_path("home", lang)}">{e(S["navHome"])}</a> › {e(S["navQs"])}'
+    body = pagehead(crumbs, e(S['qsH1']), f'<p class="big">{e(S["qsIntro"])}</p><p class="note">{e(S["qsDisc"])}</p>'
+                    f'<div class="cta"><a class="btn primary" href="/app/#diag-{lang}">{e(S["cta1"])}</a></div>') + f"""
+<section><div class="sec">{''.join(blocks)}</div></section>"""
     return head(lang, "qs", S["qsTitle"], S["qsDesc"], cfg, jsonld) + header(lang, "qs", S) + body + footer(lang, S, cfg) + "</body></html>"
 
 
@@ -389,15 +572,12 @@ def qs_topic(lang, S, cfg, tr, qs, tp):
     others = "".join(f'<a href="{page_path("qs-" + o, lang)}">{e(topic_name(lang, o, tr))}</a>' for o in TOPIC_ORDER if o != tp)
     pid = "qs-" + tp
     jsonld = [breadcrumbs(base, lang, S, [("qs", S["navQs"]), (pid, name)])]
-    body = f"""<section class="sec">
-  <p class="crumbs"><a href="{page_path('home', lang)}">{e(S['navHome'])}</a> › <a href="{page_path('qs', lang)}">{e(S['navQs'])}</a> › {e(name)}</p>
-  <h1>{e(S['topicH1'].format(topic=name))}</h1>
-  <p class="muted">{e(S['updated'])} <time datetime="{TODAY}">{num(ST.CHECKED_FI)}</time></p>
-  <p class="note">{e(S['qsDisc'])}</p>
-</section>
-<section class="sec">{cards}
-  <div class="cta"><a class="btn acc" href="/app/#{lang}">{e(S['ctaApp'].format(n=len(qs)))}</a></div></section>
-<section class="sec"><h2>{e(S['otherTopics'])}</h2><div class="topics">{others}</div></section>"""
+    crumbs = (f'<a href="{page_path("home", lang)}">{e(S["navHome"])}</a> › <a href="{page_path("qs", lang)}">{e(S["navQs"])}</a> › {e(name)}')
+    body = pagehead(crumbs, e(S['topicH1'].format(topic=name)),
+                    f'<p>{e(S["updated"])} <time datetime="{TODAY}">{num(ST.CHECKED_FI)}</time></p><p class="note">{e(S["qsDisc"])}</p>') + f"""
+<section><div class="sec qlist">{cards}
+  <div class="cta"><a class="btn primary" href="/app/#{lang}">{e(S['ctaApp'].format(n=len(qs)))}</a></div></div></section>
+<section><div class="sec"><h2>{e(S['otherTopics'])}</h2><div class="chips">{others}</div></div></section>"""
     return (head(lang, pid, S["topicTitle"].format(topic=name), S["topicDesc"].format(topic=name), cfg, jsonld)
             + header(lang, pid, S) + body + footer(lang, S, cfg) + "</body></html>")
 
@@ -413,12 +593,12 @@ def vocab(lang, S, cfg, tr, gl):
                "url": f"{base}{page_path('voc', lang)}",
                "hasDefinedTerm": [{"@type": "DefinedTerm", "name": g["fi"], "alternateName": tword(g), "description": g["d"]} for g in gl]},
               breadcrumbs(base, lang, S, [("voc", S["navVoc"])])]
-    body = f"""<section class="sec">
-  <p class="crumbs"><a href="{page_path('home', lang)}">{e(S['navHome'])}</a> › {e(S['navVoc'])}</p>
-  <h1>{e(S['vocH1'])}</h1><p>{e(S['vocIntro'])}</p>
-  <div class="scroll"><table><thead><tr><th scope="col">{e(S['colFi'])}</th><th scope="col">{e(S['colTr'])}</th><th scope="col">{e(S['colDef'])}</th></tr></thead><tbody>{rows}</tbody></table></div>
-  <div class="cta"><a class="btn acc" href="/app/#gloss-{lang}">{e(S['navApp'])}</a></div>
-</section>"""
+    crumbs = f'<a href="{page_path("home", lang)}">{e(S["navHome"])}</a> › {e(S["navVoc"])}'
+    body = pagehead(crumbs, e(S['vocH1']), f'<p class="big">{e(S["vocIntro"])}</p>'
+                    f'<div class="cta"><a class="btn primary" href="/app/#gloss-{lang}">{e(S["navApp"])}</a></div>') + f"""
+<section><div class="sec wide">
+  <div class="scroll"><table class="vt"><thead><tr><th scope="col">{e(S['colFi'])}</th><th scope="col">{e(S['colTr'])}</th><th scope="col">{e(S['colDef'])}</th></tr></thead><tbody>{rows}</tbody></table></div>
+</div></section>"""
     return head(lang, "voc", S["vocTitle"], S["vocDesc"], cfg, jsonld) + header(lang, "voc", S) + body + footer(lang, S, cfg) + "</body></html>"
 
 
@@ -449,56 +629,108 @@ def legal_page(kind, cfg, S):
     body = re.sub(r'(<h2 lang="en"[^>]*>[^<]*)</h1>', r"\1</h2>", body, count=1)
     title = {"privacy": "Tietosuojaseloste – Privacy notice | Koevalmis", "terms": "Myyntiehdot – Terms of sale | Koevalmis"}[kind]
     return (head("fi", None, title, title, cfg, robots="index,follow" if ready else "noindex,follow", path=f"/{kind}/")
-            + header("fi", "home", S).replace('<nav class="langs"', '<nav hidden class="langs"')
+            + header("fi", "home", S, langs=False)
             + f'<div class="doc">{warn}{body}</div>' + footer("fi", S, cfg) + "</body></html>")
 
 
 def page_404(cfg, ALL):
     links = "".join(f'<li><a href="{page_path("home", l)}" lang="{l}">{e(NAMES[l])}</a> · <a href="{page_path("qs", l)}" lang="{l}">{e(ALL[l]["navQs"])}</a></li>' for l in LANGS)
     return (head("en", None, "Page not found | Koevalmis", "Page not found", cfg, robots="noindex", path="/404.html")
-            + header("en", "home", ALL["en"]) + f'<section class="sec"><h1>Page not found · Sivua ei löytynyt</h1><ul>{links}</ul></section>'
+            + header("en", "home", ALL["en"]) + pagehead("Koevalmis", "Page not found. Sivua ei löytynyt.") + f'<section><div class="sec"><ul>{links}</ul></div></section>'
             + footer("en", ALL["en"], cfg) + "</body></html>")
 
 
 # ---------------------------------------------------------------- assets
 def make_images(out):
+    """Share image (1200x630) and icons in the site's colours, drawn with the site font when Pillow can read it."""
     from PIL import Image, ImageDraw, ImageFont
-    bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-    reg = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    woff = os.path.join(ROOT, "site_src", "fonts", "atkinson-hyperlegible-next-latin-wght-normal.woff2")
+    dejavu = {800: "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 400: "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"}
 
-    def font(path, size):  # build servers without DejaVu fall back to Pillow's bundled font
-        return ImageFont.truetype(path, size) if os.path.exists(path) else ImageFont.load_default(size=size)
-    bg, ink, muted, acc = (242, 244, 241), (22, 32, 27), (86, 99, 92), (217, 133, 30)
-    img = Image.new("RGB", (1200, 630), bg)
+    def font(size, weight=400):
+        try:
+            f = ImageFont.truetype(woff, size)
+            f.set_variation_by_axes([weight])
+            return f
+        except Exception:  # Pillow without WOFF2 support: DejaVu, then Pillow's bundled font
+            path = dejavu[800 if weight >= 600 else 400]
+            return ImageFont.truetype(path, size) if os.path.exists(path) else ImageFont.load_default(size=size)
+
+    lake, paper, ink, muted, berry, moss, line = (15, 59, 61), (244, 246, 243), (16, 32, 31), (169, 196, 192), (243, 164, 59), (31, 107, 69), (212, 220, 217)
+    S = 2  # draw at 2x, then downsample for smooth edges
+    img = Image.new("RGB", (1200 * S, 630 * S), lake)
     d = ImageDraw.Draw(img)
-    d.ellipse((80, 92, 128, 140), fill=acc)
-    d.text((150, 84), "Koevalmis", font=font(bold, 56), fill=ink)
-    d.text((80, 200), "Finnish citizenship test 2027", font=font(bold, 64), fill=ink)
-    d.text((80, 290), "Practice questions in Finnish, with translations", font=font(reg, 38), fill=muted)
-    d.text((80, 340), "EN · FI · RU · AR · FA · SO", font=font(reg, 38), fill=muted)
-    d.rounded_rectangle((80, 430, 1120, 540), radius=16, fill=(255, 255, 255), outline=(211, 218, 213), width=2)
-    d.text((110, 462), "Kuka säätää Suomen lait?  A) Eduskunta", font=font(bold, 36), fill=ink)
-    img.save(os.path.join(out, "og.png"), optimize=True)
+
+    def logo(x, y, r):
+        d.ellipse((x, y, x + 2 * r, y + 2 * r), fill=berry)
+        k = r / 14
+        d.line([(x + 8.5 * k, y + 14.5 * k), (x + 12.3 * k, y + 18.3 * k), (x + 19.5 * k, y + 10 * k)], fill=(28, 20, 5), width=int(2.8 * k), joint="curve")
+
+    logo(80 * S, 70 * S, 22 * S)
+    d.text((136 * S, 72 * S), "Koevalmis", font=font(40 * S, 800), fill=paper)
+    d.text((80 * S, 178 * S), "Be ready for the", font=font(58 * S, 800), fill=paper)
+    d.text((80 * S, 244 * S), "Finnish citizenship", font=font(58 * S, 800), fill=paper)
+    d.text((80 * S, 310 * S), "test 2027", font=font(58 * S, 800), fill=paper)
+    d.text((80 * S, 420 * S), "Practice questions in Finnish", font=font(30 * S), fill=muted)
+    d.text((80 * S, 462 * S), "with translations in 6 languages", font=font(30 * S), fill=muted)
+    d.text((80 * S, 540 * S), "EN  FI  RU  AR  FA  SO", font=font(26 * S, 700), fill=berry)
+    # question card with the answer stamped
+    cx, cy, cw, ch = 700 * S, 190 * S, 420 * S, 330 * S
+    d.rounded_rectangle((cx, cy, cx + cw, cy + ch), radius=24 * S, fill=(255, 255, 255))
+    d.text((cx + 28 * S, cy + 30 * S), "Mitä jokamiehenoikeus", font=font(28 * S, 800), fill=ink)
+    d.text((cx + 28 * S, cy + 66 * S), "sallii?", font=font(28 * S, 800), fill=ink)
+    rows = [("A", "Puiden kaatamisen", False), ("B", "Metsästämisen ilman lupaa", False), ("C", "Marjojen poimimisen", True)]
+    for i, (k, t, ok) in enumerate(rows):
+        y = cy + (122 + i * 64) * S
+        d.rounded_rectangle((cx + 24 * S, y, cx + cw - 24 * S, y + 52 * S), radius=12 * S,
+                            fill=(221, 239, 228) if ok else (255, 255, 255), outline=moss if ok else line, width=3 * S if ok else 2 * S)
+        d.ellipse((cx + 38 * S, y + 12 * S, cx + 66 * S, y + 40 * S), fill=moss if ok else None, outline=moss if ok else (122, 139, 136), width=2 * S)
+        d.text((cx + 52 * S, y + 26 * S), k, font=font(15 * S, 700), fill=(255, 255, 255) if ok else ink, anchor="mm")
+        d.text((cx + 80 * S, y + 13 * S), t, font=font(21 * S), fill=ink)
+    # rubber stamp
+    st = Image.new("RGBA", (250 * S, 90 * S), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(st)
+    sd.rounded_rectangle((6 * S, 6 * S, 244 * S, 84 * S), radius=12 * S, outline=moss + (255,), width=5 * S, fill=(255, 255, 255, 255))
+    sd.rounded_rectangle((14 * S, 14 * S, 236 * S, 76 * S), radius=8 * S, outline=moss + (255,), width=2 * S)
+    sd.text((125 * S, 45 * S), "OIKEIN!", font=font(40 * S, 800), fill=moss + (255,), anchor="mm")
+    st = st.rotate(8, resample=Image.BICUBIC, expand=True)
+    img.paste(st, (cx + cw - 236 * S, cy - 92 * S), st)
+    img.resize((1200, 630), Image.LANCZOS).save(os.path.join(out, "og.png"), optimize=True)
+
     for size, name in ((180, "apple-touch-icon.png"), (512, "logo.png"), (192, "icon-192.png")):
-        ic = Image.new("RGB", (size, size), bg)
-        di = ImageDraw.Draw(ic)
-        m = size * 0.22
-        di.ellipse((m, m, size - m, size - m), fill=acc)
-        ic.save(os.path.join(out, name), optimize=True)
-    ico = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
-    ImageDraw.Draw(ico).ellipse((4, 4, 60, 60), fill=acc + (255,))
-    ico.save(os.path.join(out, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48)])
+        ic = Image.new("RGB", (size * S, size * S), lake)
+        d = ImageDraw.Draw(ic)
+        r = size * S * 0.36
+        logo(size * S / 2 - r, size * S / 2 - r, r)
+        ic.resize((size, size), Image.LANCZOS).save(os.path.join(out, name), optimize=True)
+    ico = Image.new("RGBA", (128, 128), (0, 0, 0, 0))
+    d = ImageDraw.Draw(ico)
+    logo(4, 4, 60)
+    ico.resize((64, 64), Image.LANCZOS).save(os.path.join(out, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48)])
     with open(os.path.join(out, "favicon.svg"), "w") as fh:
-        fh.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#D9851E"/></svg>')
+        fh.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#F3A43B"/>'
+                 '<path d="M8.5 14.5l3.8 3.8 7.2-8.3" fill="none" stroke="#1C1405" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+
+# Netlify response headers (GitHub Pages ignores this file)
+HEADERS = """/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+"""
 
 
 # Set by the deploy workflow when the site is served from a sub-path such as
 # https://samppa3000.github.io/kayttaja-koevalmis/ instead of its own domain.
 BASE_PATH = os.environ.get("BASE_PATH", "").rstrip("/")
+# NOINDEX=1 keeps a temporary address (github.io, netlify.app) out of search engines until koevalmis.fi is live.
+NOINDEX = bool(BASE_PATH) or os.environ.get("NOINDEX") == "1"
 
 
 def apply_base_path(out):
-    """Prefix root-relative links for a sub-path preview and keep the preview out of search engines."""
+    """Prefix root-relative links for a sub-path preview (if any) and keep the preview out of search engines."""
     attr = re.compile(r'(\b(?:href|src|action)=")/(?!/)')
     for d, _, fs in os.walk(out):
         for f in fs:
@@ -507,8 +739,9 @@ def apply_base_path(out):
             p = os.path.join(d, f)
             with open(p, encoding="utf-8") as fh:
                 t = fh.read()
-            t = attr.sub(lambda m: m.group(1) + BASE_PATH + "/", t)
-            t = t.replace("url(/fonts/", f"url({BASE_PATH}/fonts/")
+            if BASE_PATH:
+                t = attr.sub(lambda m: m.group(1) + BASE_PATH + "/", t)
+                t = t.replace("url(/fonts/", f"url({BASE_PATH}/fonts/")
             t = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex,nofollow">', t)
             with open(p, "w", encoding="utf-8") as fh:
                 fh.write(t)
@@ -577,7 +810,7 @@ def main():
     os.makedirs(OUT)
     for lang in LANGS:
         S = ALL[lang]
-        write(page_path("home", lang), landing(lang, S, cfg, tr))
+        write(page_path("home", lang), landing(lang, S, cfg, tr, qs, gl))
         write(page_path("hub", lang), hub(lang, S, cfg, tr))
         write(page_path("qs", lang), qs_index(lang, S, cfg, tr, qs))
         for tp in TOPIC_ORDER:
@@ -590,13 +823,15 @@ def main():
     write("/sitemap.xml", sitemap(cfg))
     write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {cfg['base_url'].rstrip('/')}/sitemap.xml\n")
     write("/llms.txt", llms_txt(cfg, ALL))
-    if not BASE_PATH:
+    write("/_headers", HEADERS)
+    if not NOINDEX:
         write("/CNAME", cfg["base_url"].split("//")[1].strip("/") + "\n")
     write("/.nojekyll", "")
     shutil.copytree(os.path.join(ROOT, "site_src", "fonts"), os.path.join(OUT, "fonts"))
     shutil.copy(os.path.join(ROOT, "site_src", "fonts.css"), os.path.join(OUT, "fonts", "fonts.css"))
+    shutil.copy(os.path.join(ROOT, "site_src", "site.js"), os.path.join(OUT, "site.js"))
     make_images(OUT)
-    if BASE_PATH:
+    if NOINDEX:
         apply_base_path(OUT)
     n = sum(len(fs) for _, _, fs in os.walk(OUT))
     missing = [k for k in ("business_name", "business_id", "email", "waitlist_url", "waitlist_anon_key") if not cfg.get(k)]

@@ -13,6 +13,10 @@ TOPIC_ORDER = ["valtio", "oikeudet", "tasaarvo", "arki", "historia", "kulttuuri"
 LANG_NAMES = {"en": "English", "fi": "Suomi", "ru": "Русский", "ar": "العربية",
               "uk": "Українська", "so": "Soomaali", "fa": "دری / فارسی", "et": "Eesti"}
 RTL = {"ar", "fa"}
+GOOGLE_FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
+                '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+                '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@700'
+                '&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">')
 
 
 def jload(path):
@@ -72,10 +76,14 @@ def main():
         html = fh.read()
     blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     out = html.replace("/*__DATA__*/", blob)
+    site_out = out.replace("<!--FONTS-->", '<link rel="stylesheet" href="/fonts/fonts.css">')
+    out = out.replace("<!--FONTS-->", GOOGLE_FONTS)
     os.makedirs(os.path.join(ROOT, "dist"), exist_ok=True)
     path = os.path.join(ROOT, "dist", "koevalmis.html")
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(out)
+    with open(os.path.join(ROOT, "dist", "app_site.html"), "w", encoding="utf-8") as fh:
+        fh.write(site_out)
     print(f"{len(data['questions'])} questions, {len(data['glossary'])} terms, "
           f"languages {[l['code'] for l in data['langs']]} -> {path} ({len(out)//1024} KB)")
     return 1 if errors else 0

@@ -590,7 +590,19 @@
 "noMistakes": "Weli khalad lama kaydin. Marka hore ku tababbaro mawduuc.",
 "search": "Raadi eray (Finnish ama Soomaali)",
 "noVoice": "Codka Finnish-ka laguma helin qalabkan.",
-"foot": "Koevalmis waa adeeg tababar oo madax-bannaan. Ma aha adeeg ay bixiso Hay'adda Socdaalka Finland (Migri) ama hay'ad dawladeed oo kale. Mawduucyada imtixaanka waxaa lagu qeexay sharciga dhalashada ee la beddelay: sharciyada muhiimka ah, xuquuqda aasaasiga ah iyo xuquuqda aadanaha, takoor-la'aanta, sinnaanta jinsiga, iyo taariikhda iyo dhaqanka Finland."
+"foot": "Koevalmis waa adeeg tababar oo madax-bannaan. Ma aha adeeg ay bixiso Hay'adda Socdaalka Finland (Migri) ama hay'ad dawladeed oo kale. Mawduucyada imtixaanka waxaa lagu qeexay sharciga dhalashada ee la beddelay: sharciyada muhiimka ah, xuquuqda aasaasiga ah iyo xuquuqda aadanaha, takoor-la'aanta, sinnaanta jinsiga, iyo taariikhda iyo dhaqanka Finland.",
+"indep": "Adeeg tababar oo madax-bannaan – ma aha Migri.",
+"noVoiceHelp": "Si aad u maqasho Finnish-ka, ku dar cod Finnish ah habaynta qalabkaaga (tusaale: Settings → Accessibility → Spoken content).",
+"noResults": "Eray lama helin.",
+"timeUp": "Waqtigii waa dhammaaday. Su'aalaha aan laga jawaabin waxaa loo tiriyaa khalad.",
+"unanswered": "Lagama jawaabin",
+"resume": "Ka sii wad halkii aad ka joogsatay",
+"min5": "5 daqiiqo ayaa haray.",
+"min1": "1 daqiiqo ayaa haray.",
+"yourAnswer": "Jawaabtaada",
+"privacy": "Asturnaanta",
+"terms": "Shuruudaha iibka",
+"site": "Ku saabsan Koevalmis"
 },
 "glossary": {
 "perustuslaki": "dastuur",

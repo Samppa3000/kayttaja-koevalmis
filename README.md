@@ -28,7 +28,7 @@ Design: lake-green hero, birch-white paper, cloudberry accent for actions. One f
 "Koe Sans" (Atkinson Hyperlegible Next for Latin, Golos Text for Cyrillic, Vazirmatn for Arabic
 script), self-hosted. The hero question card (`demo_card` in `build_site.py`, logic in
 `site_src/site.js`) is the one animated moment: the "Oikein!" stamp after an answer.
-Sales copy lives in `site_src/strings_sales.py`; optional `reviewer` and `refund_days` in
+Sales copy lives in `site_src/strings_sales.py`; optional `reviewed_by_educator` and `refund_days` in
 `site_src/config.json` add a trust line once they are true.
 
 ## Before sales open

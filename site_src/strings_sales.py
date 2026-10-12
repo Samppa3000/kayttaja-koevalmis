@@ -35,7 +35,7 @@ S2 = {
            "Free updates when Migri publishes the official study material.",
            "No ads, no tracking and no account. Your progress stays on your own device."],
  "refund": "Not helpful? Ask for your money back within {n} days.",
- "reviewed": "Questions checked by {who}.",
+ "reviewed": "The Finnish questions have been checked by a Bachelor of Education.",
  "menu": "Menu",
 },
 "fi": {
@@ -62,7 +62,7 @@ S2 = {
            "Ilmaiset päivitykset, kun Migri julkaisee virallisen oppimateriaalin.",
            "Ei mainoksia, ei seurantaa eikä käyttäjätiliä. Edistymisesi pysyy omalla laitteellasi."],
  "refund": "Eikö palvelusta ollut apua? Saat rahasi takaisin {n} päivän sisällä.",
- "reviewed": "Kysymykset on tarkistanut {who}.",
+ "reviewed": "Suomenkieliset kysymykset on tarkistanut kasvatustieteen kandidaatti.",
  "menu": "Valikko",
 },
 "ru": {
@@ -89,7 +89,7 @@ S2 = {
            "Бесплатные обновления, когда Migri опубликует официальные учебные материалы.",
            "Без рекламы, без отслеживания и без аккаунта. Ваш прогресс хранится только на вашем устройстве."],
  "refund": "Не помогло? Вернём деньги в течение {n} дней.",
- "reviewed": "Вопросы проверил(а): {who}.",
+ "reviewed": "Вопросы на финском проверил бакалавр педагогических наук.",
  "menu": "Меню",
 },
 "ar": {
@@ -116,7 +116,7 @@ S2 = {
            "تحديثات مجانية عندما تنشر Migri المواد الدراسية الرسمية.",
            "بلا إعلانات ولا تتبّع ولا حساب. يبقى تقدّمك على جهازك فقط."],
  "refund": "لم تستفد؟ اطلب استرداد أموالك خلال {n} يومًا.",
- "reviewed": "راجع الأسئلة: {who}.",
+ "reviewed": "راجع الأسئلةَ الفنلندية حاصلٌ على بكالوريوس في علوم التربية.",
  "menu": "القائمة",
 },
 "fa": {
@@ -143,7 +143,7 @@ S2 = {
            "به‌روزرسانی رایگان وقتی Migri مواد درسی رسمی را منتشر کند.",
            "بدون اعلان، بدون ردیابی و بدون حساب. پیشرفت شما فقط روی دستگاه خودتان می‌ماند."],
  "refund": "کمکی نکرد؟ تا {n} روز پول خود را پس بگیرید.",
- "reviewed": "سؤال‌ها را {who} بررسی کرده است.",
+ "reviewed": "سؤال‌های فنلندی را یک دارندهٔ لیسانس علوم تربیتی بررسی کرده است.",
  "menu": "فهرست",
 },
 "so": {
@@ -170,7 +170,7 @@ S2 = {
            "Cusboonaysiin bilaash ah marka Migri daabaco agabka waxbarasho ee rasmiga ah.",
            "Xayaysiis la'aan, raadraac la'aan, akoon la'aan. Horumarkaagu wuxuu ku jiraa qalabkaaga oo keliya."],
  "refund": "Kuma caawin? Lacagtaada dib u codso {n} maalmood gudahood.",
- "reviewed": "Su'aalaha waxaa hubiyay {who}.",
+ "reviewed": "Su'aalaha af Finnish waxaa hubiyay qof haysta shahaadada koowaad ee cilmiga waxbarashada.",
  "menu": "Liiska",
 },
 }

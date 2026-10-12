@@ -4,5 +4,7 @@
   "business_id": "",
   "email": "",
   "waitlist_url": "",
-  "waitlist_anon_key": ""
+  "waitlist_anon_key": "",
+  "reviewed_by_educator": true,
+  "refund_days": 0
 }

@@ -424,8 +424,8 @@ def landing(lang, S, cfg, tr, qs, gl):
         return g["en"] if TL == "en" else tr[TL]["glossary"].get(g["fi"], g["en"])
     words = "".join(f'<div><dt lang="fi">{e(w)}</dt><dd lang="{TL}">{e(tword(gl_by[w]))}</dd></div>' for w in SS.VOC_TEASER)
     trust = [t.replace("{date}", ST.CHECKED_FI) for t in S["trust"]]
-    if cfg.get("reviewer"):
-        trust.insert(1, S["reviewed"].replace("{who}", cfg["reviewer"]))
+    if cfg.get("reviewed_by_educator"):
+        trust.insert(1, S["reviewed"])
     if cfg.get("refund_days"):
         trust.append(S["refund"].replace("{n}", str(cfg["refund_days"])))
     count = e(S["count"]).replace("{n}", f'<b data-days>{days_left()}</b>')

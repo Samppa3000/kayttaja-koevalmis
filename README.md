@@ -43,8 +43,11 @@ Koevalmis is an independent service and is not affiliated with the Finnish Immig
 only the 36 free questions (the same ones as the practice pages); the full bank comes from Supabase
 project `koevalmis` after sign-in and purchase.
 
-- Database: `supabase/002_paid_access.sql` (entitlements, max 3 devices, max 8 new devices / 30 days,
-  bank readable only through `get_premium_bank`). Upload the bank from `dist/premium_bank.json`.
+- Database: `supabase/002_paid_access.sql`, applied 2026-10-14 (entitlements, max 3 devices, max 8 new
+  devices / 30 days, bank readable only through `get_premium_bank`). The 120-question bank is loaded.
+  Tested on the live database (in a rolled-back transaction): anonymous and unpaid users get nothing,
+  a buyer gets 120 questions, devices are capped at 3, the 9th new device in 30 days is refused, a
+  refund ends access. Optional: `supabase/003_device_order.sql` (exact device ordering).
 - Paddle webhook: `supabase/functions/paddle-webhook` (deployed). Purchase grants access; an approved
   full refund ends it. Secrets: `PADDLE_WEBHOOK_SECRET`, optional `PADDLE_PRICE_IDS`.
 - App: email sign-in (link or code), Paddle overlay checkout with `customData.user_id`, device check on

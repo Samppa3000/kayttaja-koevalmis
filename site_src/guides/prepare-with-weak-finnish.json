@@ -1,0 +1,68 @@
+{
+ "id": "prepare-with-weak-finnish",
+ "date": "2026-10-14",
+ "sources": ["migri", "stt"],
+ "slug": {"en": "prepare-with-weak-finnish", "fi": "valmistaudu-vaikka-suomi-on-heikko", "ru": "podgotovka-so-slabym-finskim", "ar": "alistiedad-maa-finlandiya-daifa"},
+ "lang": {
+  "en": {
+   "title": "Citizenship Test with Weak Finnish: a 4-Week Plan | Koevalmis",
+   "desc": "The Finnish citizenship test is in Finnish or Swedish. A practical four-week plan to understand the questions even if your Finnish is still weak.",
+   "h1": "How to prepare for the citizenship test when your Finnish is still weak",
+   "lead": "The test is taken in Finnish or Swedish, but you do not need perfect Finnish to understand the questions. Most questions become readable once you know the key words. Here is a four-week plan.",
+   "blocks": [
+    ["h2", "Why the questions feel hard"],
+    ["p", "Many questions are short but use long official words, such as jokamiehenoikeus (everyman's right) or yhdenvertaisuus (equality). When you know these words, the rest of the sentence is usually simple. Our word list has the 64 words that come up most often in questions about Finnish society."],
+    ["h2", "A four-week plan"],
+    ["ul", ["Week 1: learn the key words. Ten minutes a day with the word list, saying each word aloud.", "Week 2: practise by topic. Read the question in Finnish first and open the translation only when you are stuck.", "Week 3: review your mistakes every day. Listen to the questions in Finnish if your phone has a Finnish voice.", "Week 4: take two mock exams, 30 questions in 45 minutes, and practise your weakest topics again."]],
+    ["h2", "Tips that help most"],
+    ["ul", ["Read the question twice before you look at the options.", "Find the key word. It often decides the answer.", "Use the translation less each week.", "Ten minutes every day works better than two hours once a week."]],
+    ["note", "The questions on Koevalmis are our own practice questions, written from public sources. They are not the official test questions. The official study material is expected from Migri around the turn of the year 2026–2027."]
+   ]
+  },
+  "fi": {
+   "title": "Kansalaisuuskoe, vaikka suomi on heikkoa: 4 viikon suunnitelma | Koevalmis",
+   "desc": "Kansalaisuuskoe tehdään suomeksi tai ruotsiksi. Käytännön neljän viikon suunnitelma, jolla ymmärrät kysymykset, vaikka suomesi on vielä heikkoa.",
+   "h1": "Näin valmistaudut kansalaisuuskokeeseen, vaikka suomesi on vielä heikkoa",
+   "lead": "Koe tehdään suomeksi tai ruotsiksi, mutta kysymysten ymmärtäminen ei vaadi täydellistä suomea. Useimmat kysymykset aukeavat, kun osaat keskeiset sanat. Tässä neljän viikon suunnitelma.",
+   "blocks": [
+    ["h2", "Miksi kysymykset tuntuvat vaikeilta"],
+    ["p", "Moni kysymys on lyhyt, mutta siinä on pitkä virallinen sana, kuten jokamiehenoikeus tai yhdenvertaisuus. Kun osaat nämä sanat, muu lause on yleensä helppo. Sanastossamme on 64 sanaa, jotka toistuvat suomalaista yhteiskuntaa koskevissa kysymyksissä."],
+    ["h2", "Neljän viikon suunnitelma"],
+    ["ul", ["Viikko 1: opettele keskeiset sanat. Kymmenen minuuttia päivässä sanaston kanssa, ja sano jokainen sana ääneen.", "Viikko 2: harjoittele aiheittain. Lue kysymys ensin suomeksi ja avaa käännös vasta, kun jäät jumiin.", "Viikko 3: kertaa virheesi joka päivä. Kuuntele kysymykset suomeksi, jos puhelimessasi on suomenkielinen puheääni.", "Viikko 4: tee kaksi koeharjoitusta, 30 kysymystä 45 minuutissa, ja harjoittele heikoimmat aiheet uudelleen."]],
+    ["h2", "Vinkit, joista on eniten apua"],
+    ["ul", ["Lue kysymys kahdesti ennen kuin katsot vaihtoehtoja.", "Etsi avainsana. Se ratkaisee vastauksen usein.", "Käytä käännöstä joka viikko vähemmän.", "Kymmenen minuuttia joka päivä toimii paremmin kuin kaksi tuntia kerran viikossa."]],
+    ["note", "Koevalmiin kysymykset ovat omia harjoituskysymyksiämme, jotka on laadittu julkisten lähteiden pohjalta. Ne eivät ole virallisen kokeen kysymyksiä. Migri arvioi julkaisevansa virallisen oppimateriaalin vuodenvaihteessa 2026–2027."]
+   ]
+  },
+  "ru": {
+   "title": "Экзамен на гражданство со слабым финским: план на 4 недели | Koevalmis",
+   "desc": "Экзамен на гражданство Финляндии сдаётся на финском или шведском. Практический план на четыре недели, чтобы понимать вопросы, даже если ваш финский пока слабый.",
+   "h1": "Как подготовиться к экзамену на гражданство, если ваш финский пока слабый",
+   "lead": "Экзамен сдаётся на финском или шведском языке, но чтобы понимать вопросы, идеальный финский не нужен. Большинство вопросов становятся понятными, когда вы знаете ключевые слова. Вот план на четыре недели.",
+   "blocks": [
+    ["h2", "Почему вопросы кажутся сложными"],
+    ["p", "Многие вопросы короткие, но в них есть длинные официальные слова, например jokamiehenoikeus (право каждого) или yhdenvertaisuus (равноправие). Когда вы знаете эти слова, остальная часть предложения обычно простая. В нашем словаре 64 слова, которые чаще всего встречаются в вопросах о финском обществе."],
+    ["h2", "План на четыре недели"],
+    ["ul", ["Неделя 1: выучите ключевые слова. Десять минут в день со словарём, произнося каждое слово вслух.", "Неделя 2: тренируйтесь по темам. Сначала читайте вопрос на финском и открывайте перевод, только если застряли.", "Неделя 3: каждый день повторяйте свои ошибки. Слушайте вопросы на финском, если в вашем телефоне есть финский голос.", "Неделя 4: пройдите два пробных экзамена — 30 вопросов за 45 минут — и ещё раз потренируйте самые слабые темы."]],
+    ["h2", "Советы, которые помогают больше всего"],
+    ["ul", ["Прочитайте вопрос дважды, прежде чем смотреть варианты ответов.", "Найдите ключевое слово. Часто именно оно определяет ответ.", "С каждой неделей пользуйтесь переводом всё меньше.", "Десять минут каждый день работают лучше, чем два часа раз в неделю."]],
+    ["note", "Вопросы Koevalmis — это наши собственные тренировочные вопросы, составленные по открытым источникам. Это не официальные вопросы экзамена. Migri планирует опубликовать официальные учебные материалы на рубеже 2026–2027 годов."]
+   ]
+  },
+  "ar": {
+   "title": "اختبار الجنسية مع لغة فنلندية ضعيفة: خطة لأربعة أسابيع | Koevalmis",
+   "desc": "يُجرى اختبار الجنسية الفنلندية باللغة الفنلندية أو السويدية. خطة عملية لأربعة أسابيع لتفهم الأسئلة حتى لو كانت لغتك الفنلندية ما زالت ضعيفة.",
+   "h1": "كيف تستعد لاختبار الجنسية عندما تكون لغتك الفنلندية ما زالت ضعيفة",
+   "lead": "يُجرى الاختبار باللغة الفنلندية أو السويدية، لكنك لا تحتاج إلى فنلندية مثالية لتفهم الأسئلة. تصبح معظم الأسئلة مفهومة عندما تعرف الكلمات الأساسية. إليك خطة لأربعة أسابيع.",
+   "blocks": [
+    ["h2", "لماذا تبدو الأسئلة صعبة"],
+    ["p", "كثير من الأسئلة قصيرة، لكنها تحتوي على كلمات رسمية طويلة مثل jokamiehenoikeus (حق كل فرد في الطبيعة) أو yhdenvertaisuus (المساواة). عندما تعرف هذه الكلمات، يكون باقي الجملة بسيطًا في الغالب. تضم قائمة الكلمات لدينا 64 كلمة تتكرر كثيرًا في الأسئلة عن المجتمع الفنلندي."],
+    ["h2", "خطة لأربعة أسابيع"],
+    ["ul", ["الأسبوع 1: تعلّم الكلمات الأساسية. عشر دقائق يوميًا مع قائمة الكلمات، مع نطق كل كلمة بصوت عالٍ.", "الأسبوع 2: تدرّب حسب الموضوع. اقرأ السؤال بالفنلندية أولًا، ولا تفتح الترجمة إلا عندما تتوقف.", "الأسبوع 3: راجع أخطاءك كل يوم. استمع إلى الأسئلة بالفنلندية إذا كان في هاتفك صوت فنلندي.", "الأسبوع 4: أجرِ اختبارين تجريبيين، 30 سؤالًا في 45 دقيقة، وتدرّب مرة أخرى على أضعف المواضيع."]],
+    ["h2", "أكثر النصائح فائدة"],
+    ["ul", ["اقرأ السؤال مرتين قبل أن تنظر إلى الخيارات.", "ابحث عن الكلمة المفتاحية، فهي تحدد الإجابة في كثير من الأحيان.", "استخدم الترجمة أقل كل أسبوع.", "عشر دقائق كل يوم أفضل من ساعتين مرة في الأسبوع."]],
+    ["note", "أسئلة Koevalmis هي أسئلة تدريبية من إعدادنا، كُتبت اعتمادًا على مصادر عامة، وليست أسئلة الاختبار الرسمي. تتوقع Migri نشر المواد الدراسية الرسمية في مطلع عام 2027 تقريبًا."]
+   ]
+  }
+ }
+}

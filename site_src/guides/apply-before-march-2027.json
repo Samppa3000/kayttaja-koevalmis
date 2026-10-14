@@ -1,0 +1,76 @@
+{
+ "id": "apply-before-march-2027",
+ "date": "2026-10-14",
+ "sources": ["migri", "stt"],
+ "slug": {"en": "apply-before-1-march-2027", "fi": "hae-ennen-1-3-2027", "ru": "podat-do-1-marta-2027", "ar": "taqdim-qabl-1-maris-2027"},
+ "lang": {
+  "en": {
+   "title": "Apply for Finnish Citizenship Before 1 March 2027? | Koevalmis",
+   "desc": "Applications submitted by 28 February 2027 are handled under the old rules, without the citizenship test. Who benefits, and what to do if you apply later.",
+   "h1": "Should you apply for Finnish citizenship before 1 March 2027?",
+   "lead": "If you already meet all the requirements, an application submitted by 28 February 2027 is handled under the old rules, without the new knowledge-of-society test. Here is how to decide.",
+   "blocks": [
+    ["h2", "What changes on 1 March 2027"],
+    ["p", "The amended Citizenship Act enters into force on 1 January 2027. For applications submitted from 1 March 2027, most applicants aged 18–64 must show knowledge of Finnish society. The main way to do this is a multiple-choice test in Finnish or Swedish. Applications submitted by 28 February 2027 follow the old rules."],
+    ["h2", "Who benefits from applying before the deadline"],
+    ["p", "Applying early only helps if you already meet every other requirement on the day you apply, for example the required residence time and language skills. Migri lists the requirements for each situation. An application that does not meet them can be rejected, and the processing fee is not returned."],
+    ["h2", "If you will apply after 1 March 2027"],
+    ["p", "Start preparing now. Migri expects to publish the official study material around the turn of the year 2026–2027, and the first tests are held in spring 2027 in seven cities, including the Helsinki area, Tampere, Turku and Oulu."],
+    ["h2", "Checklist"],
+    ["ul", ["Check Migri's requirements for your own situation.", "If you meet them now, prepare your documents and apply by 28 February 2027.", "If you do not meet them yet, plan for the test: take the free level test and learn the key words.", "Follow Migri's announcements for the study material and the test dates."]],
+    ["note", "This page is general information, not legal advice. Always check the official information from Migri before you apply."]
+   ]
+  },
+  "fi": {
+   "title": "Kansalaisuushakemus ennen 1.3.2027? | Koevalmis",
+   "desc": "Viimeistään 28.2.2027 jätetyt hakemukset käsitellään vanhan lain mukaan ilman kansalaisuuskoetta. Kenelle aikainen hakemus sopii ja mitä tehdä, jos haet myöhemmin.",
+   "h1": "Kannattaako kansalaisuutta hakea ennen 1.3.2027?",
+   "lead": "Jos täytät jo kaikki edellytykset, viimeistään 28.2.2027 jätetty hakemus käsitellään vanhan lain mukaan ilman uutta yhteiskuntatuntemuksen koetta. Näin voit päättää.",
+   "blocks": [
+    ["h2", "Mikä muuttuu 1.3.2027"],
+    ["p", "Muutettu kansalaisuuslaki tulee voimaan 1.1.2027. Kun hakemus jätetään 1.3.2027 tai myöhemmin, useimpien 18–64-vuotiaiden hakijoiden pitää osoittaa tuntevansa suomalaista yhteiskuntaa. Pääasiallinen tapa on monivalintakoe suomeksi tai ruotsiksi. Viimeistään 28.2.2027 jätetyt hakemukset käsitellään vanhan lain mukaan."],
+    ["h2", "Kenelle aikainen hakemus sopii"],
+    ["p", "Aikaisesta hakemuksesta on hyötyä vain, jos täytät hakupäivänä kaikki muut edellytykset, esimerkiksi vaaditun asumisajan ja kielitaidon. Migri kertoo edellytykset eri tilanteisiin. Hakemus, joka ei täytä niitä, voidaan hylätä, eikä käsittelymaksua palauteta."],
+    ["h2", "Jos haet 1.3.2027 jälkeen"],
+    ["p", "Aloita valmistautuminen nyt. Migri arvioi julkaisevansa virallisen oppimateriaalin vuodenvaihteessa 2026–2027, ja ensimmäiset kokeet järjestetään keväällä 2027 seitsemällä paikkakunnalla, muun muassa pääkaupunkiseudulla, Tampereella, Turussa ja Oulussa."],
+    ["h2", "Muistilista"],
+    ["ul", ["Tarkista Migrin sivuilta omaan tilanteeseesi sopivat edellytykset.", "Jos täytät ne nyt, kokoa asiakirjat ja hae viimeistään 28.2.2027.", "Jos et vielä täytä niitä, valmistaudu kokeeseen: tee ilmainen tasotesti ja opettele keskeiset sanat.", "Seuraa Migrin tiedotteita oppimateriaalista ja koepäivistä."]],
+    ["note", "Tämä sivu on yleistä tietoa, ei oikeudellinen neuvo. Tarkista aina Migrin virallinen tieto ennen hakemista."]
+   ]
+  },
+  "ru": {
+   "title": "Подать на гражданство Финляндии до 1 марта 2027? | Koevalmis",
+   "desc": "Заявления, поданные до 28 февраля 2027 года включительно, рассматриваются по старым правилам, без экзамена. Кому это выгодно и что делать, если вы подаёте позже.",
+   "h1": "Стоит ли подать на гражданство Финляндии до 1 марта 2027 года?",
+   "lead": "Если вы уже соответствуете всем требованиям, заявление, поданное до 28 февраля 2027 года включительно, рассматривается по старым правилам, без нового экзамена на знание общества. Вот как принять решение.",
+   "blocks": [
+    ["h2", "Что меняется 1 марта 2027 года"],
+    ["p", "Изменённый Закон о гражданстве вступает в силу 1 января 2027 года. Для заявлений, поданных с 1 марта 2027 года, большинство заявителей в возрасте 18–64 лет должны подтвердить знание финского общества. Основной способ — тест с вариантами ответов на финском или шведском языке. Заявления, поданные до 28 февраля 2027 года включительно, рассматриваются по старым правилам."],
+    ["h2", "Кому выгодно подать заранее"],
+    ["p", "Ранняя подача помогает только в том случае, если на день подачи вы уже выполняете все остальные требования, например по сроку проживания и знанию языка. Требования для разных ситуаций перечислены на сайте Migri. Заявление, которое им не соответствует, могут отклонить, а пошлина за рассмотрение не возвращается."],
+    ["h2", "Если вы будете подавать после 1 марта 2027 года"],
+    ["p", "Начните готовиться уже сейчас. Migri планирует опубликовать официальные учебные материалы на рубеже 2026–2027 годов, а первые экзамены пройдут весной 2027 года в семи городах, в том числе в столичном регионе, Тампере, Турку и Оулу."],
+    ["h2", "Чек-лист"],
+    ["ul", ["Проверьте на сайте Migri требования для вашей ситуации.", "Если вы им уже соответствуете, подготовьте документы и подайте заявление до 28 февраля 2027 года.", "Если пока не соответствуете, готовьтесь к экзамену: пройдите бесплатный тест уровня и выучите ключевые слова.", "Следите за сообщениями Migri об учебных материалах и датах экзаменов."]],
+    ["note", "Эта страница содержит общую информацию и не является юридической консультацией. Перед подачей заявления всегда проверяйте официальную информацию Migri."]
+   ]
+  },
+  "ar": {
+   "title": "التقديم على الجنسية الفنلندية قبل 1 مارس 2027؟ | Koevalmis",
+   "desc": "تُعالَج الطلبات المقدَّمة حتى 28 فبراير 2027 وفق القواعد القديمة، دون اختبار الجنسية. لمن يفيد التقديم المبكر، وماذا تفعل إذا قدّمت لاحقًا.",
+   "h1": "هل يجب أن تقدّم طلب الجنسية الفنلندية قبل 1 مارس 2027؟",
+   "lead": "إذا كنت تستوفي جميع الشروط بالفعل، فإن الطلب المقدَّم حتى 28 فبراير 2027 يُعالَج وفق القواعد القديمة، دون الاختبار الجديد لمعرفة المجتمع. إليك كيف تقرّر.",
+   "blocks": [
+    ["h2", "ما الذي يتغيّر في 1 مارس 2027"],
+    ["p", "يدخل قانون الجنسية المعدَّل حيّز التنفيذ في 1 يناير 2027. بالنسبة إلى الطلبات المقدَّمة اعتبارًا من 1 مارس 2027، يجب على معظم المتقدّمين الذين تتراوح أعمارهم بين 18 و64 عامًا إثبات معرفتهم بالمجتمع الفنلندي. والطريقة الأساسية لذلك اختبار متعدد الخيارات باللغة الفنلندية أو السويدية. أما الطلبات المقدَّمة حتى 28 فبراير 2027 فتُعالَج وفق القواعد القديمة."],
+    ["h2", "من يستفيد من التقديم قبل الموعد"],
+    ["p", "لا يفيد التقديم المبكر إلا إذا كنت تستوفي في يوم التقديم جميع الشروط الأخرى، مثل مدة الإقامة المطلوبة والمهارات اللغوية. تعرض Migri الشروط لكل حالة. وقد يُرفض الطلب الذي لا يستوفيها، ولا تُستردّ رسوم المعالجة."],
+    ["h2", "إذا كنت ستقدّم بعد 1 مارس 2027"],
+    ["p", "ابدأ الاستعداد الآن. تتوقع Migri نشر المواد الدراسية الرسمية في مطلع عام 2027 تقريبًا، وتُعقد الاختبارات الأولى في ربيع 2027 في سبع مدن، منها منطقة هلسنكي وتامبيري وتوركو وأولو."],
+    ["h2", "قائمة مراجعة"],
+    ["ul", ["تحقّق من شروط Migri الخاصة بحالتك.", "إذا كنت تستوفيها الآن، فجهّز وثائقك وقدّم الطلب حتى 28 فبراير 2027.", "إذا لم تستوفها بعد، فاستعد للاختبار: أجرِ اختبار المستوى المجاني وتعلّم الكلمات الأساسية.", "تابع إعلانات Migri بشأن المواد الدراسية ومواعيد الاختبارات."]],
+    ["note", "هذه الصفحة معلومات عامة وليست استشارة قانونية. تحقّق دائمًا من المعلومات الرسمية لدى Migri قبل التقديم."]
+   ]
+  }
+ }
+}

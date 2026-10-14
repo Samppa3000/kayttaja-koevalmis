@@ -88,6 +88,7 @@ def paid_config(qs):
     return {"on": on, "supabaseUrl": cfg.get("supabase_url", ""), "anonKey": cfg.get("supabase_anon_key", ""),
             "paddleEnv": cfg.get("paddle_env", "sandbox"), "paddleToken": cfg.get("paddle_client_token", ""),
             "priceId": cfg.get("paddle_price_id", ""), "total": len(qs),
+            "count": bool(cfg.get("analytics") and cfg.get("supabase_url")),
             "totals": {tp: len([q for q in qs if q["t"] == tp]) for tp in TOPIC_ORDER}}
 
 

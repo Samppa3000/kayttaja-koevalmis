@@ -3,6 +3,22 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+  // Anonymous visit counter: one call per page view, daily totals only, no cookies or identifiers.
+  const kv = $('meta[name="kv-count"]');
+  if (kv && navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl) {
+    const [url, key] = kv.content.split("|");
+    let src = "direct";
+    try {
+      const utm = new URLSearchParams(location.search).get("utm_source");
+      const ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, "") : "";
+      src = utm || (ref && ref !== location.hostname ? ref : "direct");
+    } catch (e) {}
+    fetch(url + "/rest/v1/rpc/count_view", { method: "POST", keepalive: true,
+      headers: { apikey: key, Authorization: "Bearer " + key, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_path: location.pathname.slice(0, 120), p_source: src.toLowerCase().replace(/[^a-z0-9._-]/g, "").slice(0, 60) })
+    }).catch(() => {});
+  }
+
   // Language menu: close on outside click and on Escape
   const menu = $("details.langs");
   if (menu) {

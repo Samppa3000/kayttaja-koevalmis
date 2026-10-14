@@ -313,6 +313,14 @@ async function unlockBank(claim){
   }
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+// Anonymous counter (daily totals, no cookies): app opens and funnel steps such as "diag_done".
+function track(ev){
+  if(!PAID.count || !ON_SITE || navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+  let src = "direct"; try{ const r = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, "") : ""; if(r && r !== location.hostname) src = r; }catch(e){}
+  fetch(PAID.supabaseUrl + "/rest/v1/rpc/count_view", {method:"POST", keepalive:true,
+    headers:{apikey: PAID.anonKey, Authorization: "Bearer " + PAID.anonKey, "Content-Type": "application/json"},
+    body: JSON.stringify({p_path: ev ? "event:" + ev : location.pathname.slice(0, 120), p_source: src.toLowerCase().replace(/[^a-z0-9._-]/g, "").slice(0, 60)})}).catch(() => {});
+}
 let paddleReady = null, payWatch = false;
 function loadPaddle(){
   if(paddleReady) return paddleReady;
@@ -337,7 +345,7 @@ async function waitForPurchase(){
 }
 function payMsg(text){ const m = document.getElementById("payMsg"); if(m) m.textContent = text; }
 function paywall(note){
-  stopTimer(); S = null;
+  stopTimer(); S = null; track("paywall_view");
   document.title = t("payH") + " | Koevalmis";
   const v = auth.get();
   $app.innerHTML = `<section class="stack pay">
@@ -534,7 +542,7 @@ function diagSet(){
 let S = null, timerId = null;
 function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } try{speechSynthesis.cancel()}catch(e){} }
 function startQuiz(mode, qs){
-  stopTimer();
+  stopTimer(); track(mode + "_start");
   S = {mode, qs: qs.map(q => ({q, order: q.type==="mc" ? shuffle([0,1,2,3]) : [0,1]})), i:0, answers:[], showTrans: alwaysTrans,
        end: mode==="exam" ? Date.now() + EXAM_MIN*60000 : null};
   if(S.end){ timerId = setInterval(tick, 1000); }
@@ -621,7 +629,7 @@ function renderQ(focusTarget){
 
 /* ---------- results ---------- */
 function results(){
-  stopTimer();
+  stopTimer(); if(S) track(S.mode + "_done");
   store.set("session", null);
   document.title = t("resTitle") + " | Koevalmis";
   const TL = transLang();
@@ -740,6 +748,7 @@ function fromHash(){
   home();
 }
 startPaid();
+track();
 fromHash();
 window.addEventListener("hashchange", fromHash);
 </script>

@@ -210,6 +210,7 @@ ol.time{list-style:none;margin:0;padding:0;border-inline-start:2px solid var(--l
 ol.time li{padding:0 0 18px;padding-inline-start:20px;position:relative}
 ol.time li::before{content:"";position:absolute;inset-inline-start:-8px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--lake)}
 ol.time b{display:block}
+.doc-guide h2{margin-top:12px}
 .doc{max-width:68ch;display:flex;flex-direction:column;gap:14px;padding-top:40px}.doc h2{margin-top:12px;font-size:26px}.warn{background:var(--berry-soft);padding:12px 16px;border-radius:12px}
 [dir=rtl] [lang=fi]{direction:ltr;unicode-bidi:isolate;text-align:left}
 [dir=rtl] .opt [lang=fi]{text-align:start}
@@ -283,9 +284,43 @@ def options(q, lang, tr, S):
 PAGES = []   # (page_id, lang, path)
 
 
+# ---------------------------------------------------------------- guides (site_src/guides/*.json)
+GUIDE_SLUG = {"en": "/guides/", "fi": "/fi/oppaat/", "ru": "/ru/gid/", "ar": "/ar/dalil/"}
+GUIDE_UI = {
+    "en": {"nav": "Guides", "title": "Guides: Finnish Citizenship Test 2027 | Koevalmis", "h1": "Guides for the citizenship test",
+           "intro": "Practical answers about the 2027 citizenship test, checked against official sources.", "published": "Published", "more": "More guides"},
+    "fi": {"nav": "Oppaat", "title": "Oppaat: kansalaisuuskoe 2027 | Koevalmis", "h1": "Oppaat kansalaisuuskokeeseen",
+           "intro": "Käytännön vastauksia vuoden 2027 kansalaisuuskokeesta, tarkistettu virallisista lähteistä.", "published": "Julkaistu", "more": "Muut oppaat"},
+    "ru": {"nav": "Статьи", "title": "Статьи: экзамен на гражданство Финляндии 2027 | Koevalmis", "h1": "Статьи об экзамене на гражданство",
+           "intro": "Практические ответы об экзамене на гражданство 2027 года, проверенные по официальным источникам.", "published": "Опубликовано", "more": "Другие статьи"},
+    "ar": {"nav": "أدلة", "title": "أدلة: اختبار الجنسية الفنلندية 2027 | Koevalmis", "h1": "أدلة لاختبار الجنسية",
+           "intro": "إجابات عملية عن اختبار الجنسية لعام 2027، مُراجَعة وفق المصادر الرسمية.", "published": "نُشر في", "more": "أدلة أخرى"},
+}
+
+
+def load_guides():
+    d = os.path.join(ROOT, "site_src", "guides")
+    out = []
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        if f.endswith(".json"):
+            with open(os.path.join(d, f), encoding="utf-8") as fh:
+                out.append(json.load(fh))
+    return sorted(out, key=lambda g: (g["date"], g["id"]), reverse=True)
+
+
+GUIDES = load_guides()
+GUIDE_BY_ID = {g["id"]: g for g in GUIDES}
+
+
 def page_path(pid, lang):
+    """Path of a page in a language, or None when that language has no such page."""
     if pid.startswith("qs-"):
         return SLUGS["qs"][lang] + TOPIC_SLUG[pid[3:]] + "/"
+    if pid == "guides":
+        return GUIDE_SLUG.get(lang) if GUIDES else None
+    if pid.startswith("guide:"):
+        g = GUIDE_BY_ID[pid[6:]]
+        return GUIDE_SLUG[lang] + g["slug"][lang] + "/" if lang in g["lang"] and lang in GUIDE_SLUG else None
     return SLUGS[pid][lang]
 
 
@@ -293,12 +328,20 @@ def indexable(lang):
     return lang in ST.REVIEWED
 
 
+def count_meta(cfg):
+    """Public endpoint for the anonymous visit counter (Supabase count_view), when analytics is on."""
+    if cfg.get("analytics") and cfg.get("supabase_url") and cfg.get("supabase_anon_key"):
+        return f'<meta name="kv-count" content="{e(cfg["supabase_url"])}|{e(cfg["supabase_anon_key"])}">'
+    return ""
+
+
 def head(lang, pid, title, desc, cfg, jsonld=None, robots=None, path=None):
     base = cfg["base_url"].rstrip("/")
     path = path or page_path(pid, lang)
     if pid:
-        alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{base}{page_path(pid, l)}">' for l in LANGS if indexable(l))
-        alts += f'<link rel="alternate" hreflang="x-default" href="{base}{page_path(pid, "en")}">'
+        alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{base}{page_path(pid, l)}">' for l in LANGS if indexable(l) and page_path(pid, l))
+        if page_path(pid, "en"):
+            alts += f'<link rel="alternate" hreflang="x-default" href="{base}{page_path(pid, "en")}">'
     else:
         alts = ""
     if robots is None:
@@ -317,7 +360,7 @@ def head(lang, pid, title, desc, cfg, jsonld=None, robots=None, path=None):
             f'<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml">'
             f'<link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0F3B3D">'
             f'<link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>'
-            f'<link rel="stylesheet" href="/fonts/fonts.css"><style>{CSS}</style><script src="/site.js" defer></script>{ld}</head><body>')
+            f'<link rel="stylesheet" href="/fonts/fonts.css"><style>{CSS}</style>{count_meta(cfg)}<script src="/site.js" defer></script>{ld}</head><body>')
 
 
 ICON = {
@@ -332,12 +375,14 @@ ICON = {
 
 def header(lang, pid, S, langs=True):
     nav = [("home", S["navHome"]), ("hub", S["navHub"]), ("qs", S["navQs"]), ("voc", S["navVoc"])]
-    cur = "qs" if pid.startswith("qs") else pid
+    if page_path("guides", lang):
+        nav.append(("guides", GUIDE_UI[lang]["nav"]))
+    cur = "qs" if pid.startswith("qs") else "guides" if pid.startswith("guide") else pid
     links = "".join(f'<a href="{page_path(p, lang)}"{" aria-current=\"page\"" if p == cur else ""}>{e(lbl)}</a>' for p, lbl in nav)
     links += f'<a href="/app/#{lang}">{e(S["navApp"])}</a>'
     menu = ""
     if langs:
-        items = "".join(f'<li><a href="{page_path(pid, l)}" hreflang="{l}" lang="{l}"{" aria-current=\"true\"" if l == lang else ""}>{e(NAMES[l])}</a></li>' for l in LANGS)
+        items = "".join(f'<li><a href="{page_path(pid, l) or page_path("home", l)}" hreflang="{l}" lang="{l}"{" aria-current=\"true\"" if l == lang else ""}>{e(NAMES[l])}</a></li>' for l in LANGS)
         menu = (f'<details class="langs"><summary aria-label="{e(S["langLabel"])}: {e(NAMES[lang])}">{ICON["globe"]}'
                 f'<span lang="{lang}">{e(NAMES[lang])}</span></summary><ul>{items}</ul></details>')
     return (f'<a class="skip" href="#main">{e(S["skip"])}</a><div class="wrap"><header class="site bleed lake">'
@@ -605,6 +650,57 @@ def vocab(lang, S, cfg, tr, gl):
     return head(lang, "voc", S["vocTitle"], S["vocDesc"], cfg, jsonld) + header(lang, "voc", S) + body + footer(lang, S, cfg) + "</body></html>"
 
 
+# ---------------------------------------------------------------- guide pages
+def guide_blocks(blocks):
+    out = []
+    for kind, val in blocks:
+        if kind == "h2":
+            out.append(f"<h2>{e(val)}</h2>")
+        elif kind == "p":
+            out.append(f"<p>{e(val)}</p>")
+        elif kind == "ul":
+            out.append('<ul class="ticks">' + "".join(f"<li>{e(x)}</li>" for x in val) + "</ul>")
+        elif kind == "note":
+            out.append(f'<p class="note">{e(val)}</p>')
+    return "\n".join(out)
+
+
+def guide_page(g, lang, S, cfg):
+    base = cfg["base_url"].rstrip("/")
+    G, U = g["lang"][lang], GUIDE_UI[lang]
+    pid = "guide:" + g["id"]
+    day = ".".join(str(int(x)) for x in reversed(g["date"].split("-")))
+    srcs = "".join(f'<li><a href="{SRC[k]}">{e(SRC_LABEL[k])}</a></li>' for k in g["sources"])
+    others = "".join(f'<li><a href="{page_path("guide:" + o["id"], lang)}">{e(o["lang"][lang]["h1"])}</a></li>'
+                     for o in GUIDES if o["id"] != g["id"] and lang in o["lang"])
+    more = f'<h2>{e(U["more"])}</h2><ul>{others}</ul>' if others else ""
+    crumbs = f'<a href="{page_path("home", lang)}">{e(S["navHome"])}</a> › <a href="{page_path("guides", lang)}">{e(U["nav"])}</a>'
+    jsonld = [{"@context": "https://schema.org", "@type": "Article", "headline": G["h1"], "description": G["desc"], "inLanguage": lang,
+               "datePublished": g["date"], "dateModified": g.get("updated", g["date"]),
+               "author": {"@type": "Organization", "name": "Koevalmis", "url": f"{base}/"},
+               "publisher": {"@type": "Organization", "name": "Koevalmis", "logo": {"@type": "ImageObject", "url": f"{base}/logo.png"}},
+               "mainEntityOfPage": f"{base}{page_path(pid, lang)}", "image": f"{base}/og.png", "citation": [SRC[k] for k in g["sources"]]},
+              breadcrumbs(base, lang, S, [("guides", U["nav"]), (pid, G["h1"])])]
+    body = pagehead(crumbs, e(G["h1"]), f'<p>{e(U["published"])} <time datetime="{g["date"]}">{num(day)}</time></p><p class="big">{e(G["lead"])}</p>') + f"""
+<section><div class="sec doc-guide">{guide_blocks(G["blocks"])}
+  <div class="cta"><a class="btn primary" href="/app/#diag-{lang}">{e(S['cta1'])}</a></div>
+  <h2>{e(S['sourcesH'])}</h2><ul>{srcs}</ul>
+  {more}
+</div></section>"""
+    return head(lang, pid, G["title"], G["desc"], cfg, jsonld) + header(lang, pid, S) + body + footer(lang, S, cfg) + "</body></html>"
+
+
+def guides_index(lang, S, cfg):
+    base = cfg["base_url"].rstrip("/")
+    U = GUIDE_UI[lang]
+    cards = "".join(f'<div class="card"><h2><a href="{page_path("guide:" + g["id"], lang)}">{e(g["lang"][lang]["h1"])}</a></h2>'
+                    f'<p class="muted">{e(g["lang"][lang]["desc"])}</p></div>' for g in GUIDES if lang in g["lang"])
+    crumbs = f'<a href="{page_path("home", lang)}">{e(S["navHome"])}</a> › {e(U["nav"])}'
+    body = pagehead(crumbs, e(U["h1"]), f'<p class="big">{e(U["intro"])}</p>') + f'<section><div class="sec">{cards}</div></section>'
+    jsonld = [breadcrumbs(base, lang, S, [("guides", U["nav"])])]
+    return head(lang, "guides", U["title"], U["intro"], cfg, jsonld) + header(lang, "guides", S) + body + footer(lang, S, cfg) + "</body></html>"
+
+
 # ---------------------------------------------------------------- app, legal, 404
 def app_page(cfg):
     with open(os.path.join(ROOT, "dist", "app_site.html"), encoding="utf-8") as fh:
@@ -772,6 +868,14 @@ def sitemap(cfg):
                 out.append(f'    <xhtml:link rel="alternate" hreflang="{a}" href="{base}{page_path(pid, a)}"/>')
             out.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{base}{page_path(pid, "en")}"/>')
             out.append("  </url>")
+    for pid in ["guides"] + ["guide:" + g["id"] for g in GUIDES]:
+        have = [l for l in langs if page_path(pid, l)]
+        for l in have:
+            mod = GUIDE_BY_ID[pid[6:]]["date"] if pid.startswith("guide:") else TODAY
+            out.append(f"  <url><loc>{base}{page_path(pid, l)}</loc><lastmod>{mod}</lastmod>")
+            for a in have:
+                out.append(f'    <xhtml:link rel="alternate" hreflang="{a}" href="{base}{page_path(pid, a)}"/>')
+            out.append("  </url>")
     out.append("</urlset>")
     return "\n".join(out) + "\n"
 
@@ -797,6 +901,9 @@ def llms_txt(cfg, ALL):
 ## Other languages
 """ + "\n".join(f"- {NAMES[l]}: {base}{page_path('hub', l)}" for l in LANGS if indexable(l) and l != "en") + f"""
 
+## Guides
+""" + "\n".join(f"- {g['lang']['en']['h1']}: {base}{page_path('guide:' + g['id'], 'en')}" for g in GUIDES if 'en' in g['lang']) + f"""
+
 ## Official sources
 - Finnish Immigration Service (Migri): {SRC['migri']}
 - Migri press release (STT): {SRC['stt']}
@@ -819,6 +926,11 @@ def main():
         for tp in TOPIC_ORDER:
             write(page_path("qs-" + tp, lang), qs_topic(lang, S, cfg, tr, qs, tp))
         write(page_path("voc", lang), vocab(lang, S, cfg, tr, gl))
+        if page_path("guides", lang):
+            write(page_path("guides", lang), guides_index(lang, S, cfg))
+            for g in GUIDES:
+                if page_path("guide:" + g["id"], lang):
+                    write(page_path("guide:" + g["id"], lang), guide_page(g, lang, S, cfg))
     write("/app/", app_page(cfg))
     write("/privacy/", legal_page("privacy", cfg, ALL["fi"]))
     write("/terms/", legal_page("terms", cfg, ALL["fi"]))

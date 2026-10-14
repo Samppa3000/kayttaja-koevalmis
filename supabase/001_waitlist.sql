@@ -19,5 +19,6 @@ create policy "anon can join waitlist"
   with check (consent = true);
 
 -- No select/update/delete policies: the public key cannot read or change the list.
-revoke select, update, delete on public.waitlist from anon, authenticated;
+-- Supabase grants table-level rights by default; remove them so only the three columns below can be written.
+revoke all on public.waitlist from anon, authenticated;
 grant insert (email, lang, consent) on public.waitlist to anon;

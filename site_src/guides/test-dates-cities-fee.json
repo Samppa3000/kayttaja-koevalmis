@@ -1,0 +1,96 @@
+{
+ "id": "test-dates-cities-fee",
+ "date": "2026-10-19",
+ "sources": ["stt", "mt", "ht", "havm"],
+ "slug": {"en": "test-dates-cities-fee", "fi": "koepaivat-paikkakunnat-hinta", "ru": "daty-goroda-stoimost", "ar": "mawaid-mudun-rusum"},
+ "lang": {
+  "en": {
+   "title": "Citizenship Test 2027: Dates, Cities, Fee and Booking | Koevalmis",
+   "desc": "Where the Finnish citizenship test is held, when the first tests are, and what is still unknown about the fee, booking and retakes.",
+   "h1": "Citizenship test 2027: where, when, how much and how to book",
+   "lead": "The first tests are in spring 2027 in seven cities. Migri has not yet published the test dates, the booking process or the fee. Here is what is known today.",
+   "blocks": [
+    ["h2", "Where the test is held"],
+    ["p", "In 2027 the tests are held in seven places: the Helsinki area, Tampere, Turku, Oulu, Vaasa, Kuopio and Rovaniemi. The test is taken on a computer, in Finnish or Swedish."],
+    ["h2", "When the first tests are"],
+    ["p", "The first tests are held in spring 2027. According to Migri's announcement, the first test schedules will be published by the end of 2026 at the latest."],
+    ["p", "Helsinki Times reports, citing Migri, that there will be six to ten test sessions a year."],
+    ["h2", "How to book"],
+    ["p", "Migri has not yet published how to register. Do not pay anyone who claims to sell test places before Migri opens registration."],
+    ["h2", "What the test costs"],
+    ["p", "The fee has not been published. A dissenting opinion in Parliament's committee report mentioned about €190 per test. This is not an official price."],
+    ["h2", "If you fail"],
+    ["p", "The rules for retaking the test have not been published yet. Helsinki Times reports that a passed result stays valid with no end date. We will update this page when Migri confirms the details."],
+    ["h2", "What you can do now"],
+    ["ul", ["Decide which of the seven cities is closest to you.", "Follow Migri's news for the first test dates around the turn of the year.", "Start learning the key words now, so you are ready when booking opens."]],
+    ["note", "This page is general information, not legal advice. Always check the official information from Migri before you book or pay."]
+   ]
+  },
+  "fi": {
+   "title": "Kansalaisuuskoe 2027: koepäivät, paikkakunnat, hinta ja ilmoittautuminen | Koevalmis",
+   "desc": "Missä kansalaisuuskoe järjestetään, milloin ensimmäiset kokeet ovat ja mitä hinnasta, ilmoittautumisesta ja uusimisesta ei vielä tiedetä.",
+   "h1": "Kansalaisuuskoe 2027: missä, milloin, paljonko ja miten ilmoittaudut",
+   "lead": "Ensimmäiset kokeet ovat keväällä 2027 seitsemällä paikkakunnalla. Migri ei ole vielä julkaissut koepäiviä, ilmoittautumistapaa eikä hintaa. Tässä on se, mikä tiedetään nyt.",
+   "blocks": [
+    ["h2", "Missä koe järjestetään"],
+    ["p", "Vuonna 2027 kokeita järjestetään seitsemällä paikkakunnalla: pääkaupunkiseudulla, Tampereella, Turussa, Oulussa, Vaasassa, Kuopiossa ja Rovaniemellä. Koe tehdään tietokoneella suomeksi tai ruotsiksi."],
+    ["h2", "Milloin ensimmäiset kokeet ovat"],
+    ["p", "Ensimmäiset kokeet järjestetään keväällä 2027. Migrin tiedotteen mukaan ensimmäiset koeaikataulut julkaistaan viimeistään vuoden 2026 lopussa."],
+    ["p", "Helsinki Times kertoo Migriin viitaten, että koekertoja on kuudesta kymmeneen vuodessa."],
+    ["h2", "Miten ilmoittaudut"],
+    ["p", "Migri ei ole vielä kertonut, miten kokeeseen ilmoittaudutaan. Älä maksa kenellekään, joka myy koepaikkoja ennen kuin Migri avaa ilmoittautumisen."],
+    ["h2", "Mitä koe maksaa"],
+    ["p", "Hintaa ei ole julkaistu. Eduskunnan valiokunnan mietinnön vastalauseessa mainittiin noin 190 euroa koetta kohden. Se ei ole virallinen hinta."],
+    ["h2", "Jos et läpäise koetta"],
+    ["p", "Kokeen uusimisen säännöt eivät ole vielä julkisia. Helsinki Timesin mukaan hyväksytty tulos on voimassa ilman takarajaa. Päivitämme sivun, kun Migri vahvistaa yksityiskohdat."],
+    ["h2", "Mitä voit tehdä nyt"],
+    ["ul", ["Katso, mikä seitsemästä paikkakunnasta on sinua lähimpänä.", "Seuraa Migrin tiedotteita ensimmäisistä koepäivistä vuodenvaihteessa.", "Aloita keskeisten sanojen opettelu nyt, niin olet valmis, kun ilmoittautuminen alkaa."]],
+    ["note", "Tämä sivu on yleistä tietoa, ei oikeudellinen neuvo. Tarkista aina Migrin virallinen tieto ennen kuin ilmoittaudut tai maksat."]
+   ]
+  },
+  "ru": {
+   "title": "Экзамен на гражданство 2027: даты, города, стоимость и запись | Koevalmis",
+   "desc": "Где проходит экзамен на гражданство Финляндии, когда первые экзамены и что пока неизвестно о стоимости, записи и пересдаче.",
+   "h1": "Экзамен на гражданство 2027: где, когда, сколько стоит и как записаться",
+   "lead": "Первые экзамены пройдут весной 2027 года в семи городах. Migri ещё не опубликовала даты, порядок записи и стоимость. Вот что известно сейчас.",
+   "blocks": [
+    ["h2", "Где проходит экзамен"],
+    ["p", "В 2027 году экзамены пройдут в семи местах: в столичном регионе, Тампере, Турку, Оулу, Ваасе, Куопио и Рованиеми. Экзамен сдают на компьютере, на финском или шведском языке."],
+    ["h2", "Когда первые экзамены"],
+    ["p", "Первые экзамены пройдут весной 2027 года. По сообщению Migri, первые расписания опубликуют не позднее конца 2026 года."],
+    ["p", "Helsinki Times со ссылкой на Migri пишет, что экзамен будут проводить от шести до десяти раз в год."],
+    ["h2", "Как записаться"],
+    ["p", "Migri пока не сообщила, как записаться на экзамен. Не платите тем, кто продаёт места на экзамен до открытия записи в Migri."],
+    ["h2", "Сколько стоит экзамен"],
+    ["p", "Стоимость не опубликована. В особом мнении к докладу комитета парламента упоминалось около 190 € за экзамен. Это не официальная цена."],
+    ["h2", "Если вы не сдали"],
+    ["p", "Правила пересдачи пока не опубликованы. По данным Helsinki Times, сданный экзамен действует бессрочно. Мы обновим страницу, когда Migri подтвердит подробности."],
+    ["h2", "Что можно сделать сейчас"],
+    ["ul", ["Посмотрите, какой из семи городов ближе к вам.", "Следите за новостями Migri о первых датах на рубеже года.", "Начните учить ключевые слова уже сейчас, чтобы быть готовыми к открытию записи."]],
+    ["note", "Эта страница содержит общую информацию и не является юридической консультацией. Перед записью или оплатой всегда проверяйте официальную информацию Migri."]
+   ]
+  },
+  "ar": {
+   "title": "اختبار الجنسية 2027: المواعيد والمدن والرسوم والتسجيل | Koevalmis",
+   "desc": "أين يُعقد اختبار الجنسية الفنلندية، ومتى تكون أولى الاختبارات، وما الذي لا يزال مجهولًا عن الرسوم والتسجيل وإعادة الاختبار.",
+   "h1": "اختبار الجنسية 2027: أين ومتى وكم يكلّف وكيف تسجّل",
+   "lead": "تُعقد أولى الاختبارات في ربيع 2027 في سبع مدن. لم تنشر Migri بعد مواعيد الاختبار ولا طريقة التسجيل ولا الرسوم. إليك ما نعرفه اليوم.",
+   "blocks": [
+    ["h2", "أين يُعقد الاختبار"],
+    ["p", "في عام 2027 تُعقد الاختبارات في سبعة أماكن: منطقة هلسنكي، وتامبيري، وتوركو، وأولو، وفاسا، وكوبيو، وروفانيمي. يُؤدّى الاختبار على الحاسوب باللغة الفنلندية أو السويدية."],
+    ["h2", "متى تكون أولى الاختبارات"],
+    ["p", "تُعقد أولى الاختبارات في ربيع 2027. وبحسب إعلان Migri، تُنشر أولى جداول الاختبارات في موعد أقصاه نهاية عام 2026."],
+    ["p", "تذكر صحيفة Helsinki Times، نقلًا عن Migri، أن الاختبار سيُعقد من ست إلى عشر مرات في السنة."],
+    ["h2", "كيف تسجّل"],
+    ["p", "لم تعلن Migri بعد طريقة التسجيل في الاختبار. لا تدفع لأي شخص يبيع أماكن في الاختبار قبل أن تفتح Migri التسجيل."],
+    ["h2", "كم يكلّف الاختبار"],
+    ["p", "لم تُنشر الرسوم بعد. ذُكر مبلغ نحو 190 يورو للاختبار في رأي مخالف في تقرير لجنة البرلمان. هذا ليس سعرًا رسميًا."],
+    ["h2", "إذا لم تنجح"],
+    ["p", "لم تُنشر بعد قواعد إعادة الاختبار. وبحسب Helsinki Times، تبقى نتيجة النجاح صالحة دون تاريخ انتهاء. سنحدّث هذه الصفحة عندما تؤكد Migri التفاصيل."],
+    ["h2", "ما يمكنك فعله الآن"],
+    ["ul", ["اختر أقرب مدينة إليك من المدن السبع.", "تابع أخبار Migri عن أولى مواعيد الاختبار في مطلع العام.", "ابدأ الآن بتعلّم الكلمات الأساسية لتكون مستعدًا عند فتح التسجيل."]],
+    ["note", "هذه الصفحة معلومات عامة وليست استشارة قانونية. تحقّق دائمًا من المعلومات الرسمية لدى Migri قبل التسجيل أو الدفع."]
+   ]
+  }
+ }
+}

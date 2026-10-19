@@ -22,6 +22,9 @@ SRC = {
     "yle_vote": "https://yle.fi/a/74-20231055",
     "bs": "https://www.business-standard.com/immigration/finland-s-citizenship-test-plan-explained-what-changes-for-migrants-126042000558_1.html",
     "kurs": "https://kurs.com.ua/en/novost/1483390-finljandija-zaprovadzhue-ispit-na-gromadjanstvo-viznacheno-stroki-ta-pravila",
+    "ht": "https://www.helsinkitimes.fi/finland/finland-news/domestic/29370-finland-to-introduce-citizenship-test-in-march-2027.html",
+    "mt": "https://www.maaseuduntulevaisuus.fi/uutiset/7678e959-178f-44f6-8c4d-f8ab751fc31d",
+    "migri_faq": "https://migri.fi/en/faq-finnish-citizenship",
 }
 
 # URL slugs per page and language (ASCII so links stay readable when shared)

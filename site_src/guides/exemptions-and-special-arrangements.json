@@ -1,0 +1,92 @@
+{
+ "id": "exemptions-and-special-arrangements",
+ "date": "2026-10-19",
+ "sources": ["migri", "migri_faq", "stt", "ht"],
+ "slug": {"en": "who-does-not-need-the-test", "fi": "kuka-ei-tarvitse-koetta", "ru": "komu-ne-nuzhen-ekzamen", "ar": "man-la-yahtaj-alikhtibar"},
+ "lang": {
+  "en": {
+   "title": "Who Does Not Need the Finnish Citizenship Test? Exemptions | Koevalmis",
+   "desc": "Age limits, degrees that replace the test, exemptions for health reasons, and special arrangements such as an oral test. What is known and what is not.",
+   "h1": "Who does not need the citizenship test, and what help is available",
+   "lead": "Not every applicant must take the test. Some people show their knowledge with a Finnish degree, and some can ask for an exemption or special arrangements. Here is an overview.",
+   "blocks": [
+    ["h2", "Who the requirement applies to"],
+    ["p", "The requirement applies to applicants aged 18–64. It applies to applications submitted from 1 March 2027. Applications submitted by 28 February 2027 follow the old rules."],
+    ["h2", "Degrees that replace the test"],
+    ["p", "You can also show knowledge of Finnish society with a matriculation examination in Finnish or Swedish. A Finnish- or Swedish-language higher education degree completed in Finland also counts."],
+    ["h2", "Exemptions for health and other serious reasons"],
+    ["p", "Helsinki Times reports Migri's guidance on exemptions. You may ask for one because of a long-term illness, a disability or other particularly serious circumstances. Migri decides each case."],
+    ["h2", "Special arrangements"],
+    ["p", "Helsinki Times reports, citing Migri, that special arrangements are possible for disabilities, illnesses and reading or writing difficulties. A person who cannot read or write may take an oral test."],
+    ["h2", "The test does not replace the language requirement"],
+    ["p", "Proof of language skills is still always required for citizenship. The knowledge-of-society test is a separate requirement."],
+    ["h2", "Not published yet"],
+    ["ul", ["How to apply for an exemption, and which documents are needed.", "How to ask for special arrangements or an oral test.", "Exact rules for each situation."]],
+    ["note", "This page is general information, not legal advice. Whether you are exempt is decided by Migri. Always check the official information from Migri."]
+   ]
+  },
+  "fi": {
+   "title": "Kuka ei tarvitse kansalaisuuskoetta? Vapautukset ja erityisjärjestelyt | Koevalmis",
+   "desc": "Ikäraja, tutkinnot, jotka korvaavat kokeen, vapautus terveyssyistä ja erityisjärjestelyt, kuten suullinen koe. Mitä tiedetään ja mitä ei.",
+   "h1": "Kuka ei tarvitse kansalaisuuskoetta ja millaista apua on tarjolla",
+   "lead": "Kaikkien hakijoiden ei tarvitse tehdä koetta. Osa voi osoittaa tietonsa suomalaisella tutkinnolla, ja osa voi pyytää vapautusta tai erityisjärjestelyjä. Tässä yleiskatsaus.",
+   "blocks": [
+    ["h2", "Ketä vaatimus koskee"],
+    ["p", "Vaatimus koskee 18–64-vuotiaita hakijoita. Se koskee hakemuksia, jotka jätetään 1.3.2027 tai myöhemmin. Viimeistään 28.2.2027 jätetyt hakemukset käsitellään vanhan lain mukaan."],
+    ["h2", "Tutkinnot, jotka korvaavat kokeen"],
+    ["p", "Yhteiskuntatuntemuksen voi osoittaa myös suomen- tai ruotsinkielisellä ylioppilastutkinnolla. Myös Suomessa suoritettu suomen- tai ruotsinkielinen korkeakoulututkinto käy."],
+    ["h2", "Vapautus terveyden tai muun painavan syyn vuoksi"],
+    ["p", "Migrin ohjeiden mukaan, kuten Helsinki Times kertoo, vapautusta voi pyytää pitkäaikaisen sairauden, vamman tai muun erityisen painavan syyn vuoksi. Migri päättää jokaisesta tapauksesta erikseen."],
+    ["h2", "Erityisjärjestelyt"],
+    ["p", "Helsinki Times kertoo Migriin viitaten, että erityisjärjestelyt ovat mahdollisia vamman, sairauden sekä luku- ja kirjoitusvaikeuksien vuoksi. Henkilö, joka ei osaa lukea tai kirjoittaa, voi tehdä suullisen kokeen."],
+    ["h2", "Koe ei korvaa kielitaitovaatimusta"],
+    ["p", "Kansalaisuutta haettaessa kielitaito pitää edelleen aina osoittaa. Yhteiskuntatuntemuksen koe on erillinen vaatimus."],
+    ["h2", "Ei vielä julkaistu"],
+    ["ul", ["Miten vapautusta haetaan ja mitä asiakirjoja tarvitaan.", "Miten erityisjärjestelyjä tai suullista koetta pyydetään.", "Tarkat säännöt eri tilanteisiin."]],
+    ["note", "Tämä sivu on yleistä tietoa, ei oikeudellinen neuvo. Migri päättää, saatko vapautuksen. Tarkista aina Migrin virallinen tieto."]
+   ]
+  },
+  "ru": {
+   "title": "Кому не нужен экзамен на гражданство Финляндии? Освобождение | Koevalmis",
+   "desc": "Возрастные рамки, дипломы вместо экзамена, освобождение по состоянию здоровья и особые условия, например устный экзамен. Что известно и что нет.",
+   "h1": "Кому не нужно сдавать экзамен на гражданство и какая помощь возможна",
+   "lead": "Сдавать экзамен нужно не всем. Некоторые подтверждают знания финским дипломом, а некоторые могут попросить освобождение или особые условия. Вот обзор.",
+   "blocks": [
+    ["h2", "Кого касается требование"],
+    ["p", "Требование касается заявителей в возрасте 18–64 лет. Оно действует для заявлений, поданных с 1 марта 2027 года. Заявления, поданные до 28 февраля 2027 года включительно, рассматриваются по старым правилам."],
+    ["h2", "Дипломы, которые заменяют экзамен"],
+    ["p", "Знание финского общества можно подтвердить выпускным экзаменом (ylioppilastutkinto) на финском или шведском. Подходит и высшее образование на финском или шведском, полученное в Финляндии."],
+    ["h2", "Освобождение по здоровью и другим серьёзным причинам"],
+    ["p", "Согласно указаниям Migri, о которых пишет Helsinki Times, можно попросить освобождение из-за хронической болезни, инвалидности или других особо серьёзных обстоятельств. Migri решает каждый случай отдельно."],
+    ["h2", "Особые условия"],
+    ["p", "Helsinki Times со ссылкой на Migri пишет, что возможны особые условия при инвалидности, болезни и трудностях с чтением или письмом. Человек, который не умеет читать или писать, может сдать устный экзамен."],
+    ["h2", "Экзамен не заменяет языковое требование"],
+    ["p", "Для получения гражданства по-прежнему всегда нужно подтвердить знание языка. Экзамен на знание общества — отдельное требование."],
+    ["h2", "Пока не опубликовано"],
+    ["ul", ["Как подать просьбу об освобождении и какие нужны документы.", "Как попросить особые условия или устный экзамен.", "Точные правила для разных ситуаций."]],
+    ["note", "Эта страница содержит общую информацию и не является юридической консультацией. Решение об освобождении принимает Migri. Всегда проверяйте официальную информацию Migri."]
+   ]
+  },
+  "ar": {
+   "title": "من لا يحتاج إلى اختبار الجنسية الفنلندية؟ الإعفاءات | Koevalmis",
+   "desc": "الحدود العمرية، والشهادات التي تحلّ محل الاختبار، والإعفاء لأسباب صحية، والترتيبات الخاصة مثل الاختبار الشفهي. ما نعرفه وما لا نعرفه.",
+   "h1": "من لا يحتاج إلى اختبار الجنسية، وما المساعدة المتاحة",
+   "lead": "ليس على كل المتقدّمين أداء الاختبار. يستطيع بعضهم إثبات معرفتهم بشهادة فنلندية، ويستطيع آخرون طلب إعفاء أو ترتيبات خاصة. إليك نظرة عامة.",
+   "blocks": [
+    ["h2", "من يشمله الشرط"],
+    ["p", "يشمل الشرط المتقدّمين الذين تتراوح أعمارهم بين 18 و64 عامًا. ويسري على الطلبات المقدَّمة اعتبارًا من 1 مارس 2027. أما الطلبات المقدَّمة حتى 28 فبراير 2027 فتُعالَج وفق القواعد القديمة."],
+    ["h2", "شهادات تحلّ محل الاختبار"],
+    ["p", "يمكنك إثبات معرفتك بالمجتمع الفنلندي بامتحان الثانوية العامة (ylioppilastutkinto) بالفنلندية أو السويدية. وتُقبل أيضًا شهادة جامعية بالفنلندية أو السويدية حصلت عليها في فنلندا."],
+    ["h2", "الإعفاء لأسباب صحية أو ظروف جدية أخرى"],
+    ["p", "وفق إرشادات Migri، كما تذكر Helsinki Times، يمكن طلب الإعفاء بسبب مرض طويل الأمد أو إعاقة أو ظروف جدية بشكل خاص. تقرّر Migri في كل حالة على حدة."],
+    ["h2", "الترتيبات الخاصة"],
+    ["p", "تذكر Helsinki Times، نقلًا عن Migri، أن الترتيبات الخاصة ممكنة في حالات الإعاقة والمرض وصعوبات القراءة أو الكتابة. ويمكن لمن لا يستطيع القراءة أو الكتابة أداء اختبار شفهي."],
+    ["h2", "الاختبار لا يحلّ محل شرط اللغة"],
+    ["p", "لا يزال إثبات المهارات اللغوية مطلوبًا دائمًا للحصول على الجنسية. واختبار معرفة المجتمع شرط منفصل."],
+    ["h2", "لم يُنشر بعد"],
+    ["ul", ["كيف يُقدَّم طلب الإعفاء وما الوثائق المطلوبة.", "كيف تُطلب الترتيبات الخاصة أو الاختبار الشفهي.", "القواعد الدقيقة لكل حالة."]],
+    ["note", "هذه الصفحة معلومات عامة وليست استشارة قانونية. تقرّر Migri ما إذا كنت معفى. تحقّق دائمًا من المعلومات الرسمية لدى Migri."]
+   ]
+  }
+ }
+}

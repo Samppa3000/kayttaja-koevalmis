@@ -25,6 +25,9 @@ SRC = {
     "ht": "https://www.helsinkitimes.fi/finland/finland-news/domestic/29370-finland-to-introduce-citizenship-test-in-march-2027.html",
     "mt": "https://www.maaseuduntulevaisuus.fi/uutiset/7678e959-178f-44f6-8c4d-f8ab751fc31d",
     "migri_faq": "https://migri.fi/en/faq-finnish-citizenship",
+    "yle_oct": "https://yle.fi/a/74-20250664",
+    "hy": "https://www.helsinki.fi/fi/uutiset/yliopisto/helsingin-yliopisto-toteuttaa-ensi-vuonna-kaynnistyvan-kansalaisuuskokeen-sisallot",
+    "oph_yki": "https://www.oph.fi/fi/koulutus-ja-tutkinnot/kieli-ja-kaantajatutkinnot/yleiset-kielitutkinnot-yki/kielitaidon-osoittaminen-suomen-kansalaisuutta-varten",
 }
 
 # URL slugs per page and language (ASCII so links stay readable when shared)

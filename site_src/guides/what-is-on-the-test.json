@@ -1,0 +1,96 @@
+{
+ "id": "what-is-on-the-test",
+ "date": "2026-10-26",
+ "sources": ["stt", "yle_oct", "hy", "bs"],
+ "slug": {"en": "what-is-on-the-test", "fi": "mita-kokeessa-kysytaan", "ru": "chto-budet-na-ekzamene", "ar": "madha-fi-alikhtibar"},
+ "lang": {
+  "en": {
+   "title": "What Is on the Finnish Citizenship Test? Topics and Format | Koevalmis",
+   "desc": "The five topics of the Finnish citizenship test, how the test is taken, who writes it, and what is still unpublished, such as the number of questions.",
+   "h1": "What is on the citizenship test: topics and format",
+   "lead": "The test asks about Finnish society. It has five main topics and multiple-choice questions. Some details, such as the number of questions and the pass mark, are not published yet.",
+   "blocks": [
+    ["h2", "The five topics"],
+    ["ul", ["Key Finnish legislation.", "Fundamental rights and human rights.", "Equality and non-discrimination.", "Gender equality.", "Finnish history and culture."]],
+    ["h2", "How the test is taken"],
+    ["p", "The test is a multiple-choice test. It is taken electronically, in Finnish or Swedish. Migri organises the tests in seven places around Finland from spring 2027."],
+    ["h2", "Who writes the questions"],
+    ["p", "The University of Helsinki prepares the test content and the study material. A team of experts from several fields does the work. A steering group of senior researchers supports them."],
+    ["h2", "The official study material"],
+    ["p", "Migri will publish self-study material on its website around the turn of the year 2026–2027. Migri says the material will be openly available, so every applicant can study the same content."],
+    ["h2", "Not published yet"],
+    ["ul", ["How many questions the test has.", "The pass mark.", "How long the test lasts.", "Official example questions."]],
+    ["p", "Business Standard reported 20–40 questions and a pass mark of about 70 %. Migri has not confirmed these numbers."],
+    ["h2", "What you can do now"],
+    ["ul", ["Practise the five topics with free practice questions.", "Learn the key official words, for example yhdenvertaisuus (equality).", "Read the official material carefully when Migri publishes it."]],
+    ["note", "The questions on Koevalmis are our own practice questions, written from public sources. They are not official test questions. This page is general information, not legal advice."]
+   ]
+  },
+  "fi": {
+   "title": "Mitä kansalaisuuskokeessa kysytään? Aiheet ja koemuoto | Koevalmis",
+   "desc": "Kansalaisuuskokeen viisi aihetta, miten koe tehdään, kuka sen laatii ja mitä ei vielä tiedetä, kuten kysymysten määrää.",
+   "h1": "Mitä kansalaisuuskokeessa kysytään: aiheet ja koemuoto",
+   "lead": "Koe mittaa suomalaisen yhteiskunnan tuntemusta. Siinä on viisi pääaihetta ja monivalintakysymyksiä. Osa tiedoista, kuten kysymysten määrä ja hyväksymisraja, ei ole vielä julkinen.",
+   "blocks": [
+    ["h2", "Viisi aihetta"],
+    ["ul", ["Keskeinen lainsäädäntö.", "Perusoikeudet ja ihmisoikeudet.", "Yhdenvertaisuus.", "Tasa-arvo.", "Suomen historia ja kulttuuri."]],
+    ["h2", "Miten koe tehdään"],
+    ["p", "Kansalaisuuskoe on monivalintakoe. Se tehdään sähköisesti suomeksi tai ruotsiksi. Migri järjestää kokeita seitsemällä paikkakunnalla keväästä 2027 alkaen."],
+    ["h2", "Kuka laatii kysymykset"],
+    ["p", "Helsingin yliopisto laatii kokeen sisällön ja oppimateriaalin. Työn tekee monitieteinen asiantuntijaryhmä. Sitä tukee dosenttitason tutkijoista koostuva ohjausryhmä."],
+    ["h2", "Virallinen oppimateriaali"],
+    ["p", "Migri julkaisee itseopiskelumateriaalin verkkosivuillaan vuodenvaihteessa 2026–2027. Migrin mukaan materiaali on avoimesti saatavilla, joten kaikki hakijat voivat opiskella samaa sisältöä."],
+    ["h2", "Ei vielä julkaistu"],
+    ["ul", ["Montako kysymystä kokeessa on.", "Hyväksymisraja.", "Kuinka kauan koe kestää.", "Viralliset esimerkkikysymykset."]],
+    ["p", "Business Standard kertoi 20–40 kysymyksestä ja noin 70 %:n hyväksymisrajasta. Migri ei ole vahvistanut näitä lukuja."],
+    ["h2", "Mitä voit tehdä nyt"],
+    ["ul", ["Harjoittele viittä aihetta ilmaisilla harjoituskysymyksillä.", "Opettele keskeiset viralliset sanat, esimerkiksi yhdenvertaisuus.", "Lue virallinen materiaali huolella, kun Migri julkaisee sen."]],
+    ["note", "Koevalmiksen kysymykset ovat omia harjoituskysymyksiämme julkisten lähteiden pohjalta. Ne eivät ole virallisia koekysymyksiä. Tämä sivu on yleistä tietoa, ei oikeudellinen neuvo."]
+   ]
+  },
+  "ru": {
+   "title": "Что будет на экзамене на гражданство Финляндии? Темы и формат | Koevalmis",
+   "desc": "Пять тем экзамена на гражданство Финляндии, как проходит экзамен, кто его составляет и что пока не опубликовано, например число вопросов.",
+   "h1": "Что будет на экзамене на гражданство: темы и формат",
+   "lead": "Экзамен проверяет знание финского общества. В нём пять основных тем и вопросы с вариантами ответов. Некоторые детали, например число вопросов и проходной балл, пока не опубликованы.",
+   "blocks": [
+    ["h2", "Пять тем"],
+    ["ul", ["Основное законодательство Финляндии.", "Основные права и права человека.", "Недискриминация.", "Равноправие полов.", "История и культура Финляндии."]],
+    ["h2", "Как проходит экзамен"],
+    ["p", "Это тест с вариантами ответов. Его сдают в электронном виде, на финском или шведском языке. Migri проводит экзамены в семи местах Финляндии с весны 2027 года."],
+    ["h2", "Кто составляет вопросы"],
+    ["p", "Содержание экзамена и учебные материалы готовит Хельсинкский университет. Работу ведёт группа экспертов из разных областей. Её поддерживает руководящая группа опытных исследователей."],
+    ["h2", "Официальные учебные материалы"],
+    ["p", "Migri опубликует материалы для самостоятельной подготовки на своём сайте на рубеже 2026–2027 годов. По словам Migri, материалы будут в открытом доступе, и все заявители смогут изучать одно и то же."],
+    ["h2", "Ещё не опубликовано"],
+    ["ul", ["Сколько вопросов в экзамене.", "Проходной балл.", "Сколько длится экзамен.", "Официальные примеры вопросов."]],
+    ["p", "Business Standard писал о 20–40 вопросах и проходном балле около 70 %. Migri эти цифры не подтвердила."],
+    ["h2", "Что можно сделать сейчас"],
+    ["ul", ["Тренируйтесь по пяти темам на бесплатных вопросах.", "Выучите ключевые официальные слова, например yhdenvertaisuus (недискриминация).", "Внимательно прочитайте официальные материалы, когда Migri их опубликует."]],
+    ["note", "Вопросы на Koevalmis — наши собственные тренировочные вопросы на основе открытых источников. Это не официальные вопросы экзамена. Эта страница содержит общую информацию и не является юридической консультацией."]
+   ]
+  },
+  "ar": {
+   "title": "ماذا يوجد في اختبار الجنسية الفنلندية؟ المواضيع وشكل الاختبار | Koevalmis",
+   "desc": "المواضيع الخمسة لاختبار الجنسية الفنلندية، وكيف يُؤدّى الاختبار، ومن يُعدّه، وما الذي لم يُنشر بعد مثل عدد الأسئلة.",
+   "h1": "ماذا يوجد في اختبار الجنسية: المواضيع وشكل الاختبار",
+   "lead": "يقيس الاختبار معرفتك بالمجتمع الفنلندي. فيه خمسة مواضيع رئيسية وأسئلة متعددة الخيارات. بعض التفاصيل، مثل عدد الأسئلة ودرجة النجاح، لم تُنشر بعد.",
+   "blocks": [
+    ["h2", "المواضيع الخمسة"],
+    ["ul", ["أهم القوانين الفنلندية.", "الحقوق الأساسية وحقوق الإنسان.", "عدم التمييز.", "المساواة بين الجنسين.", "تاريخ فنلندا وثقافتها."]],
+    ["h2", "كيف يُؤدّى الاختبار"],
+    ["p", "الاختبار أسئلة متعددة الخيارات. يُؤدّى إلكترونيًا باللغة الفنلندية أو السويدية. تنظّم Migri الاختبارات في سبعة أماكن في فنلندا ابتداءً من ربيع 2027."],
+    ["h2", "من يكتب الأسئلة"],
+    ["p", "تُعدّ جامعة هلسنكي محتوى الاختبار والمواد الدراسية. يقوم بالعمل فريق من خبراء في مجالات مختلفة. وتدعمه مجموعة توجيه من باحثين ذوي خبرة."],
+    ["h2", "المواد الدراسية الرسمية"],
+    ["p", "ستنشر Migri مواد للدراسة الذاتية على موقعها حول نهاية عام 2026 وبداية 2027. تقول Migri إن المواد ستكون متاحة للجميع، ليدرس كل المتقدّمين المحتوى نفسه."],
+    ["h2", "لم يُنشر بعد"],
+    ["ul", ["عدد أسئلة الاختبار.", "درجة النجاح.", "مدة الاختبار.", "أمثلة رسمية على الأسئلة."]],
+    ["p", "ذكرت Business Standard أن عدد الأسئلة بين 20 و40 وأن درجة النجاح نحو 70 %. لم تؤكد Migri هذه الأرقام."],
+    ["h2", "ما يمكنك فعله الآن"],
+    ["ul", ["تدرّب على المواضيع الخمسة بأسئلة تدريب مجانية.", "تعلّم الكلمات الرسمية المهمة، مثل yhdenvertaisuus (عدم التمييز).", "اقرأ المواد الرسمية بعناية عندما تنشرها Migri."]],
+    ["note", "أسئلة Koevalmis هي أسئلة تدريب كتبناها من مصادر عامة. ليست أسئلة الاختبار الرسمية. هذه الصفحة معلومات عامة وليست استشارة قانونية."]
+   ]
+  }
+ }
+}

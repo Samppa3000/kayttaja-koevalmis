@@ -1,0 +1,100 @@
+{
+ "id": "language-requirement-and-test",
+ "date": "2026-10-26",
+ "sources": ["oph_yki", "migri", "migri_faq"],
+ "slug": {"en": "language-requirement-and-test", "fi": "kielitaitovaatimus-ja-koe", "ru": "yazykovoe-trebovanie-i-ekzamen", "ar": "shart-allugha-walikhtibar"},
+ "lang": {
+  "en": {
+   "title": "Language Requirement vs Citizenship Test: Do You Need Both? | Koevalmis",
+   "desc": "Finnish citizenship needs proof of Finnish or Swedish skills, and from March 2027 also knowledge of society. What the YKI test requires and how the two fit together.",
+   "h1": "Language requirement and citizenship test: two separate requirements",
+   "lead": "From 1 March 2027, most applicants need two things. They must prove their Finnish or Swedish skills. They must also show knowledge of Finnish society. One does not replace the other.",
+   "blocks": [
+    ["h2", "Two requirements, not one"],
+    ["p", "The language requirement already exists. The knowledge-of-society requirement is new for applications from 1 March 2027. It applies to applicants aged 18–64."],
+    ["p", "The citizenship test checks knowledge of society. It does not prove your language skills."],
+    ["h2", "What the YKI test requires"],
+    ["p", "The YKI test (yleinen kielitutkinto) is one common way to prove language skills. You take the intermediate-level test in Finnish or Swedish."],
+    ["p", "You need at least level 3 in two subtests. Only these pairs are accepted:"],
+    ["ul", ["speaking and writing,", "listening comprehension and writing,", "reading comprehension and speaking."]],
+    ["p", "All subtests of one YKI test are taken on the same day. You can combine results from several YKI certificates to get an accepted pair."],
+    ["h2", "Other ways to prove language skills"],
+    ["p", "YKI is not the only option. Migri lists the other accepted ways on its website. Check that list before you book a test."],
+    ["h2", "How the two help each other"],
+    ["p", "The citizenship test is in Finnish or Swedish. Learning the words of law, rights and history helps you in both requirements."],
+    ["h2", "Not published yet"],
+    ["ul", ["The registration process and fee for the citizenship test.", "The number of questions and the pass mark."]],
+    ["note", "This page is general information, not legal advice. Migri decides which documents are accepted. Always check the official information from Migri and the Finnish National Agency for Education."]
+   ]
+  },
+  "fi": {
+   "title": "Kielitaitovaatimus ja kansalaisuuskoe: tarvitaanko molemmat? | Koevalmis",
+   "desc": "Kansalaisuuteen tarvitaan suomen tai ruotsin kielitaito ja 1.3.2027 alkaen myös yhteiskuntatuntemus. Mitä YKI-testissä vaaditaan ja miten vaatimukset liittyvät toisiinsa.",
+   "h1": "Kielitaitovaatimus ja kansalaisuuskoe: kaksi erillistä vaatimusta",
+   "lead": "1.3.2027 alkaen useimmat hakijat tarvitsevat kaksi asiaa. Heidän pitää osoittaa suomen tai ruotsin kielitaito. Lisäksi heidän pitää osoittaa suomalaisen yhteiskunnan tuntemus. Toinen ei korvaa toista.",
+   "blocks": [
+    ["h2", "Kaksi vaatimusta, ei yksi"],
+    ["p", "Kielitaitovaatimus on ollut voimassa jo aiemmin. Yhteiskuntatuntemuksen vaatimus on uusi 1.3.2027 alkaen jätetyissä hakemuksissa. Se koskee 18–64-vuotiaita hakijoita."],
+    ["p", "Kansalaisuuskoe mittaa yhteiskuntatuntemusta. Se ei osoita kielitaitoa."],
+    ["h2", "Mitä YKI-testissä vaaditaan"],
+    ["p", "YKI eli yleinen kielitutkinto on yleinen tapa osoittaa kielitaito. Suoritat keskitason testin suomeksi tai ruotsiksi."],
+    ["p", "Tarvitset vähintään taitotason 3 kahdesta osakokeesta. Vain nämä parit hyväksytään:"],
+    ["ul", ["puhuminen ja kirjoittaminen,", "puheen ymmärtäminen ja kirjoittaminen,", "tekstin ymmärtäminen ja puhuminen."]],
+    ["p", "Yhden YKI-testin kaikki osakokeet tehdään samana päivänä. Voit yhdistää usean YKI-todistuksen tuloksia, jotta saat hyväksytyn parin."],
+    ["h2", "Muut tavat osoittaa kielitaito"],
+    ["p", "YKI ei ole ainoa vaihtoehto. Migri kertoo muut hyväksytyt tavat verkkosivuillaan. Tarkista lista ennen kuin varaat testin."],
+    ["h2", "Miten vaatimukset tukevat toisiaan"],
+    ["p", "Kansalaisuuskoe tehdään suomeksi tai ruotsiksi. Kun opettelet lain, oikeuksien ja historian sanoja, siitä on hyötyä kummassakin vaatimuksessa."],
+    ["h2", "Ei vielä julkaistu"],
+    ["ul", ["Kansalaisuuskokeen ilmoittautumistapa ja hinta.", "Kysymysten määrä ja hyväksymisraja."]],
+    ["note", "Tämä sivu on yleistä tietoa, ei oikeudellinen neuvo. Migri päättää, mitkä todistukset hyväksytään. Tarkista aina viralliset tiedot Migriltä ja Opetushallitukselta."]
+   ]
+  },
+  "ru": {
+   "title": "Языковое требование и экзамен на гражданство: нужно ли оба? | Koevalmis",
+   "desc": "Для гражданства Финляндии нужно подтвердить знание финского или шведского, а с 1 марта 2027 года — и знание общества. Что требует тест YKI и как связаны два требования.",
+   "h1": "Языковое требование и экзамен на гражданство: два разных требования",
+   "lead": "С 1 марта 2027 года большинству заявителей нужно две вещи. Нужно подтвердить знание финского или шведского языка. И нужно показать знание финского общества. Одно не заменяет другое.",
+   "blocks": [
+    ["h2", "Два требования, а не одно"],
+    ["p", "Языковое требование действует и сейчас. Требование знания общества новое: оно касается заявлений, поданных с 1 марта 2027 года. Оно распространяется на заявителей 18–64 лет."],
+    ["p", "Экзамен на гражданство проверяет знание общества. Он не подтверждает знание языка."],
+    ["h2", "Что требует тест YKI"],
+    ["p", "Тест YKI (yleinen kielitutkinto) — один из распространённых способов подтвердить знание языка. Сдаётся тест среднего уровня на финском или шведском."],
+    ["p", "Нужен уровень не ниже 3 в двух частях теста. Принимаются только такие пары:"],
+    ["ul", ["говорение и письмо,", "понимание устной речи и письмо,", "понимание текста и говорение."]],
+    ["p", "Все части одного теста YKI сдаются в один день. Можно объединить результаты нескольких сертификатов YKI, чтобы получить подходящую пару."],
+    ["h2", "Другие способы подтвердить язык"],
+    ["p", "YKI — не единственный вариант. Migri перечисляет другие принятые способы на своём сайте. Проверьте этот список, прежде чем записываться на тест."],
+    ["h2", "Как одно помогает другому"],
+    ["p", "Экзамен на гражданство сдаётся на финском или шведском. Слова о законах, правах и истории пригодятся вам для обоих требований."],
+    ["h2", "Ещё не опубликовано"],
+    ["ul", ["Порядок записи и стоимость экзамена на гражданство.", "Количество вопросов и проходной балл."]],
+    ["note", "Эта страница содержит общую информацию и не является юридической консультацией. Какие документы принимаются, решает Migri. Всегда проверяйте официальную информацию Migri и Национального агентства образования (Opetushallitus)."]
+   ]
+  },
+  "ar": {
+   "title": "شرط اللغة واختبار الجنسية: هل تحتاج إلى الاثنين؟ | Koevalmis",
+   "desc": "تتطلب الجنسية الفنلندية إثبات معرفة الفنلندية أو السويدية، واعتبارًا من 1 مارس 2027 معرفة المجتمع أيضًا. ما يتطلبه اختبار YKI وكيف يرتبط الشرطان.",
+   "h1": "شرط اللغة واختبار الجنسية: شرطان منفصلان",
+   "lead": "اعتبارًا من 1 مارس 2027 يحتاج معظم المتقدّمين إلى أمرين. عليهم إثبات معرفة اللغة الفنلندية أو السويدية. وعليهم أيضًا إثبات معرفة المجتمع الفنلندي. أحدهما لا يحلّ محل الآخر.",
+   "blocks": [
+    ["h2", "شرطان وليس شرطًا واحدًا"],
+    ["p", "شرط اللغة موجود من قبل. أما شرط معرفة المجتمع فهو جديد للطلبات المقدّمة من 1 مارس 2027. ويشمل المتقدّمين من عمر 18 إلى 64 عامًا."],
+    ["p", "يقيس اختبار الجنسية معرفة المجتمع. ولا يُعدّ إثباتًا لمعرفة اللغة."],
+    ["h2", "ما يتطلبه اختبار YKI"],
+    ["p", "اختبار YKI (yleinen kielitutkinto) طريقة شائعة لإثبات معرفة اللغة. تؤدّي اختبار المستوى المتوسط بالفنلندية أو السويدية."],
+    ["p", "تحتاج إلى المستوى 3 على الأقل في جزأين من الاختبار. تُقبل هذه الأزواج فقط:"],
+    ["ul", ["التحدث والكتابة،", "فهم الكلام المسموع والكتابة،", "فهم النص المقروء والتحدث."]],
+    ["p", "تُؤدّى كل أجزاء اختبار YKI الواحد في اليوم نفسه. يمكنك جمع نتائج عدة شهادات YKI للحصول على زوج مقبول."],
+    ["h2", "طرق أخرى لإثبات اللغة"],
+    ["p", "اختبار YKI ليس الخيار الوحيد. تذكر Migri الطرق المقبولة الأخرى على موقعها. راجع هذه القائمة قبل أن تحجز اختبارًا."],
+    ["h2", "كيف يساعد أحدهما الآخر"],
+    ["p", "يُؤدّى اختبار الجنسية بالفنلندية أو السويدية. تعلّم كلمات القانون والحقوق والتاريخ يفيدك في الشرطين معًا."],
+    ["h2", "لم يُنشر بعد"],
+    ["ul", ["طريقة التسجيل في اختبار الجنسية ورسومه.", "عدد الأسئلة ودرجة النجاح."]],
+    ["note", "هذه الصفحة معلومات عامة وليست استشارة قانونية. تقرّر Migri الوثائق المقبولة. راجع دائمًا المعلومات الرسمية لدى Migri والوكالة الوطنية الفنلندية للتعليم (Opetushallitus)."]
+   ]
+  }
+ }
+}

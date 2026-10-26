@@ -25,7 +25,8 @@ PRICE = {"en": ("€9.90", "€14.90")}
 EXAMPLE_FI = "Kenelle voi tehdä kantelun, jos epäilee viranomaisen toimineen lainvastaisesti?"
 TODAY = ST.CHECKED
 SRC_LABEL = {"migri": "Migri", "stt": "STT / Migri", "havm": "HaVM 10/2026", "yle_vote": "Yle", "bs": "Business Standard", "kurs": "kurs.com.ua",
-             "ht": "Helsinki Times, 9.10.2026", "mt": "STT / Maaseudun Tulevaisuus, 9.10.2026", "migri_faq": "Migri: FAQ"}
+             "ht": "Helsinki Times, 9.10.2026", "mt": "STT / Maaseudun Tulevaisuus, 9.10.2026", "migri_faq": "Migri: FAQ",
+             "yle_oct": "Yle, 9.10.2026", "hy": "Helsingin yliopisto, 7.8.2026", "oph_yki": "Opetushallitus: YKI ja kansalaisuus"}
 
 CSS = """
 :root{--paper:#F4F6F3;--card:#FFFFFF;--ink:#10201F;--muted:#4C5E5B;--line:#D4DCD9;--field:#7A8B88;

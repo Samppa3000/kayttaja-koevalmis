@@ -1,0 +1,3 @@
+[build]
+  command = "echo site closed"
+  publish = "closed"
